@@ -49,6 +49,6 @@ Bular maqsad, natija emas. Boshlang'ich qiymat S0 da o'lchanadi.
 | 3 | ~~Lidlar qayerga~~ Google Sheets. Jadval va kirish usuli S3 da aniqlanadi | Umidjon | S3 |
 | 4 | Shrift fayllari muallifda bor. Veb litsenziyasi va ochiq repoga qo'yish ruxsati hali aniq emas | Umidjon | S1 |
 | 5 | ~~Maydon farqi~~ Muallif: hozircha saytdagidek qoladi | Umidjon | — |
-| 6 | Rejalardagi 1, 2, 3 tablar nimani bildiradi (blok deb taxmin qilinyapti)? | Umidjon | S2 |
+| 6 | ~~1, 2, 3 tablar~~ Xona soni. Tilda'da 1 xonali reja yo'q, "Jami" = 25 reja | — | — |
 | 7 | Narx, bo'lib to'lash shartlari va bo'sh xonadonlar ma'lumoti beriladimi? | Quruvchi | S5 |
 | 8 | Domen DNS boshqaruviga kirish kimda? | Umidjon | S3 |

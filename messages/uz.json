@@ -1,0 +1,198 @@
+{
+  "meta": {
+    "title": "Avalon residence — Tanlab olinadigan tinchlik",
+    "description": "Zamonaviy klassik arxitektura, yopiq hovli va oilaviy muhitni birlashtirgan turar-joy majmuasi. Bu shunchaki uy emas — bu siz uchun yaratilgan hayot makoni."
+  },
+  "nav": {
+    "about": "Loyiha haqida",
+    "location": "Joylashuv",
+    "zones": "Faoliyat hududlari",
+    "plans": "Xonadonlar",
+    "contacts": "Aloqa",
+    "switchLocale": "RU",
+    "toTop": "Yuqoriga"
+  },
+  "cta": {
+    "consult": "Konsultatsiya olish",
+    "apply": "ariza qoldirish",
+    "send": "Jo'natish"
+  },
+  "hero": {
+    "title": "avalon residence — Tanlab olinadigan tinchlik",
+    "badges": ["268ta xonadon", "Yer osti parking"]
+  },
+  "about": {
+    "title": "Shahar ichida — o'z olamingiz",
+    "text": "Avalon Residence — zamonaviy klassik arxitektura, yopiq hovli va oilaviy muhitni birlashtirgan turar-joy majmuasi. Bu shunchaki uy emas — bu siz uchun yaratilgan hayot makoni."
+  },
+  "advantages": {
+    "title": "Afzalliklari detallarda!",
+    "stats": {
+      "apartments": {
+        "value": "268",
+        "label": "xonadonlar"
+      },
+      "floors": {
+        "value": "12-14",
+        "label": "qavatlar"
+      },
+      "blocks": {
+        "value": "3",
+        "label": "blok"
+      },
+      "handover": {
+        "value": "2028-yil",
+        "label": "Topshirish muddati"
+      },
+      "ceiling": {
+        "value": "3 M",
+        "label": "Shiftlar balandligi",
+        "prefix": "gacha"
+      },
+      "area": {
+        "from": "49.8",
+        "to": "89.5",
+        "label": "maydoni",
+        "fromWord": "dan",
+        "toWord": "m² gacha"
+      }
+    },
+    "features": [
+      "Kirish nazorati va videokuzatuv",
+      "178 yer osti parking joyi",
+      "Ochiq kinoteatr va mehmonlar zonasi",
+      "9 ball seysmik bardoshlilik"
+    ]
+  },
+  "location": {
+    "title": "Hamma narsa yaqin",
+    "text": "Avalon Residence Yashnobodning shakllanib bo'lgan, qulay va xavfsiz hududida joylashgan. Transport, ta'lim, tibbiyot — hammasi yurish masofasida.",
+    "addressLabel": "Manzil:",
+    "address": "Toshkent, Yashnobod tumani, Tuzel massivi, 2-kvartal, 33",
+    "mapLink": "Xaritada ko’rish",
+    "places": [
+      {
+        "distance": "210 M",
+        "name": "Korzinka supermarketiga"
+      },
+      {
+        "distance": "350 M",
+        "name": "Metro «Tuzel» ga"
+      },
+      {
+        "distance": "900 M",
+        "name": "«Ali ibn Abu Tolib» masjidiga"
+      },
+      {
+        "distance": "1.2 km",
+        "name": "Aviasozlar bozoriga"
+      },
+      {
+        "distance": "1 km",
+        "name": "30-Oilaviy poliklinikaga"
+      },
+      {
+        "distance": "1.4 km",
+        "name": "Xususiy maktabga"
+      }
+    ]
+  },
+  "lead": {
+    "title": "Xonadon tanlashda yordam beramiz",
+    "text": "Formani to'ldiring — menejerimiz siz bilan bog'lanadi.",
+    "perks": [
+      "Xususiy maktab 5 daqiqalik masofada",
+      "Avtomobillarsiz, faqat aholi uchun yopiq hovli",
+      "Bolalar uchun zamonaviy o'yin maydonchalari",
+      "Har bir kvartira uchun 5 m²+ shaxsiy kladovka"
+    ],
+    "contactTitle": "Xonadon tanlashda yordam beramiz",
+    "contactText": "Formani to'ldiring — menejerimiz siz bilan bog'lanadi."
+  },
+  "form": {
+    "name": "Ismingiz?",
+    "phone": "Telefon raqam",
+    "popupTitle": "Bepul konsultatsiya olish uchun ma'lumotlaringizni qoldiring",
+    "popupSubmit": "YUBORISH"
+  },
+  "zones": {
+    "title": "Faoliyat hududlari",
+    "text": "Majmua hududining har bir burchagi maqsadli yaratilgan — dam olish, faollik, xavfsizlik va qulaylik bitta joyda.",
+    "items": [
+      {
+        "title": "Yopiq hovli",
+        "text": "Face ID orqali kirish nazorati. Hudud faqat rezidentlar uchun — tinch va xavfsiz muhit."
+      },
+      {
+        "title": "Yashil zona",
+        "text": "Avtomatik sug'orish tizimli ko'kalamzorlashtirish, sayr yo'laklari va quruq favvora."
+      },
+      {
+        "title": "Bolalar maydoni",
+        "text": "O'yin zonalari 2 yoshdan 14 yoshgacha yosh guruhlari bo'yicha alohida ajratilgan."
+      },
+      {
+        "title": "Ochiq kinoteatr",
+        "text": "Parking tomida joylashgan ko'p funksiyali maydon kechqurunlari kinozalga aylanadi."
+      },
+      {
+        "title": "Mehmonxona zonasi",
+        "text": "Yozgi oshxonali mehmon maydoni — uchrashuv va oilaviy dam olish uchun."
+      },
+      {
+        "title": "Yer osti parking",
+        "text": "Ikki qavatda 178 ta joy. Kommersiya yonida mehmonlar uchun alohida parking."
+      }
+    ],
+    "scroll": "Scroll"
+  },
+  "facade": {
+    "title": "Zamonaviy klassika — vaqt o'tmaydi",
+    "text": "Fasaddan muhandislik tizimlarigacha — har bir element o'nlab yillik xizmat uchun tanlangan.",
+    "items": [
+      {
+        "label": "Yuqori qism",
+        "value": "Keramogranit"
+      },
+      {
+        "label": "Yuqori qavatlar",
+        "value": "Dekorativ kirpich"
+      },
+      {
+        "label": "1-2 qavat",
+        "value": "Tabiiy granit"
+      },
+      {
+        "label": "Oynalar",
+        "value": "Energo-tejamkor plastik"
+      },
+      {
+        "label": "Fasad —",
+        "value": "Kechki yoritish"
+      },
+      {
+        "label": "Balkonlar",
+        "value": "Metall va shisha to'siq"
+      }
+    ]
+  },
+  "plans": {
+    "title": "Oila uchun yaratilgan rejalar",
+    "badges": ["268 ta xonadon", "Balkon va loja", "Chernova otdelka"],
+    "tabAll": "Jami",
+    "rooms": "{count}-xonali",
+    "area": "maydon {area} m²"
+  },
+  "contacts": {
+    "address": "Toshkent, Yashnobod t, Tuzel m, 2-kvartal, 33",
+    "officeText": "Biz sizni sotuv ofisimizda ko’rsak xursand bo’lamiz",
+    "builder": "Quruvchi: ARX PROEKT / MAMUR PROEKT",
+    "hoursLabel": "Ish soatlari:",
+    "hours": ["Dushanba-Juma", "9:00 dan 19:00 gacha"],
+    "copyright": "© 2026 Avalon Residence. Barcha huquqlar himoyalangan."
+  },
+  "widget": {
+    "telegram": "Telegram",
+    "phone": "Telefon raqam"
+  }
+}
