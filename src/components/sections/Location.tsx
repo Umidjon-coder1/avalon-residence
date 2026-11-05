@@ -10,9 +10,9 @@ import { LocationMotion } from "@/components/motion/LocationMotion";
 
 type Place = { distance: string; name: string };
 
-/** Yo'l chizig'i: mobilda chap tomonda vertikal, desktopda mashina balandligida gorizontal */
+/** Yo'l chizig'i: mobilda o'ng tomonda vertikal (rams-saiahat.kz kabi), desktopda mashina balandligida gorizontal */
 const track =
-  "absolute top-0 bottom-0 left-[calc(var(--gutter)+15px)] w-0.5 lg:top-[47px] lg:right-0 lg:bottom-auto lg:left-0 lg:h-0.5 lg:w-auto";
+  "absolute top-0 right-[calc(var(--gutter)+15px)] bottom-0 w-0.5 lg:top-[47px] lg:right-0 lg:bottom-auto lg:left-0 lg:h-0.5 lg:w-auto";
 
 /**
  * "Hamma narsa yaqin" (Figma 4-blok).
@@ -46,21 +46,21 @@ export function Location() {
           src={car}
           alt=""
           sizes="200px"
-          className="absolute top-5 left-[calc(var(--gutter)+16px)] z-10 h-auto w-[76px] -translate-x-1/2 rotate-90 drop-shadow-[0_7px_7px_rgb(0_0_0/0.12)] lg:top-0 lg:left-0 lg:w-[clamp(140px,10.4vw,200px)] lg:translate-x-0 lg:rotate-0"
+          className="absolute top-8 right-[calc(var(--gutter)+16px)] z-10 h-auto w-[112px] translate-x-1/2 rotate-90 drop-shadow-[0_7px_7px_rgb(0_0_0/0.12)] lg:top-0 lg:right-auto lg:left-0 lg:w-[clamp(140px,10.4vw,200px)] lg:translate-x-0 lg:rotate-0"
         />
         <Container className="lg:px-0">
-          <ul className="flex flex-col gap-8 pt-24 pb-2 pl-14 lg:grid lg:grid-cols-6 lg:gap-0 lg:pt-[31px] lg:pr-[4%] lg:pb-0 lg:pl-[12.5%]">
+          <ul className="flex flex-col items-end gap-12 pt-32 pr-14 pb-4 text-right lg:grid lg:grid-cols-6 lg:items-start lg:gap-0 lg:pt-[31px] lg:pr-[4%] lg:pb-0 lg:pl-[12.5%] lg:text-left">
             {places.map((place) => (
               <li key={place.name} data-reveal className="relative">
                 <span
                   aria-hidden
                   data-route-stop
-                  className="absolute top-0 -left-14 block size-8 rounded-full border-2 border-gold bg-white transition-colors duration-500 data-[reached=true]:bg-gold lg:static lg:ml-[21px]"
+                  className="absolute top-0 -right-14 block size-8 rounded-full border-2 border-gold bg-white transition-colors duration-500 data-[reached=true]:bg-gold lg:static lg:ml-[21px]"
                 />
                 <p className="font-heading text-h3 font-medium text-gold uppercase lg:mt-10">
                   {place.distance}
                 </p>
-                <p className="mt-1 max-w-[220px] text-body leading-tight text-navy lg:max-w-[150px]">
+                <p className="mt-1 ml-auto max-w-[220px] text-body leading-tight text-navy lg:ml-0 lg:max-w-[150px]">
                   {place.name}
                 </p>
               </li>
@@ -87,7 +87,7 @@ export function Location() {
             />
           </div>
 
-          <PremiumMap className="aspect-[4/5] sm:aspect-[16/11]" />
+          <PremiumMap className="sm:aspect-[16/11]" />
         </div>
       </Container>
       <LocationMotion />

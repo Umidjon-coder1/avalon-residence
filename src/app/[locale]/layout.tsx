@@ -11,6 +11,7 @@ import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@/components/analytics/Analytics";
 import { MotionRoot } from "@/components/motion/MotionRoot";
+import { CursorMotion } from "@/components/motion/CursorMotion";
 import { motionBootScript } from "@/lib/motion";
 import Image from "next/image";
 import logoMark from "../../../public/images/brand/logo-mark.webp";
@@ -126,6 +127,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
           <ContactWidget />
           <Analytics />
           <MotionRoot />
+          <CursorMotion />
         </NextIntlClientProvider>
       </body>
     </html>

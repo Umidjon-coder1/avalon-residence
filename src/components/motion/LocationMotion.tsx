@@ -20,6 +20,9 @@ export function LocationMotion() {
       if (!route || !car || !line) return;
       const stops = gsap.utils.toArray<HTMLElement>("[data-route-stop]", route);
       const axis = desktop ? "x" : "y";
+      // Mobilda rasm 90° burilgan (CSS). GSAP uni o'z `rotation` iga oladi, shuning uchun og'ish shu asosga qo'shiladi
+      const base = desktop ? 0 : 90;
+      gsap.set(car, { rotation: base });
 
       // Mashina oldi (yo'l boshidan, px): desktopda o'ng cheti, mobilda pastki cheti (rasm 90° burilgan)
       const front = () => {
@@ -65,9 +68,9 @@ export function LocationMotion() {
             // Tezlikka qarab yengil chayqalish (kuzov burilishi)
             onUpdate: (self) => {
               const tilt = gsap.utils.clamp(-4, 4, self.getVelocity() / 400);
-              gsap.to(car, { rotation: tilt, duration: 0.4, overwrite: "auto" });
+              gsap.to(car, { rotation: base + tilt, duration: 0.4, overwrite: "auto" });
             },
-            onScrubComplete: () => gsap.to(car, { rotation: 0, duration: 0.5 }),
+            onScrubComplete: () => gsap.to(car, { rotation: base, duration: 0.5 }),
           },
         },
       );
@@ -75,7 +78,7 @@ export function LocationMotion() {
 
       return () => {
         drive.scrollTrigger?.kill();
-        gsap.set([car, line], { clearProps: "transform" });
+        gsap.set([car, line], { clearProps: "transform,translate,rotate,scale" });
         stops.forEach((s) => delete s.dataset.reached);
       };
     });

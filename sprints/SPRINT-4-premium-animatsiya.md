@@ -8,9 +8,9 @@
 - [x] T4.4 Afzalliklar: raqamlar sanalishi, chiziqlar chizilishi
 - [x] T4.5 Joylashuv: mashina masofalar yo'li bo'ylab yuradi (desktop gorizontal, mobil vertikal), premium kulrang xarita
 - [x] T4.6 Faoliyat hududlari: ekran balandligidagi slaydlar ustma-ust o'tadi (sticky stack), 01/06 hisoblagich
-- [ ] T4.7 Materiallar: fasad bo'ylab scroll, element yoritiladi, kechki yoritish rejimi
-- [~] T4.8 Rejalar: tab o'tishi, karta hover, FLIP layout (tab o'tishi va hover tayyor)
-- [~] T4.9 Mikro-interaksiyalar: tugma, menyu, popup, desktopda maxsus kursor (popup va menyu tayyor)
+- [~] T4.7 Materiallar: scroll'da materiallar navbat bilan yonadi (kechki yoritish rejimi uchun kechki render kerak)
+- [x] T4.8 Rejalar: tab o'tishi, karta hover, faol tab foni siljib o'tadi (FLIP)
+- [x] T4.9 Mikro-interaksiyalar: tugma, menyu, popup, aloqa vidjeti, desktopda maxsus kursor
 - [~] T4.10 Mobil versiya: yengillashtirilgan animatsiyalar, past quvvatli qurilmada test (Lenis faqat desktop, idle start)
 
 **Tayyor:** maqsadli LCP/CLS saqlangan, reduced-motion'da kontent to'liq, muallif tasdiqlagan.
@@ -45,9 +45,21 @@
   - E2E 17 test o'tdi (vidjet testi qo'shildi; rejalar testi endi bo'limga scroll qiladi).
   - Namuna saytlar (rams-saiahat.kz, kenesary-qs.kz) konteynerdan ochilmadi, ular muallifning tavsifi va skrinshoti asosida qilindi.
 
+- 2026-11-05 (bulut, 3-bosqich; namuna saytlar ochildi):
+  - rams-saiahat.kz tekshirildi: mashina `react-scroll-parallax` bilan scroll'ga bog'liq siljiydi, desktopda gorizontal chiziq,
+    telefonda o'ng tomonda vertikal yo'l. Bizda ham shunday: telefonda yo'l o'ngga o'tkazildi, matn chapda, mashina kattalashdi (112 px).
+    Tuzatildi: telefonda mashina burilmay qolardi (GSAP CSS `rotate` ni o'z `rotation` iga oladi, og'ish 90° asosga qo'shiladi).
+  - kenesary-qs.kz tekshirildi: Yandex Maps JS API 2.1 (kalitsiz), faqat fon qatlami kulrang, belgi rasmli.
+    `YandexMap`: shu usulda, belgi = oltin olmos ichida logo, g'ildirak xaritani kattalashtirmaydi, telefonda bir barmoq bilan surilmaydi.
+    Ekranga yaqinlashganda yuklanadi; API ochilmasa 10 s dan keyin oddiy Yandex vidjeti chiqadi. Kalit kerak bo'lsa: `NEXT_PUBLIC_YANDEX_MAPS_KEY`.
+    Joylashuv va Aloqa bo'limlari ikkalasi shu xaritada. Telefonda manzil kartasi xarita ostida (belgini yopmaydi).
+  - **T4.7** `FacadeMotion`: materiallar scroll'da kulrangdan rangga o'tadi, qatorda chapdan o'ngga ketma-ket.
+  - **T4.8** Rejalar: faol tab foni (oq pill) bir tabdan ikkinchisiga siljiydi. **T4.9** `CursorMotion`: oltin halqa, havola/tugma ustida kattalashadi.
+  - Konteynerdan Yandex yopiq: xarita soxta `ymaps` bilan tekshirildi (belgi joyi va karta). Haqiqiy xaritani preview'da ko'rish kerak.
+  - E2E 17 test o'tdi.
+
 ## Handoff
 
-Keyingi: T4.7 (fasad, kechki yoritish rejimi), T4.8 FLIP, T4.9 kursor, T4.10 real telefonda test.
-Muallifdan: mashina harakati va xarita namunaga mos kelganini preview'da tasdiqlash; Telegram vidjeti admin lichkasi
-`avalonresidence_uz` ekanini tasdiqlash (Tilda'dagi havola shu); hududlar uchun kattaroq rasmlar bo'lsa, slaydlar to'liq ekran rasm bo'ladi.
-
+Keyingi: T4.10 real telefonda test va Lighthouse, keyin muallif tasdig'i bilan S4 ni `main` ga. Undan keyin S5.
+Muallifdan: preview'da Yandex xarita (belgi va kulrang fon) va telefondagi mashina yo'lini tasdiqlash. Kechki yoritish rejimi uchun
+fasadning kechki renderi bo'lsa, T4.7 to'liq bo'ladi. Hududlar uchun kattaroq rasmlar bo'lsa, slaydlar to'liq ekran rasm bo'ladi.

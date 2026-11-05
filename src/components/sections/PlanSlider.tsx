@@ -31,6 +31,8 @@ export function PlanSlider() {
   const tCta = useTranslations("cta");
   const [tab, setTab] = useState<Tab>("all");
   const listRef = useRef<HTMLUListElement>(null);
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const pillRef = useRef<HTMLSpanElement>(null);
   const hydrated = useSyncExternalStore(
     noop,
     () => true,
@@ -57,6 +59,30 @@ export function PlanSlider() {
     { dependencies: [tab] },
   );
 
+  // Faol tab foni (oq "pill") bir tabdan ikkinchisiga siljib o'tadi (FLIP, T4.8)
+  const pillPlaced = useRef(false);
+  useGSAP(
+    () => {
+      const pill = pillRef.current;
+      const tabs = tabsRef.current;
+      if (!hydrated || !pill || !tabs) return;
+      const place = (animate: boolean) => {
+        const active = tabs.querySelector<HTMLElement>("[aria-selected='true']");
+        if (!active) return;
+        const to = { x: active.offsetLeft, width: active.offsetWidth };
+        const smooth = animate && matchMedia(mq.motion).matches;
+        if (smooth) gsap.to(pill, { ...to, duration: 0.55, ease: "power3.inOut" });
+        else gsap.set(pill, { ...to, autoAlpha: 1 });
+      };
+      place(pillPlaced.current);
+      pillPlaced.current = true;
+      const onResize = () => place(false);
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    },
+    { dependencies: [tab, hydrated] },
+  );
+
   const select = (next: Tab) => {
     setTab(next);
     listRef.current?.scrollTo({ left: 0 });
@@ -71,7 +97,16 @@ export function PlanSlider() {
 
   return (
     <div>
-      <div role="tablist" className="flex justify-center gap-[clamp(16px,2.0833vw,40px)]">
+      <div
+        ref={tabsRef}
+        role="tablist"
+        className="relative flex justify-center gap-[clamp(16px,2.0833vw,40px)]"
+      >
+        <span
+          ref={pillRef}
+          aria-hidden
+          className="invisible absolute top-0 left-0 h-16 rounded-card bg-white opacity-0"
+        />
         {(["all", ...roomTabs] as Tab[]).map((value) => (
           <button
             key={value}
@@ -82,7 +117,10 @@ export function PlanSlider() {
             className={cn(
               tabBase,
               value === "all" ? "w-[120px]" : "w-20",
-              tab === value ? "bg-white text-gold" : "text-white hover:bg-white/15",
+              "relative",
+              tab !== value && "text-white hover:bg-white/15",
+              // Brauzerda fonni siljuvchi pill beradi, serverda (JS gacha) tugmaning o'zi
+              tab === value && (hydrated ? "text-gold" : "bg-white text-gold"),
             )}
           >
             {value === "all" ? t("tabAll") : value}

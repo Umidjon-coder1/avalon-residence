@@ -21,7 +21,7 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 - **S0-S3 tugadi, v1 `main` da** (PR #2). Production: `avalon-residence.vercel.app`, lidlar Google Sheets'ga boradi (T3.9 tasdiqlangan).
   Muallif qarori: Google Ads label va domen ko'chirish keyinga, **hozir upgrade: S4 (animatsiya), keyin S5**.
 - S4 motion: `src/lib/motion.ts`, `src/components/motion/` (MotionRoot = Lenis, PageMotion = `data-reveal`/`data-draw`/`data-count`,
-  HeroMotion, LocationMotion, ZonesMotion). Ikonkalar: Tilda'dagi asl SVG `src/components/ui/tilda-icons.tsx`. DOM matnini o'zgartiruvchi animatsiya sahifa ichida bo'lsin (layout'da hydration xatosi beradi).
+  HeroMotion, LocationMotion, ZonesMotion, FacadeMotion, CursorMotion). Xarita: `src/components/ui/YandexMap.tsx` (JS API 2.1). Ikonkalar: Tilda'dagi asl SVG `src/components/ui/tilda-icons.tsx`. DOM matnini o'zgartiruvchi animatsiya sahifa ichida bo'lsin (layout'da hydration xatosi beradi).
 - Lid kanallari va barcha env o'zgaruvchilari: `docs/LEADS.md`. E2E testlar: `npm run build && npm run test:e2e`.
 - Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
   popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,
@@ -46,7 +46,7 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
   Framework `nextjs`. Blob store `avalon-fonts`. Env ro'yxati `docs/LEADS.md` da.
   Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi. Konteynerdan vercel.com va Blob API'ga to'g'ridan-to'g'ri ulanish yopiq.
 - **Brauzer:** Playwright va Chromium o'rnatilgan, `require('playwright')` ishlaydi, qayta o'rnatmang.
-- **Ochiq domenlar:** avalonresidence.uz, *.tildacdn.*, figma.com, api.figma.com.
+- **Ochiq domenlar:** avalonresidence.uz, *.tildacdn.*, figma.com, api.figma.com, rams-saiahat.kz, kenesary-qs.kz (namuna saytlar). Yandex yopiq.
 
 ## Qat'iy qoidalar
 

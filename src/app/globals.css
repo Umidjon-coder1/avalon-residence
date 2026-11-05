@@ -200,6 +200,65 @@
   }
 }
 
+/* Yandex xarita (YandexMap): faqat fon qatlami kulrang, belgi va tugmalar rangli */
+.ymap [class*="ground-pane"] {
+  filter: grayscale(1) sepia(0.12) contrast(1.03);
+}
+
+.ymap-marker {
+  position: absolute;
+  top: -80px;
+  left: -36px;
+  width: 72px;
+  height: 80px;
+}
+
+.ymap-marker__body,
+.ymap-marker__ping {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--color-gold);
+  rotate: 45deg;
+}
+
+.ymap-marker__body {
+  box-shadow: var(--shadow-icon);
+}
+
+.ymap-marker__ping {
+  opacity: 0.4;
+  animation: widget-ping 2.6s ease-out infinite;
+}
+
+.ymap-marker__logo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.ymap-marker__tip {
+  position: absolute;
+  top: 66px;
+  left: 30px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-gold);
+  rotate: 45deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ymap-marker__ping {
+    display: none;
+  }
+}
+
 /* Aloqa vidjeti tugmasi atrofidagi to'lqin */
 @keyframes widget-ping {
   0% {
