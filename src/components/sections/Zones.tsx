@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image, { type StaticImageData } from "next/image";
 import { useTranslations } from "next-intl";
 import { ConsultButton } from "@/components/lead/ConsultButton";
@@ -23,13 +24,17 @@ import iconParking from "../../../public/images/zones/zones-01.svg";
 type Zone = { title: string; text: string };
 
 /** `zones.items` tartibi bilan bir xil. Rasmlar: muallif renderlari (2026-11-05), har biri butun slaydni egallaydi */
-const media: Array<{ photo: StaticImageData; icon: StaticImageData }> = [
-  { photo: courtyard, icon: iconCourtyard },
-  { photo: green, icon: iconGreen },
-  { photo: kids, icon: iconKids },
-  { photo: cinema, icon: iconCinema },
-  { photo: guest, icon: iconGuest },
-  { photo: parking, icon: iconParking },
+/**
+ * `focus`: telefonda (tor, baland kadr) rasmning qaysi gorizontal qismi ko'rinadi. Har bir hudud mavzusiga
+ * qaratilgan: hovlida suhbatlashayotganlar, bolalar maydonida karusel, kinoda tomoshabinlar va h.k.
+ */
+const media: Array<{ photo: StaticImageData; icon: StaticImageData; focus: string }> = [
+  { photo: courtyard, icon: iconCourtyard, focus: "27%" },
+  { photo: green, icon: iconGreen, focus: "50%" },
+  { photo: kids, icon: iconKids, focus: "55%" },
+  { photo: cinema, icon: iconCinema, focus: "62%" },
+  { photo: guest, icon: iconGuest, focus: "60%" },
+  { photo: parking, icon: iconParking, focus: "68%" },
 ];
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -47,7 +52,7 @@ function ZoneSlide({
   eyebrow: string;
   cta: string;
 }) {
-  const { photo, icon } = media[index] ?? media[0];
+  const { photo, icon, focus } = media[index] ?? media[0];
   return (
     <li
       data-zone
@@ -57,7 +62,8 @@ function ZoneSlide({
         data-zone-card
         className="relative isolate flex h-full overflow-hidden rounded-card bg-navy text-white shadow-[0_-30px_60px_-20px_rgb(0_0_0/0.55)]"
       >
-        {/* Fon: render butun slayd bo'ylab, scroll'da sekin siljiydi (ZonesMotion) */}
+        {/* Fon: desktopda butun slayd bo'ylab; telefonda yuqori qismda (mavzu matn ostida qolmasin),
+            matn uning ostida navy fonda. Scroll'da sekin siljiydi (ZonesMotion) */}
         <Image
           data-zone-bg
           src={photo}
@@ -65,11 +71,12 @@ function ZoneSlide({
           // Telefonda keng rasm ekran balandligi bo'yicha qoplaydi: kerakli kenglik ~1.8 x balandlik
           sizes="(min-width: 1024px) 100vw, 180vh"
           quality={90}
-          className="absolute inset-0 -z-20 size-full scale-105 object-cover"
+          style={{ "--focus": `${focus} 50%` } as CSSProperties}
+          className="absolute inset-x-0 top-0 -z-20 h-[64%] w-full scale-105 object-cover object-[var(--focus)] lg:inset-0 lg:h-full lg:object-center"
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.45),rgb(11_34_57/0.1)_30%,rgb(11_34_57/0.92)_75%)] lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.4),transparent_16%,transparent_44%,rgb(11_34_57)_64%)] lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
         />
 
         {/* Keyingi slayd ustiga chiqqanda qorayish (ZonesMotion) */}

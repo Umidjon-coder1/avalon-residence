@@ -107,6 +107,14 @@
     (Grand dizayni kabi, `FooterMotion` bilan pastdan ko'tariladi).
   - E2E 17 test o'tdi.
 
+- 2026-11-05 (bulut, 9-bosqich):
+  - Hududlar (telefon): rasm slaydning yuqori 64% qismida, matn ostida navy fonda; har rasmga mavzu nuqtasi (`focus`)
+    berildi (suhbatlashayotganlar, favvora, karusel, kino, BBQ, parking kirishi). Desktop o'zgarmadi.
+  - Mobil menyu: to'q navy panel, oltin nur, raqamlangan katta bandlar (01-05) ingichka chiziqlar bilan, ketma-ket ko'tariladi;
+    pastda telefon (katta), ish vaqti va manzil, chiziqli Telegram/Instagram, til tugmasi, oltin konsultatsiya tugmasi.
+  - E2E 17 test o'tdi. Muallif PR ochib `main` ga qo'shishni tasdiqladi.
+
 ## Handoff
 
-S4 tugadi, muallif fikrlari kiritildi. Keyingi: muallif tasdiqlasa, PR ochib `main` ga, keyin S5.
+S4 `main` ga qo'shildi (production). Keyingi: S5 (funksional upgrade), `sprints/SPRINT-5-funksional.md`.
+Yandex xarita productionda tekshirilishi kerak (konteynerdan yopiq).

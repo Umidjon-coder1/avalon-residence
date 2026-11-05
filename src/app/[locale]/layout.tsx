@@ -48,7 +48,7 @@ const headingFallback = Oswald({
 /** PP Right Gothic build vaqtida ulangan bo'lsa, sahifa boshida oldindan yuklanadi */
 const headingFontUrl = process.env.FONT_HEADING_URL ? "/fonts/PPRightGothic-Medium.woff2" : null;
 
-const clientNamespaces = ["nav", "cta", "form", "social", "plans", "widget"] as const;
+const clientNamespaces = ["nav", "cta", "form", "social", "plans", "widget", "contacts"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

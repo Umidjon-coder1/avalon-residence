@@ -73,3 +73,27 @@ export function ChatIcon(props: IconProps) {
     </svg>
   );
 }
+
+/** Telegram, ingichka chiziqli (to'q fonli mobil menyu uchun) */
+export function TelegramLineIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        {...stroke}
+        d="M20.6 3.6 3.9 10.3c-.9.4-.9 1.1 0 1.4l4.3 1.4 1.7 5.2c.3.8.9.9 1.4.3l2.3-2.3 4.5 3.3c.8.5 1.4.2 1.6-.8L20.6 3.6Z"
+      />
+      <path {...stroke} d="m8.2 13.1 10.4-7.3" />
+    </svg>
+  );
+}
+
+/** Instagram, ingichka chiziqli */
+export function InstagramLineIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <rect {...stroke} x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle {...stroke} cx="12" cy="12" r="3.8" />
+      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+    </svg>
+  );
+}

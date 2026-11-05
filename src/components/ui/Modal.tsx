@@ -13,6 +13,8 @@ type ModalProps = {
   className?: string;
   /** "center": markazdagi oyna, "right": o'ngdan chiquvchi panel (mobil menyu) */
   placement?: "center" | "right";
+  /** "dark": to'q fonli panel (yopish tugmasi oq) */
+  tone?: "light" | "dark";
   children: ReactNode;
 };
 
@@ -27,6 +29,7 @@ export function Modal({
   closeLabel,
   className,
   placement = "center",
+  tone = "light",
   children,
 }: ModalProps) {
   const ref = useRef<HTMLDialogElement>(null);
@@ -65,7 +68,7 @@ export function Modal({
             "absolute z-10 grid size-11 cursor-pointer place-items-center transition-opacity hover:opacity-70",
             placement === "center"
               ? "top-2 right-2 rounded-full bg-black/40 text-white sm:-top-12 sm:-right-12 sm:bg-transparent"
-              : "top-4 right-4 text-navy",
+              : cn("top-4 right-4", tone === "dark" ? "text-white" : "text-navy"),
           )}
         >
           <CloseIcon className="size-7" />
