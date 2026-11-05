@@ -10,6 +10,8 @@
   --color-gold: #c8a45d;
   --color-gold-alt: #cea150;
   --color-gold-dark: #8a6f3c;
+  /* Oltin tugmalar hover: to'qlashmaydi, yorug'roq "shampan" tusga o'tadi */
+  --color-gold-light: #d8bc84;
   --color-navy: #0b2239;
   --color-cream: #f4efe6;
   --color-sand: #ece4d2;

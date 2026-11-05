@@ -7,12 +7,12 @@ import { TArrowDownRight } from "./tilda-icons";
  * Hero, afzalliklar, joylashuv, hududlar, fasad va reja kartalarida bir xil.
  */
 const variants = {
-  /** Hero: krem fon, navy matn */
+  /** Hero: krem fon, navy matn; hover: oppoq */
   cream: "bg-cream text-navy group-hover:bg-white",
-  /** Oltin fon ustida: oq fon, oltin matn */
-  white: "bg-white text-gold group-hover:bg-cream",
-  /** Oq fon ustida: oltin fon, oq matn */
-  gold: "bg-gold text-white group-hover:bg-gold-dark",
+  /** Oltin fon ustida: oq fon, oltin matn; hover: oq qoladi, yengil soya */
+  white: "bg-white text-gold group-hover:shadow-[0_10px_30px_rgb(0_0_0/0.14)]",
+  /** Oq fon ustida: oltin fon, oq matn; hover: yorug'roq oltin */
+  gold: "bg-gold text-white group-hover:bg-gold-light",
 } as const;
 
 const sizes = {
@@ -48,7 +48,7 @@ export function CtaParts({ label, variant = "gold", size = "lg", icon, stretch }
     <>
       <span
         className={cn(
-          "flex min-w-0 flex-1 items-center justify-center rounded-btn px-4 font-heading font-medium whitespace-nowrap uppercase transition-colors sm:px-6",
+          "flex min-w-0 flex-1 items-center justify-center rounded-btn px-4 font-heading font-medium whitespace-nowrap uppercase transition-[background-color,box-shadow] duration-300 sm:px-6",
           s.box,
           s.label,
           variants[variant],
@@ -59,7 +59,7 @@ export function CtaParts({ label, variant = "gold", size = "lg", icon, stretch }
       </span>
       <span
         className={cn(
-          "grid aspect-square shrink-0 place-items-center rounded-btn transition-colors",
+          "grid aspect-square shrink-0 place-items-center rounded-btn transition-[background-color,box-shadow]",
           s.box,
           variants[variant],
         )}

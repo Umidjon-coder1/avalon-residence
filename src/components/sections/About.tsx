@@ -40,6 +40,7 @@ export function About() {
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 63vw, 100vw"
+            quality={90}
             data-reveal="image"
             className="aspect-[2/1] w-full rounded-card object-cover"
           />

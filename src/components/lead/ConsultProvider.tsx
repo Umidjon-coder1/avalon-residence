@@ -49,6 +49,7 @@ export function ConsultProvider({ children }: { children: ReactNode }) {
           src={popupImage}
           alt=""
           sizes="(min-width: 640px) 560px, 100vw"
+          quality={90}
           className="aspect-[560/312] w-full object-cover sm:rounded-t-card"
         />
         <div className="px-5 pt-8 pb-10 sm:px-11">

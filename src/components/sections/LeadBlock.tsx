@@ -50,6 +50,7 @@ export function LeadBlock() {
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 57vw, 100vw"
+            quality={90}
             data-reveal="image"
             className="aspect-[1100/800] h-full w-full rounded-card object-cover"
           />

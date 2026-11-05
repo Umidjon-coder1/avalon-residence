@@ -27,6 +27,7 @@ export function Advantages() {
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 57vw, 100vw"
+            quality={90}
             data-reveal="image"
             className="aspect-[1080/800] w-full rounded-card object-cover lg:col-[1/3] lg:row-start-1"
           />

@@ -28,6 +28,7 @@ export function Hero() {
   const common = {
     alt: "",
     sizes: "100vw",
+    quality: 90,
     fetchPriority: "high" as const,
     loading: "eager" as const,
   };

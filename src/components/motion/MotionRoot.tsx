@@ -25,7 +25,9 @@ export function MotionRoot() {
       if (cancelled) return;
       const lenis = new Lenis({
         autoRaf: false,
-        lerp: 0.1,
+        // Sekinroq va silliqroq (muallif: "yanada premium"): kichik lerp uzunroq sirpanish beradi
+        lerp: 0.065,
+        wheelMultiplier: 0.85,
         anchors: { force: true },
         // Modal va menyu ichida oddiy scroll
         prevent: (node) => node.closest("dialog") !== null,

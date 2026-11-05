@@ -3,12 +3,22 @@ import { useTranslations } from "next-intl";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 import { SectionIntro } from "@/components/ui/SectionIntro";
-import { PremiumMap } from "@/components/ui/PremiumMap";
+import { AutoSlideshow } from "./AutoSlideshow";
 import car from "../../../public/images/location/location-07.png";
-import photo from "../../../public/images/location/location-06.png";
+import g1 from "../../../public/images/location/location-06.png";
+import g2 from "../../../public/images/location/location-02.jpg";
+import g3 from "../../../public/images/location/location-04.jpg";
+import g4 from "../../../public/images/location/location-05.webp";
+import g5 from "../../../public/images/location/location-08.jpg";
+import g6 from "../../../public/images/location/location-03.avif";
+import mapDesktop from "../../../public/images/location/map-desktop.svg";
+import mapMobile from "../../../public/images/location/map-mobile.svg";
 import { LocationMotion } from "@/components/motion/LocationMotion";
 
 type Place = { distance: string; name: string };
+
+/** Tilda galereyasi tartibida: metro, atrof, maktab va boshqalar */
+const gallery = [g1, g2, g3, g4, g5, g6];
 
 /** Yo'l chizig'i: mobilda o'ng tomonda vertikal (rams-saiahat.kz kabi), desktopda mashina balandligida gorizontal */
 const track =
@@ -16,7 +26,8 @@ const track =
 
 /**
  * "Hamma narsa yaqin" (Figma 4-blok).
- * Intro o'ng yarimda, keyin masofalar yo'li (mashina scroll bilan yuradi), pastda manzil, rasm va premium xarita.
+ * Intro o'ng yarimda, keyin masofalar yo'li (mashina scroll bilan yuradi), pastda manzil, o'zi almashadigan
+ * rasmlar (Tilda galereyasi) va Tilda'dagi chizilgan xarita.
  * Masofalar va manzil Tilda'dan (D2).
  */
 export function Location() {
@@ -78,16 +89,30 @@ export function Location() {
             <p data-reveal className="mt-2 text-lead text-navy">
               {t("address")}
             </p>
-            <Image
-              src={photo}
-              alt=""
+            <AutoSlideshow
+              images={gallery}
               sizes="(min-width: 1024px) 25vw, 100vw"
-              data-reveal="image"
-              className="mt-5 aspect-square w-full rounded-card object-cover lg:mt-auto"
+              label={t("addressLabel")}
+              className="mt-6 aspect-square w-full"
             />
           </div>
 
-          <PremiumMap className="sm:aspect-[16/11]" />
+          {/* Tilda'dagi chizilgan grafik xarita (Yandex xarita "Aloqa" bo'limida) */}
+          <picture
+            data-reveal="image"
+            className="block self-start overflow-hidden rounded-card border border-gold"
+          >
+            <source media="(min-width: 768px)" srcSet={mapDesktop.src} />
+            <img
+              src={mapMobile.src}
+              width={mapDesktop.width}
+              height={mapDesktop.height}
+              alt={t("title")}
+              loading="lazy"
+              decoding="async"
+              className="h-auto w-full"
+            />
+          </picture>
         </div>
       </Container>
       <LocationMotion />

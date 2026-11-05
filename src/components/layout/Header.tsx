@@ -51,7 +51,7 @@ export function Header() {
               <li key={item.key}>
                 <a
                   href={item.href}
-                  className="text-body whitespace-nowrap text-white transition-colors hover:text-gold"
+                  className="relative text-body whitespace-nowrap text-white after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-out hover:after:origin-left hover:after:scale-x-100 focus-visible:after:scale-x-100"
                 >
                   {t(item.key)}
                 </a>

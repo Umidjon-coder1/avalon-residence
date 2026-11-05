@@ -64,6 +64,7 @@ function ZoneSlide({
           alt=""
           // Telefonda keng rasm ekran balandligi bo'yicha qoplaydi: kerakli kenglik ~1.8 x balandlik
           sizes="(min-width: 1024px) 100vw, 180vh"
+          quality={90}
           className="absolute inset-0 -z-20 size-full scale-110 object-cover"
         />
         <div
@@ -87,25 +88,23 @@ function ZoneSlide({
           </div>
 
           <div>
-            <Image src={icon} alt="" className="size-[clamp(40px,3.3vw,64px)]" />
+            <Image src={icon} alt="" className="size-[clamp(40px,2.9vw,56px)]" />
             <h3
               data-zone-title
-              className="mt-6 font-heading text-[clamp(44px,6.7vw,128px)] leading-[0.92] font-medium tracking-[-0.02em] text-balance uppercase"
+              className="mt-5 font-heading text-h2 font-medium text-balance uppercase"
             >
               {zone.title}
             </h3>
-            <p className="mt-[clamp(16px,1.6vw,28px)] max-w-[560px] text-lead text-white/85">
-              {zone.text}
-            </p>
+            <p className="mt-4 max-w-[560px] text-lead text-white/85">{zone.text}</p>
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-6">
             <ConsultButton
               source="zones"
-              className="inline-flex h-12 cursor-pointer items-center gap-3 rounded-pill border border-white/40 pr-2 pl-6 font-heading text-btn font-medium uppercase transition-colors hover:border-gold hover:bg-gold"
+              className="inline-flex h-[clamp(48px,3.3333vw,64px)] cursor-pointer items-center gap-4 rounded-card border border-white/40 pr-2 pl-6 font-heading text-btn font-medium uppercase transition-colors hover:border-white hover:bg-white hover:text-navy"
             >
               {cta}
-              <span className="grid size-9 place-items-center rounded-full bg-gold text-white">
+              <span className="grid size-[clamp(36px,2.5vw,48px)] place-items-center rounded-[8px] bg-gold text-white">
                 <TArrowDownRight className="size-5" />
               </span>
             </ConsultButton>

@@ -130,7 +130,7 @@ test("aloqa vidjeti: scroll'dan keyin chiqadi, Telegram va telefon", async ({ pa
   await toggle.click();
   const widget = page.locator("#contact-widget");
   await expect(widget.locator('a[href="https://t.me/avalonresidence_uz"]')).toBeVisible();
-  await expect(widget.locator('a[href="tel:+998910710105"]')).toBeVisible();
+  await expect(widget.locator('a[href="tel:+998781137373"]')).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(toggle).toHaveAttribute("aria-expanded", "false");
 });

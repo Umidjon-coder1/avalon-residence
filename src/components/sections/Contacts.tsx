@@ -1,20 +1,19 @@
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { LeadCard } from "@/components/lead/LeadCard";
 import { Container } from "@/components/ui/Container";
 import { TPhoneSolid, TPin } from "@/components/ui/tilda-icons";
-import { YandexMap } from "@/components/ui/YandexMap";
+import { PremiumMap } from "@/components/ui/PremiumMap";
 
 const circle = "grid size-10 place-items-center rounded-full border border-white";
 
 /**
- * Aloqa (Figma 9-blok). Chapda forma kartasi va manzil/telefon, o'ngda kulrang Yandex xarita brend belgisi bilan (`YandexMap`).
+ * Aloqa (Figma 9-blok). Chapda forma kartasi va manzil/telefon, o'ngda kulrang Yandex xarita: brend belgisi, "Qanday borish" va "Xaritada ochish" (`PremiumMap`).
  * Xarita faqat ekranga yaqinlashganda yuklanadi.
  */
 export function Contacts() {
   const t = useTranslations("lead");
   const tc = useTranslations("contacts");
-  const locale = useLocale();
 
   return (
     <section id="aloqa" className="mt-section">
@@ -54,12 +53,8 @@ export function Contacts() {
               </a>
             </div>
           </div>
-          <div data-reveal className="aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[600px]">
-            <YandexMap
-              lang={locale === "ru" ? "ru_RU" : "uz_UZ"}
-              title={tc("mapTitle")}
-              className="size-full overflow-hidden rounded-card border border-gold bg-sand"
-            />
+          <div data-reveal className="sm:aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[600px]">
+            <PremiumMap className="size-full" />
           </div>
         </div>
       </Container>

@@ -16,11 +16,11 @@ Bo'lim nomi rasm birinchi ishlatilgan Tilda blokidan olingan. `meta` sahifa `<he
 - **S2 da qilindi:**
   - 2026-11-05: muallif katta renderlar berdi: `zones/zone-{green,kids,cinema,guest,parking}-full.webp` (1500-2000 px).
     `zones/zone-courtyard-full.webp` ham keldi; 625x600 Tilda rasmlari o'chirildi.
-  - Kechki renderlar (muallif): `facade/facade-night-{front,courtyard,parking}.webp`, fasad bo'limidagi `DayNightView` uchun.
+  - Kunduzgi/kechki renderlar (muallif, asl fayllar): `facade/facade-night-{front,courtyard,entrance,parking}.webp`,
+    `facade/facade-day-{front,entrance}.webp` (fasad bo'limidagi `DayNightView`). Renderlar qayta siqilmaydi, Next.js 90 sifatda beradi.
   - S0 da tushib qolgan 7 fayl Tilda'dan olindi: `zones/zone-{courtyard,green,kids,cinema,guest,parking}.webp`
     (Tilda `Rectangle_40163..40168_1.png`, 625x600, 60-115 KB) va `zones/zones-06.svg` (`Group_2089345973.svg`)
   - Xaritalar: `location/map-desktop.svg` (manba `misc-02.svg`, 1200x735) va `location/map-mobile.svg` (manba `location-01.svg`).
-    S4 dan beri ishlatilmaydi (o'rniga `PremiumMap`), zaxira sifatida qoldirilgan.
     Ichidagi 1080 px logo PNG 320 px WebP ga almashtirildi. SVGO bu fayllarda xato beradi, shuning uchun qo'lda
   - Reja rasmlari `plans/*.png` -> `plans/*.webp` (525 KB -> 448 KB, shaffoflik saqlangan). Jadvaldagi `.png` nomlar Tilda manbasini bildiradi
   - Fasad doiralari: Keramogranit `facade-04`, Dekorativ kirpich `facade-01`, Tabiiy granit `facade-03`, Oynalar `about-02`,

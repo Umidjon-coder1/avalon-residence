@@ -14,7 +14,10 @@ import lighting from "../../../public/images/facade/facade-02.png";
 import balconies from "../../../public/images/lead/lead-01.webp";
 import courtyardDay from "../../../public/images/zones/zone-green-full.webp";
 import parkingDay from "../../../public/images/zones/zone-parking-full.webp";
+import frontDay from "../../../public/images/facade/facade-day-front.webp";
 import frontNight from "../../../public/images/facade/facade-night-front.webp";
+import entranceDay from "../../../public/images/facade/facade-day-entrance.webp";
+import entranceNight from "../../../public/images/facade/facade-night-entrance.webp";
 import courtyardNight from "../../../public/images/facade/facade-night-courtyard.webp";
 import parkingNight from "../../../public/images/facade/facade-night-parking.webp";
 
@@ -49,9 +52,10 @@ export function Facade() {
             </SectionIntro>
             <DayNightView
               views={[
-                { label: viewLabels[0] ?? "", day: hero, night: frontNight },
+                { label: viewLabels[0] ?? "", day: frontDay, night: frontNight },
                 { label: viewLabels[1] ?? "", day: courtyardDay, night: courtyardNight },
-                { label: viewLabels[2] ?? "", day: parkingDay, night: parkingNight },
+                { label: viewLabels[2] ?? "", day: entranceDay, night: entranceNight },
+                { label: viewLabels[3] ?? "", day: parkingDay, night: parkingNight },
               ]}
               dayLabel={t("day")}
               nightLabel={t("night")}
@@ -70,6 +74,7 @@ export function Facade() {
                   src={photos[i] ?? hero}
                   alt=""
                   sizes="200px"
+                  quality={90}
                   data-material-photo
                   className="size-[clamp(120px,10.4167vw,200px)] shrink-0 rounded-full object-cover"
                 />

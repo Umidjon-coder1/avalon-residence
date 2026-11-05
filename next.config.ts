@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 960, 1280, 1920, 2560],
     imageSizes: [128, 256, 400],
     formats: ["image/avif", "image/webp"],
+    // Fotolar 90 sifatda (renderlar tiniq ko'rinsin), qolganlari standart 75
+    qualities: [75, 90],
   },
   turbopack: {
     rules: {

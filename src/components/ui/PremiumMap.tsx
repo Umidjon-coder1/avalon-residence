@@ -44,7 +44,7 @@ export function PremiumMap({ className }: { className?: string }) {
             href={routeHref}
             target="_blank"
             rel="noopener"
-            className="inline-flex h-[clamp(52px,3.3333vw,64px)] flex-1 items-center justify-center gap-2 rounded-card bg-gold px-5 font-heading text-btn font-medium whitespace-nowrap text-white uppercase transition-colors hover:bg-gold-dark"
+            className="inline-flex h-[clamp(52px,3.3333vw,64px)] flex-1 items-center justify-center gap-2 rounded-card bg-gold px-5 font-heading text-btn font-medium whitespace-nowrap text-white uppercase transition-colors hover:bg-gold-light"
           >
             <TMapPin className="size-6" />
             {t("route")}

@@ -108,12 +108,14 @@ export function DayNightView({ views, dayLabel, nightLabel, groupLabel, classNam
               src={view.day}
               alt={`${view.label}: ${dayLabel}`}
               sizes="(min-width: 1024px) 42vw, 100vw"
+              quality={90}
               className="absolute inset-0 size-full object-cover"
             />
             <Image
               src={view.night}
               alt={`${view.label}: ${nightLabel}`}
               sizes="(min-width: 1024px) 42vw, 100vw"
+              quality={90}
               className={cn(
                 "absolute inset-0 size-full object-cover transition-[opacity,scale] duration-[1400ms] ease-out",
                 night ? "scale-100 opacity-100" : "scale-[1.03] opacity-0",

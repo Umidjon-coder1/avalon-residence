@@ -84,8 +84,20 @@
     barcha `data-reveal` ochiladi. E2E 17 test o'tdi.
   - **S4 tugadi** (muallif tasdig'i va `main` ga qo'shish qoldi).
 
+- 2026-11-05 (bulut, 7-bosqich, muallif fikri):
+  - Rasm sifati: renderlar endi asl fayl holida (qayta siqilmaydi), fotolar `quality={90}` (`images.qualities: [75, 90]`).
+    Joylashuv slaydining keyingi rasmlari faqat slayd ko'ringanda yuklanadi. Mobil Lighthouse 82-89, sahifa 730 KB.
+  - Hududlar: tugmalar to'rtburchakroq (`rounded-card`), sarlavha boshqa bloklardek `text-h2`.
+  - Navbar: hover'da matn rangidagi chiziq chapdan chiziladi.
+  - Vidjet: loyihaning rasmiy raqami +998-78 113 73 73 (avalonresidence.uz); internetda boshqa rasmiy raqam topilmadi.
+  - Tugmalar: oltin hover endi yorug'roq (`gold-light` #d8bc84), oq tugma hover'da qoraymaydi (yengil soya), krem tugma oppoq bo'ladi.
+  - Joylashuv: Tilda'dagi chizilgan xarita qaytdi, manzil ostidagi rasm Tilda galereyasidek o'zi almashadi (`AutoSlideshow`, 6 rasm),
+    manzil va rasm orasidagi katta bo'shliq olib tashlandi. Yandex xarita faqat "Aloqa" bo'limida, "Qanday borish" va "Xaritada ochish" bilan.
+  - Kechki rejim: 4 ko'rinish. Fasad (kunduzgi old ko'rinish endi kechkisi bilan bir burchakdan), Hovli, Kirish (B-2), Parking.
+  - Scroll sekinroq va silliqroq (Lenis `lerp` 0.1 -> 0.065, `wheelMultiplier` 0.85).
+  - E2E 17 test o'tdi.
+
 ## Handoff
 
-S4 ning barcha vazifalari bajarildi. Keyingi: muallif preview'da tasdiqlasa, PR ochib `main` ga (production deploy), keyin S5.
-Ochiq qolgan ixtiyoriy ishlar: fasadning old tomondan kunduzgi renderi bo'lsa `DayNightView` da bir xil burchakdan almashadi;
+S4 tugadi, muallif fikrlari kiritildi. Keyingi: muallif preview'da tasdiqlasa, PR ochib `main` ga, keyin S5.
 Yandex xarita preview'da tekshirilishi kerak (konteynerdan yopiq).

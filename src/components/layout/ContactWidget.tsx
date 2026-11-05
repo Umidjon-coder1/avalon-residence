@@ -70,13 +70,13 @@ export function ContactWidget() {
         </li>
         <li className={item}>
           <a
-            href={site.phones.widget.href}
+            href={site.phones.main.href}
             tabIndex={open ? 0 : -1}
             className="flex items-center gap-3"
           >
             <span className={label}>
               <span className="sr-only">{t("phone")}: </span>
-              {site.phones.widget.display}
+              {site.phones.main.display}
             </span>
             <TWidgetPhone className="size-[50px] rounded-full shadow-icon" />
           </a>
