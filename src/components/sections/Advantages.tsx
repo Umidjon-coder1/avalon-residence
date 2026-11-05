@@ -33,7 +33,7 @@ export function Advantages() {
             <Heading size="display">{t("title")}</Heading>
             <span aria-hidden className="mt-2 block h-px max-w-[680px] bg-cream" />
 
-            <ul className="mt-[clamp(24px,2.1vw,40px)] grid grid-cols-1 gap-y-[clamp(16px,2.1vw,40px)] sm:grid-cols-2">
+            <ul className="mt-[clamp(24px,2.1vw,40px)] grid grid-cols-1 gap-y-[clamp(16px,2.1vw,40px)] sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-x-6">
               {stats.map((_, i) => (
                 <li
                   key={i}

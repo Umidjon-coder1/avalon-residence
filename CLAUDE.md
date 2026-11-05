@@ -18,7 +18,7 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0, S1 tugadi** (T1.2 asl shriftlardan tashqari: muallif zip yuboradi, Vercel Blob'ga yuklanadi). **S2 bo'limlari tayyor** (T2.1-T2.9).
+- **S0, S1 tugadi.** Shriftlar kodda ulangan, PP Right Gothic uchun Vercel'da `FONT_HEADING_URL` qo'yilishi kerak (muallif). **S2 bo'limlari tayyor** (T2.1-T2.9).
   Qolgan: T2.10 (maydon oralig'i, ish soati) muallif qarori va preview'da dizayn tasdig'i. Keyin S3.
 - Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
   popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,
@@ -45,9 +45,9 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Qat'iy qoidalar
 
-- **Shriftlar (D5):** PPRightGothic va RetniSans fayllari repoga **kirmaydi** (`.gitignore` bloklaydi). Litsenziya hali aniqlanmagan.
-  Fayllar muallifda bor. S1 da ularni yopiq manbadan qanday ulash muallif bilan kelishiladi, masalan Vercel Blob yoki muhit orqali.
-  Ungacha fallback shrift ishlatiladi va `font-family` token orqali ulanadi, shunda keyin bitta joyda almashtiriladi.
+- **Shriftlar (D5):** Retni Sans (OFL) repoda, `src/fonts/retni/`. PP Right Gothic tijoriy, repoga **kirmaydi** (`.gitignore` bloklaydi).
+  U `predev`/`prebuild` dagi `scripts/fetch-fonts.mjs` orqali `FONT_HEADING_URL` dan yuklanadi. Lokal ishlash uchun faylni `public/fonts/PPRightGothic-Medium.woff2` ga qo'ying.
+  `next build` ni to'g'ridan-to'g'ri emas, `npm run build` bilan ishga tushiring, aks holda `src/app/fonts-private.css` yaratilmaydi.
 - **Domen va DNS** faqat muallifning alohida tasdig'i bilan (S3).
 - **PR** faqat muallif so'rasa ochiladi. Push: `git push -u origin <branch>`.
 - **Har commitda** joriy sprint faylining `## Hisobot` (sana va nima qilingani) va `## Handoff` (keyingi qadam, to'siqlar) bo'limlarini yangilang.

@@ -3,7 +3,7 @@
 **Maqsad:** barcha bo'limlar ishlatadigan umumiy qism.
 
 - [x] T1.1 Figma'dan token'lar: rang, tipografiya, oraliq, radius, grid
-- [ ] T1.2 Shriftlar: litsenziyani aniqlash, `next/font`, subset, yuklash strategiyasi (fallback tayyor, asl fayllar kutilmoqda)
+- [x] T1.2 Shriftlar: litsenziyani aniqlash, `next/font`, subset, yuklash strategiyasi (S2 vaqtida, D5 yangilanishi)
 - [x] T1.3 UI primitivlar: Button, Container, Section, Heading, Input, Modal
 - [x] T1.4 next-intl: `/` uz, `/ru` ru, til almashtirgich
 - [x] T1.5 Header va mobil menyu, anchor navigatsiya

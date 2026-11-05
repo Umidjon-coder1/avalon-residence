@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Manrope, Oswald } from "next/font/google";
+import { Oswald } from "next/font/google";
+import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
@@ -9,22 +10,35 @@ import { ConsultProvider } from "@/components/lead/ConsultProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
+// PP Right Gothic @font-face: build/dev oldidan scripts/fetch-fonts.mjs yaratadi (gitignore)
+import "../fonts-private.css";
 
-/*
- * Vaqtinchalik shriftlar (D5). Asl PPRightGothic va RetniSans ulanmaguncha:
- * sarlavha uchun Oswald (tor grotesk), matn uchun Manrope (Figma'da ham bor).
+/** Matn shrifti: Retni Sans (OFL, repoda) */
+const retni = localFont({
+  src: [
+    { path: "../../fonts/retni/RetniSans-Light.woff2", weight: "300", style: "normal" },
+    { path: "../../fonts/retni/RetniSans-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../fonts/retni/RetniSans-Medium.woff2", weight: "500", style: "normal" },
+  ],
+  variable: "--font-retni",
+  display: "swap",
+  fallback: ["system-ui", "Arial", "sans-serif"],
+});
+
+/**
+ * Sarlavha fallback'i: PP Right Gothic topilmaganda (FONT_HEADING_URL yo'q) ishlatiladi.
+ * Oldindan yuklanmaydi, brauzer uni faqat kerak bo'lsa oladi.
  */
 const headingFallback = Oswald({
   subsets: ["latin", "cyrillic"],
   weight: ["500"],
   variable: "--font-heading-fallback",
   display: "swap",
+  preload: false,
 });
-const bodyFallback = Manrope({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-body-fallback",
-  display: "swap",
-});
+
+/** PP Right Gothic build vaqtida ulangan bo'lsa, sahifa boshida oldindan yuklanadi */
+const headingFontUrl = process.env.FONT_HEADING_URL ? "/fonts/PPRightGothic-Medium.woff2" : null;
 
 const clientNamespaces = ["nav", "cta", "form", "social", "plans"] as const;
 
@@ -55,10 +69,18 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   const clientMessages = Object.fromEntries(clientNamespaces.map((ns) => [ns, messages[ns]]));
 
   return (
-    <html
-      lang={locale}
-      className={`${headingFallback.variable} ${bodyFallback.variable} antialiased`}
-    >
+    <html lang={locale} className={`${headingFallback.variable} ${retni.variable} antialiased`}>
+      <head>
+        {headingFontUrl ? (
+          <link
+            rel="preload"
+            href={headingFontUrl}
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        ) : null}
+      </head>
       <body className="min-h-dvh">
         <NextIntlClientProvider messages={clientMessages}>
           <ConsultProvider>

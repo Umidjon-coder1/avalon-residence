@@ -12,7 +12,7 @@ export function Plans() {
   return (
     <section id="rejalar" className="mt-[clamp(48px,4.1667vw,80px)] text-white">
       <Container className="text-center">
-        <Heading size="display" className="mx-auto max-w-[560px]">
+        <Heading size="display" className="mx-auto max-w-[480px]">
           {t("title")}
         </Heading>
         <p className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lead leading-tight font-medium uppercase">

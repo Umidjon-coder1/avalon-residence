@@ -51,12 +51,13 @@
 }
 
 /*
- * Shriftlar (D5). Asl PPRightGothic va RetniSans hali ulanmagan. Birinchi nom asl shrift, keyin next/font fallback.
- * Asl fayllar ulanganda faqat @font-face qo'shiladi, token o'zgarmaydi.
+ * Shriftlar (D5).
+ * - Sarlavha: PP Right Gothic (tijoriy, repoda yo'q, fonts-private.css orqali). Topilmasa Oswald.
+ * - Matn: Retni Sans (OFL, src/fonts/retni, next/font/local).
  */
 @theme inline {
   --font-heading: "PP Right Gothic", var(--font-heading-fallback), "Arial Narrow", sans-serif;
-  --font-body: "Retni Sans", var(--font-body-fallback), system-ui, sans-serif;
+  --font-body: var(--font-retni), system-ui, sans-serif;
   --font-sans: var(--font-body);
 }
 

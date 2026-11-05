@@ -29,11 +29,16 @@
   - Reja rasmlari PNG -> WebP. `next.config.ts` da rasm o'lchamlari qisqartirildi, blur placeholder'lar olib tashlandi.
   - **T2.9** 1920 px da Figma bilan yonma-yon solishtirildi, sahifa balandligi 10556 px (Figma 10624). Farqlar `docs/FIGMA.md` da.
   - O'lchov: HTML 180 KB, gzip 29 KB (Tilda 2.28 MB). 390 px da gorizontal siljish yo'q, konsolda xato yo'q.
+- 2026-11-05 (bulut, 7): asl shriftlar ulandi (T1.2). Retni Sans OFL ekan, repoga WOFF2 subset (3 x 38 KB). PP Right Gothic tijoriy:
+  `scripts/fetch-fonts.mjs` build oldidan `FONT_HEADING_URL` dan yuklaydi, bo'lmasa Oswald. Manrope olib tashlandi, Oswald oldindan yuklanmaydi.
+  Brauzerda faqat 4 shrift yuklanadi (Retni 300/400/500, PP Right Gothic 500). Hero sarlavhasi endi Figma'dagidek bo'linadi.
+  Vercel connector boshqa akkauntga ulangan (unda loyiha yo'q), shuning uchun faylni Blob'ga muallif yuklaydi.
 
 ## Handoff
 
 Barcha bo'limlar tayyor, uz va ru. Keyingi qadamlar:
-1. **Shriftlar:** muallif zip yuboradi, fayllar Vercel Blob'ga yuklanib ulanadi (D5). Ulangach sarlavhalar Figma bilan qayta solishtiriladi (hozir Oswald torroq, qatorlar boshqacha bo'linadi).
+1. **Shriftlar:** kod tayyor. Muallif `PPRightGothic-Medium.woff2` ni Vercel Blob'ga yuklab, havolasini loyihada `FONT_HEADING_URL`
+   (Production va Preview) ga qo'yishi kerak. Ungacha preview'da sarlavhalar Oswald'da. Yuklangach build logida `[fonts] ... yuklandi` chiqadi.
 2. **T2.10** muallif qarori kerak: maydon oralig'i (Tilda 49.8-89.5, Figma 48-89, reja kartalari 48.8-89.3) va ish soati (Tilda Du-Ju 9-19, Figma Du-Ju 10-20, Sha-Ya 10-19).
 3. Muallif preview'da dizaynni tasdiqlashi kerak (S2 nazorat nuqtasi), keyin S3.
 
