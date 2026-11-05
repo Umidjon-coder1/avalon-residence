@@ -32,3 +32,11 @@ qoladi. Keyingi sprintlar preview orqali tekshirilib kichik relizlarda chiqadi.
 
 PPRightGothic va RetniSans litsenziyasi tekshirilmagan. Ochiq repoga qo'yish fayllarni tarqatish hisoblanishi mumkin.
 Ruxsat bo'lmasa, shriftlar build vaqtida yopiq manbadan olinadi. Maxfiy kalitlar faqat environment o'zgaruvchilarida saqlanadi.
+
+**Yangilanish (2026-11-05, S2):** muallif shrift fayllarini berdi, litsenziyalar tekshirildi.
+- **Retni Sans** PT Root UI (ParaType) asosida, SIL OFL 1.1. Ochiq repoga qo'yish ruxsat etilgan: `src/fonts/retni/` (WOFF2, lotin+kirill subset), `next/font/local`.
+- **PP Right Gothic** (Alexander Slobzheninov, Pangram Pangram) tijoriy, litsenziya yozuvi yo'q. Repoga kirmaydi.
+  Build oldidan `scripts/fetch-fonts.mjs` uni `FONT_HEADING_URL` dan `public/fonts/` ga yuklaydi va `src/app/fonts-private.css` yaratadi.
+  Havola bo'lmasa, sarlavhalar Oswald fallback'ida qoladi, build to'xtamaydi.
+- Ishlatiladigan og'irliklar: PP Right Gothic 500; Retni Sans 300, 400, 500. Boshqa fayllar hech qayerga yuklanmadi.
+

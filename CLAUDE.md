@@ -18,7 +18,12 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0 tugadi** (T0.3 PR merge bo'lgach yopiladi). Keyingi: **S1 dizayn tizimi**, keyin **S2 1:1 bo'limlar**. Muallifning ustuvorligi: 1:1 ko'chirish kodini tezroq yozish, qolganini keyin ko'rib chiqish.
+- **S0, S1, S2 tugadi.** **S3 da** kod qismi tayyor (SEO, lid yetkazish, Ads, testlar). Qolgani Vercel/Google sozlamalari, `sprints/SPRINT-3-v1-reliz.md` Handoff.
+- Lid kanallari va barcha env o'zgaruvchilari: `docs/LEADS.md`. E2E testlar: `npm run build && npm run test:e2e`.
+- Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
+  popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,
+  bo'limlar `src/components/sections/` (Figma tartibida `src/app/[locale]/page.tsx` da).
+- Tailwind eslatmasi: bir xil xususiyatli ikki klassni (`sm:w-auto` va `sm:w-[320px]`, `uppercase` va `normal-case`) bitta elementga bermang, qaysi biri yutishi noaniq. Variant yoki prop orqali bittasini tanlang.
 - Kontent tayyor: `messages/uz.json`, `messages/ru.json` (kalitlari bir xil), `src/content/site.ts`, `src/content/apartments.ts` (25 reja).
 - Rasmlar: `public/images/<bo'lim>/`, ro'yxat `docs/ASSETS.md` da. Figma bo'limlar xaritasi va token'lar `docs/FIGMA.md` da.
 - Tilda baseline: `docs/AUDIT.md` va `docs/baseline/`.
@@ -34,15 +39,17 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 - **Figma MCP ishlatmang:** Starter tarif limiti tugagan. O'rniga REST API: `npm run figma` (`FIGMA_TOKEN` muhitda bor).
   Dizayndagi rasm fayllari `s3-alpha-sig.figma.com` dan keladi. Bu domen yopiq bo'lsa, `fills/` bo'sh qoladi va Tilda rasmlari ishlatiladi.
 - **Node fetch va proksi:** Node skriptlari tashqi tarmoqqa `NODE_USE_ENV_PROXY=1` bilan chiqadi.
-- **Vercel connector** loyiha yaratishga 403 qaytaradi. Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi.
+- **Vercel:** loyiha `avalon-residence` (`prj_y4VvFw0oXYH8ecaRNosZrlhkUNbT`), jamoa `team_XEFbj5VbU9X0rRbbolJpnIXb`, Pro. Connector ishlaydi (2026-11-05 qayta ulangan).
+  Framework `nextjs`. Blob store `avalon-fonts`. Env ro'yxati `docs/LEADS.md` da.
+  Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi. Konteynerdan vercel.com va Blob API'ga to'g'ridan-to'g'ri ulanish yopiq.
 - **Brauzer:** Playwright va Chromium o'rnatilgan, `require('playwright')` ishlaydi, qayta o'rnatmang.
 - **Ochiq domenlar:** avalonresidence.uz, *.tildacdn.*, figma.com, api.figma.com.
 
 ## Qat'iy qoidalar
 
-- **Shriftlar (D5):** PPRightGothic va RetniSans fayllari repoga **kirmaydi** (`.gitignore` bloklaydi). Litsenziya hali aniqlanmagan.
-  Fayllar muallifda bor. S1 da ularni yopiq manbadan qanday ulash muallif bilan kelishiladi, masalan Vercel Blob yoki muhit orqali.
-  Ungacha fallback shrift ishlatiladi va `font-family` token orqali ulanadi, shunda keyin bitta joyda almashtiriladi.
+- **Shriftlar (D5):** Retni Sans (OFL) repoda, `src/fonts/retni/`. PP Right Gothic tijoriy, repoga **kirmaydi** (`.gitignore` bloklaydi).
+  U `predev`/`prebuild` dagi `scripts/fetch-fonts.mjs` orqali `FONT_HEADING_URL` dan yuklanadi. Lokal ishlash uchun faylni `public/fonts/PPRightGothic-Medium.woff2` ga qo'ying.
+  `next build` ni to'g'ridan-to'g'ri emas, `npm run build` bilan ishga tushiring, aks holda `src/app/fonts-private.css` yaratilmaydi.
 - **Domen va DNS** faqat muallifning alohida tasdig'i bilan (S3).
 - **PR** faqat muallif so'rasa ochiladi. Push: `git push -u origin <branch>`.
 - **Har commitda** joriy sprint faylining `## Hisobot` (sana va nima qilingani) va `## Handoff` (keyingi qadam, to'siqlar) bo'limlarini yangilang.

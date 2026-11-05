@@ -3,21 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/fetch-fonts.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/fetch-fonts.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "figma": "NODE_USE_ENV_PROXY=1 node scripts/figma-fetch.mjs"
+    "figma": "NODE_USE_ENV_PROXY=1 node scripts/figma-fetch.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "next": "16.4.5",
+    "next-intl": "^4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

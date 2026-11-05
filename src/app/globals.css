@@ -1,18 +1,119 @@
 @import "tailwindcss";
 
-/* Dizayn token'lari S1 da Figma'dan olinadi */
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Dizayn token'lari. Manba: Figma Frame 485 (docs/FIGMA.md).
+ * Dizayn 1920 px kenglikda. Fluid o'lchamlar clamp() bilan: 1920 px da Figma qiymati, kichik ekranda pastki chegara.
+ */
+
+@theme {
+  /* Ranglar */
+  --color-gold: #c8a45d;
+  --color-gold-alt: #cea150;
+  --color-gold-dark: #8a6f3c;
+  --color-navy: #0b2239;
+  --color-cream: #f4efe6;
+  --color-sand: #ece4d2;
+  --color-sand-2: #e9dec4;
+  --color-sand-3: #f1ebdd;
+  --color-line: #dcd2bc;
+  --color-ink: #1e1d1d;
+  --color-ink-line: #555a65;
+
+  /* Tipografiya: Figma o'lchamlari, 1920 px da aniq qiymat */
+  --text-display: clamp(28px, 2.0833vw, 40px);
+  --text-display--line-height: 1.5;
+  --text-h2: clamp(28px, 2.0833vw, 40px);
+  --text-h2--line-height: 1.2;
+  --text-h3: clamp(20px, 1.3021vw, 25px);
+  --text-h3--line-height: 1.15;
+  --text-btn: clamp(16px, 1.0417vw, 20px);
+  --text-btn--line-height: 1.15;
+  --text-lead: clamp(17px, 1.3021vw, 25px);
+  --text-lead--line-height: 1.5;
+  --text-body: clamp(14px, 0.8138vw, 15.625px);
+  --text-body--line-height: 1.5;
+  --text-caption: 12px;
+  --text-caption--line-height: 1.5;
+
+  /* Bo'limlar orasidagi masofa: Figma'da 120 px */
+  --spacing-section: clamp(64px, 6.25vw, 120px);
+
+  /* Radius: Figma'da 10 (kartalar, inputlar), 20 (katta tugmalar), 50 (pill) */
+  --radius-card: 10px;
+  --radius-btn: 20px;
+  --radius-pill: 50px;
+
+  /* Soya va blur */
+  --shadow-soft: 4px 4px 8px rgb(0 0 0 / 0.2);
+  --shadow-icon: 4px 4px 24px rgb(0 0 0 / 0.2);
+  /* Figma background blur 50 = CSS blur(25px) */
+  --blur-glass: 25px;
 }
 
+/*
+ * Shriftlar (D5).
+ * - Sarlavha: PP Right Gothic (tijoriy, repoda yo'q, fonts-private.css orqali). Topilmasa Oswald.
+ * - Matn: Retni Sans (OFL, src/fonts/retni, next/font/local).
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --font-heading: "PP Right Gothic", var(--font-heading-fallback), "Arial Narrow", sans-serif;
+  --font-body: var(--font-retni), system-ui, sans-serif;
+  --font-sans: var(--font-body);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, sans-serif;
+/* Sahifa konteyneri: 1920 px da 1728 px kontent, yonlarda 96 px */
+@utility container-page {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@layer base {
+  :root {
+    --gutter: clamp(16px, 5vw, 96px);
+    /* Bosh ekran kartasi sahifa chetidan 10 px ichkarida */
+    --frame-inset: clamp(8px, 0.5208vw, 10px);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Modal ochiq bo'lsa sahifa siljimaydi */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--color-white);
+    color: var(--color-navy);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  [id] {
+    scroll-margin-top: 24px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }

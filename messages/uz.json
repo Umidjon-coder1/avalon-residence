@@ -1,7 +1,9 @@
 {
   "meta": {
     "title": "Avalon residence — Tanlab olinadigan tinchlik",
-    "description": "Zamonaviy klassik arxitektura, yopiq hovli va oilaviy muhitni birlashtirgan turar-joy majmuasi. Bu shunchaki uy emas — bu siz uchun yaratilgan hayot makoni."
+    "description": "Zamonaviy klassik arxitektura, yopiq hovli va oilaviy muhitni birlashtirgan turar-joy majmuasi. Bu shunchaki uy emas — bu siz uchun yaratilgan hayot makoni.",
+    "keywords": "Avalon Residence, Avalon Residence Toshkent, Avalon Residence turar-joy majmuasi, Toshkent yangi uylar, Toshkentda xonadon sotib olish, Yashnobod tumani yangi uylar, Tuzel yangi bino, Toshkentda arzon xonadonlar, yangi qurilayotgan uylar, bo'lib to'lashga",
+    "ogAlt": "Avalon Residence turar-joy majmuasi"
   },
   "nav": {
     "about": "Loyiha haqida",
@@ -10,7 +12,10 @@
     "plans": "Xonadonlar",
     "contacts": "Aloqa",
     "switchLocale": "RU",
-    "toTop": "Yuqoriga"
+    "toTop": "Yuqoriga",
+    "menu": "Menyu",
+    "close": "Yopish",
+    "home": "Bosh sahifa"
   },
   "cta": {
     "consult": "Konsultatsiya olish",
@@ -27,36 +32,14 @@
   },
   "advantages": {
     "title": "Afzalliklari detallarda!",
-    "stats": {
-      "apartments": {
-        "value": "268",
-        "label": "xonadonlar"
-      },
-      "floors": {
-        "value": "12-14",
-        "label": "qavatlar"
-      },
-      "blocks": {
-        "value": "3",
-        "label": "blok"
-      },
-      "handover": {
-        "value": "2028-yil",
-        "label": "Topshirish muddati"
-      },
-      "ceiling": {
-        "value": "3 M",
-        "label": "Shiftlar balandligi",
-        "prefix": "gacha"
-      },
-      "area": {
-        "from": "49.8",
-        "to": "89.5",
-        "label": "maydoni",
-        "fromWord": "dan",
-        "toWord": "m² gacha"
-      }
-    },
+    "stats": [
+      "<b>268</b> xonadonlar",
+      "Topshirish muddati <b>2028-yil</b>",
+      "<b>12-14</b> qavatlar",
+      "maydoni <b>49.8</b> dan <b>89.5</b> m² gacha",
+      "<b>3</b> blok",
+      "Shiftlar balandligi <b>3 M</b> gacha"
+    ],
     "features": [
       "Kirish nazorati va videokuzatuv",
       "178 yer osti parking joyi",
@@ -113,7 +96,14 @@
     "name": "Ismingiz?",
     "phone": "Telefon raqam",
     "popupTitle": "Bepul konsultatsiya olish uchun ma'lumotlaringizni qoldiring",
-    "popupSubmit": "YUBORISH"
+    "popupSubmit": "YUBORISH",
+    "nameError": "Ismingizni kiriting",
+    "phoneError": "Telefon raqamni to’liq kiriting",
+    "sending": "Yuborilmoqda…",
+    "successTitle": "Rahmat!",
+    "successText": "Arizangiz qabul qilindi. Menejerimiz tez orada siz bilan bog’lanadi.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko’ring yoki qo’ng’iroq qiling.",
+    "close": "Yopish"
   },
   "zones": {
     "title": "Faoliyat hududlari",
@@ -181,7 +171,9 @@
     "badges": ["268 ta xonadon", "Balkon va loja", "Chernova otdelka"],
     "tabAll": "Jami",
     "rooms": "{count}-xonali",
-    "area": "maydon {area} m²"
+    "area": "maydon {area} m²",
+    "prev": "Oldingi rejalar",
+    "next": "Keyingi rejalar"
   },
   "contacts": {
     "address": "Toshkent, Yashnobod t, Tuzel m, 2-kvartal, 33",
@@ -189,10 +181,16 @@
     "builder": "Quruvchi: ARX PROEKT / MAMUR PROEKT",
     "hoursLabel": "Ish soatlari:",
     "hours": ["Dushanba-Juma", "9:00 dan 19:00 gacha"],
-    "copyright": "© 2026 Avalon Residence. Barcha huquqlar himoyalangan."
+    "copyright": "© 2026 Avalon Residence. Barcha huquqlar himoyalangan.",
+    "mapTitle": "Avalon Residence xaritada"
   },
   "widget": {
     "telegram": "Telegram",
     "phone": "Telefon raqam"
+  },
+  "social": {
+    "instagram": "Instagram",
+    "telegram": "Telegram",
+    "call": "Qo’ng’iroq qilish"
   }
 }

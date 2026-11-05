@@ -9,7 +9,18 @@ Bo'lim nomi rasm birinchi ishlatilgan Tilda blokidan olingan. `meta` sahifa `<he
 - Fotolar (webp, jpg, png > 100 KB) `next/image` orqali AVIF/WebP va `sizes` bilan beriladi, original 1920 px dan oshmaydi
 - 500-800 KB lik SVG fayllar (`hero-06`, `meta-01`, `menu-01`, `footer-01`, `misc-02`, `location-01`) ichida raster bo'lishi mumkin: S1 da SVGO yoki toza vektor/WebP bilan almashtiriladi
 - Reja rasmlari (`plans/`, 512x600 PNG, ~20 KB) WebP ga o'tkaziladi, S5 da kattalashtirish uchun yuqori sifatli manba so'raladi
-- Ikonalar inline SVG komponentga aylantiriladi
+- Ikonalar inline SVG komponentga aylantiriladi (`src/components/ui/icons.tsx`)
+- **S1 da qilindi:** logolar ichida 4096 px PNG bor ekan. Chromium'da kerakli o'lchamda render qilinib WebP ga o'tkazildi:
+  `brand/logo-mark.webp` (header, 240x240, 4 KB, manba `hero-06.svg`), `brand/logo-footer.webp` (480x144, 13 KB, manba `footer-01.svg`),
+  `brand/logo-menu.webp` (480x144, 16 KB, manba `menu-01.svg`). Eski SVG'lar hozircha joyida, S3 da favicon bilan birga tozalanadi
+- **S2 da qilindi:**
+  - S0 da tushib qolgan 7 fayl Tilda'dan olindi: `zones/zone-{courtyard,green,kids,cinema,guest,parking}.webp`
+    (Tilda `Rectangle_40163..40168_1.png`, 625x600, 60-115 KB) va `zones/zones-06.svg` (`Group_2089345973.svg`)
+  - Xaritalar: `location/map-desktop.svg` (manba `misc-02.svg`, 1200x735) va `location/map-mobile.svg` (manba `location-01.svg`).
+    Ichidagi 1080 px logo PNG 320 px WebP ga almashtirildi. SVGO bu fayllarda xato beradi, shuning uchun qo'lda
+  - Reja rasmlari `plans/*.png` -> `plans/*.webp` (525 KB -> 448 KB, shaffoflik saqlangan). Jadvaldagi `.png` nomlar Tilda manbasini bildiradi
+  - Fasad doiralari: Keramogranit `facade-04`, Dekorativ kirpich `facade-01`, Tabiiy granit `facade-03`, Oynalar `about-02`,
+    Kechki yoritish `facade-02`, Balkonlar `lead-01`. Katta rasm `facade-05`
 
 | Fayl | Tilda nomi | Bo'lim | O'lcham | KB |
 |------|-----------|--------|---------|----|

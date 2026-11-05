@@ -30,6 +30,25 @@ Konteyner kengligi asosan 1728 px (har tomonda 96 px). 8-blok 2040 px: kartalar 
 - Footerda quruvchi: ARX PROEKT / MAMUR PROEKT.
 - Maydon: Figma'da 48-89 m². Muallif qarori: saytdagi raqamlar o'zgartirilmaydi, farq shu ro'yxatda qayd etiladi.
 
+## Figma va Tilda farqlari (S1 da hal qilingan, D2 bo'yicha Tilda olingan)
+
+| Joy | Figma | Kodda (Tilda) |
+|-----|-------|---------------|
+| Header va footer menyusi | 6 band, "Qurilish" bor | 5 band, "Qurilish" yo'q (Tilda'da bunday bo'lim va anchor yo'q) |
+| Til tugmasi | "RUS" | "RU" / "Узб" |
+| Hero va footer ijtimoiy tarmoqlar | Instagram, YouTube, Telegram | Instagram, Telegram. Tilda'da YouTube havolasi yo'q |
+| Footer ish soatlari | Du-Ju 10:00-20:00, Sha-Ya 10:00-19:00 | Du-Ju 9:00-19:00 (T2.10 da muallif bilan aniqlanadi) |
+| Footer manzili | "Toshkent, Yashnobod tumani, Tuzel massivi, 2-kvartal, 33" | "Toshkent, Yashnobod t, Tuzel m, 2-kvartal, 33" |
+| Popup | Figma'da yo'q | Tilda tuzilmasi, Figma 5-blok formasining uslubi |
+| Rejalar tablari | Jami, 1, 2, 3 | Jami, 2, 3. 1 xonali reja yo'q, bo'sh tab ko'rsatilmaydi |
+| Reja kartalari | Namunaviy "1-xonali, 30 m²" | Tilda'dagi 25 reja va maydonlar |
+| Rejalar slayderi | Strelka yo'q | Kartalar ostida ← → (sichqoncha bilan surish uchun) |
+| Faoliyat hududlari kartasi | Faqat nom | Nom va Tilda'dagi qisqa izoh |
+| Joylashuv masofalari | 300 m metro, 700 m Korzinka, 1 km, 1.2 km, 1.4 km, 1.5 km masjid | Tilda: 210 m Korzinka, 350 m metro, 900 m masjid, 1.2 km, 1 km, 1.4 km |
+| Fasad materiallari | "Pastki qavatlar: Tabiiy granit", "1-2 qavat: Dekorativ kirpich" | Tilda: "Yuqori qavatlar: Dekorativ kirpich", "1-2 qavat: Tabiiy granit" |
+| Afzalliklar ro'yxati tartibi | Parking, seysmik, kirish nazorati, kinoteatr | Tilda tartibi: kirish nazorati, parking, kinoteatr, seysmik |
+| Mobil header | Maket yo'q | Logo tab, telefon va burger tugmasi, o'ngdan krem panel (Tilda asosida, telefon raqami qo'shildi) |
+
 ## REST API orqali olingan ma'lumot
 
 MCP Starter limiti tugagani uchun dizayn `npm run figma` (`scripts/figma-fetch.mjs`) bilan olinadi. `FIGMA_TOKEN` kerak.

@@ -11,13 +11,15 @@ test-results/
 .DS_Store
 *.log
 
-# Litsenziya aniqlanguncha shrift fayllari repoga kirmaydi (DECISIONS.md, D5)
+# Tijoriy shriftlar repoga kirmaydi (DECISIONS.md, D5). PP Right Gothic build vaqtida yuklanadi
 public/fonts/
-src/fonts/
+src/app/fonts-private.css
 *.woff
 *.woff2
 *.ttf
 *.otf
+# Retni Sans: SIL OFL, repoda saqlanadi
+!src/fonts/retni/*.woff2
 *.tsbuildinfo
 next-env.d.ts
 # Figma: `npm run figma` qayta yuklaydi. JSON va JPG preview repoda saqlanadi
