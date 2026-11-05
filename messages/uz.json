@@ -140,6 +140,10 @@
     "scroll": "Scroll"
   },
   "facade": {
+    "day": "Kunduzi",
+    "night": "Kechqurun",
+    "viewsLabel": "Ko'rinish",
+    "views": ["Fasad", "Hovli", "Parking"],
     "title": "Zamonaviy klassika — vaqt o'tmaydi",
     "text": "Fasaddan muhandislik tizimlarigacha — har bir element o'nlab yillik xizmat uchun tanlangan.",
     "items": [

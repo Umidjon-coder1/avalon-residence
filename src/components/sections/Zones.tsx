@@ -7,7 +7,7 @@ import { SectionIntro } from "@/components/ui/SectionIntro";
 import { TArrowDownRight } from "@/components/ui/tilda-icons";
 import { ZonesMotion } from "@/components/motion/ZonesMotion";
 import { cn } from "@/lib/cn";
-import courtyard from "../../../public/images/zones/zone-courtyard.webp";
+import courtyard from "../../../public/images/zones/zone-courtyard-full.webp";
 import green from "../../../public/images/zones/zone-green-full.webp";
 import kids from "../../../public/images/zones/zone-kids-full.webp";
 import cinema from "../../../public/images/zones/zone-cinema-full.webp";
@@ -22,15 +22,14 @@ import iconParking from "../../../public/images/zones/zones-01.svg";
 
 type Zone = { title: string; text: string };
 
-/** `zones.items` tartibi bilan bir xil (Tilda) */
-/** `full`: katta render (muallif, 2026-11-05) butun slaydni egallaydi; yo'q bo'lsa kichik Tilda rasmi o'ngda karta bo'ladi */
-const media: Array<{ photo: StaticImageData; icon: StaticImageData; full?: boolean }> = [
+/** `zones.items` tartibi bilan bir xil. Rasmlar: muallif renderlari (2026-11-05), har biri butun slaydni egallaydi */
+const media: Array<{ photo: StaticImageData; icon: StaticImageData }> = [
   { photo: courtyard, icon: iconCourtyard },
-  { photo: green, icon: iconGreen, full: true },
-  { photo: kids, icon: iconKids, full: true },
-  { photo: cinema, icon: iconCinema, full: true },
-  { photo: guest, icon: iconGuest, full: true },
-  { photo: parking, icon: iconParking, full: true },
+  { photo: green, icon: iconGreen },
+  { photo: kids, icon: iconKids },
+  { photo: cinema, icon: iconCinema },
+  { photo: guest, icon: iconGuest },
+  { photo: parking, icon: iconParking },
 ];
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -48,7 +47,7 @@ function ZoneSlide({
   eyebrow: string;
   cta: string;
 }) {
-  const { photo, icon, full } = media[index] ?? media[0];
+  const { photo, icon } = media[index] ?? media[0];
   return (
     <li
       data-zone
@@ -58,26 +57,18 @@ function ZoneSlide({
         data-zone-card
         className="relative isolate flex h-full overflow-hidden rounded-card bg-navy text-white shadow-[0_-30px_60px_-20px_rgb(0_0_0/0.55)]"
       >
-        {/* Fon: katta render to'liq; kichik rasm desktopda xira (o'ngda aniq rasm kartasi bor) */}
+        {/* Fon: render butun slayd bo'ylab, scroll'da sekin siljiydi (ZonesMotion) */}
         <Image
           data-zone-bg
           src={photo}
           alt=""
           // Telefonda keng rasm ekran balandligi bo'yicha qoplaydi: kerakli kenglik ~1.8 x balandlik
           sizes="(min-width: 1024px) 100vw, 180vh"
-          className={cn(
-            "absolute inset-0 -z-20 size-full scale-110 object-cover",
-            !full && "lg:opacity-90 lg:blur-xl",
-          )}
+          className="absolute inset-0 -z-20 size-full scale-110 object-cover"
         />
         <div
           aria-hidden
-          className={cn(
-            "absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.45),rgb(11_34_57/0.1)_30%,rgb(11_34_57/0.92)_75%)]",
-            full
-              ? "lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
-              : "lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.92),rgb(11_34_57/0.55)_50%,rgb(11_34_57/0.15))]",
-          )}
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.45),rgb(11_34_57/0.1)_30%,rgb(11_34_57/0.92)_75%)] lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
         />
 
         {/* Keyingi slayd ustiga chiqqanda qorayish (ZonesMotion) */}
@@ -95,28 +86,17 @@ function ZoneSlide({
             </span>
           </div>
 
-          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-[clamp(40px,5vw,96px)]">
-            <div>
-              <Image src={icon} alt="" className="size-[clamp(40px,3.3vw,64px)]" />
-              <h3
-                data-zone-title
-                className="mt-6 font-heading text-[clamp(44px,6.7vw,128px)] leading-[0.92] font-medium tracking-[-0.02em] text-balance uppercase"
-              >
-                {zone.title}
-              </h3>
-              <p className="mt-[clamp(16px,1.6vw,28px)] max-w-[560px] text-lead text-white/85">
-                {zone.text}
-              </p>
-            </div>
-            {!full && (
-              <Image
-                data-zone-photo
-                src={photo}
-                alt=""
-                sizes="(min-width: 1024px) 34vw, 1px"
-                className="hidden aspect-[625/600] w-[clamp(320px,30vw,560px)] rounded-card object-cover shadow-icon lg:block"
-              />
-            )}
+          <div>
+            <Image src={icon} alt="" className="size-[clamp(40px,3.3vw,64px)]" />
+            <h3
+              data-zone-title
+              className="mt-6 font-heading text-[clamp(44px,6.7vw,128px)] leading-[0.92] font-medium tracking-[-0.02em] text-balance uppercase"
+            >
+              {zone.title}
+            </h3>
+            <p className="mt-[clamp(16px,1.6vw,28px)] max-w-[560px] text-lead text-white/85">
+              {zone.text}
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-6">
@@ -148,7 +128,7 @@ function ZoneSlide({
 }
 
 /**
- * "Faoliyat hududlari" (Figma 6-blok). Intro, keyin har bir hudud ekran balandligidagi katta slayd:
+ * "Faoliyat hududlari" (Figma 6-blok). Intro, keyin har bir hudud ekran balandligidagi katta rasmli slayd:
  * slaydlar `sticky` bo'lib, keyingisi oldingisining ustiga chiqadi (stack). Orqada qolgan slayd
  * biroz kichrayib qorayadi (ZonesMotion). JS siz ham stack ishlaydi, faqat effektlarsiz.
  */

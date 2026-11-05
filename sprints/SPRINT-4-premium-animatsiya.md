@@ -8,7 +8,7 @@
 - [x] T4.4 Afzalliklar: raqamlar sanalishi, chiziqlar chizilishi
 - [x] T4.5 Joylashuv: mashina masofalar yo'li bo'ylab yuradi (desktop gorizontal, mobil vertikal), premium kulrang xarita
 - [x] T4.6 Faoliyat hududlari: ekran balandligidagi slaydlar ustma-ust o'tadi (sticky stack), 01/06 hisoblagich
-- [~] T4.7 Materiallar: scroll'da materiallar navbat bilan yonadi (kechki yoritish rejimi uchun kechki render kerak)
+- [x] T4.7 Materiallar: scroll'da materiallar navbat bilan yonadi, kechki yoritish rejimi (Kunduzi / Kechqurun)
 - [x] T4.8 Rejalar: tab o'tishi, karta hover, faol tab foni siljib o'tadi (FLIP)
 - [x] T4.9 Mikro-interaksiyalar: tugma, menyu, popup, aloqa vidjeti, desktopda maxsus kursor
 - [~] T4.10 Mobil versiya: yengillashtirilgan animatsiyalar, past quvvatli qurilmada test (Lenis faqat desktop, idle start)
@@ -64,9 +64,14 @@
   Eski 625x600 rasmlar o'chirildi (yopiq hovlinikidan tashqari). Telefonda fon rasmi balandlik bo'yicha qoplagani uchun
   `sizes` tuzatildi (aks holda 640 px nusxa cho'zilib xira chiqardi). E2E 17 test o'tdi.
 
+- 2026-11-05 (bulut, 5-bosqich): muallif yopiq hovli renderi va 3 ta kechki render yubordi.
+  - Hududlar: barcha 6 slayd to'liq rasmli, kichik rasm varianti (xira fon + karta) kodi olib tashlandi.
+  - **T4.7** `DayNightView` (fasad bo'limi): "Kunduzi / Kechqurun" almashtirgich va 3 ko'rinish (fasad, hovli, parking).
+    Kechki render kunduzgisi ustida silliq paydo bo'ladi. Bo'lim ekranga kelganda 1.2 s dan keyin o'zi kechki rejimga o'tadi
+    (bir marta, foydalanuvchi bosmagan bo'lsa; reduced-motion'da yo'q). Rasmlar faqat tanlangan ko'rinish uchun yuklanadi.
+    Hovli va parking kunduzgi/kechki renderlari bir xil burchakdan, fasad kunduzgisi boshqa burchakdan (Tilda rasmi).
+  - E2E 17 test o'tdi.
+
 ## Handoff
 
-Muallif yana 4 ta rasm yubordi (hovli terrasasi, kechki fasad, kechki yashil zona, kechki parking), lekin ular ish davomida
-yuborilgani uchun faylga saqlanmadi: qayta yuborilishi kerak. Kelgach: yopiq hovli slaydi to'liq rasmli bo'ladi,
-T4.7 kechki yoritish rejimi (fasad, yashil zona, parking uchun "Kunduzi / Kechqurun" almashtirgich) qilinadi.
-Keyin T4.10 telefon testi va Lighthouse, muallif tasdig'i bilan S4 `main` ga.
+Keyingi: T4.10 telefonda test va Lighthouse (rasmlar ko'paydi, LCP/CLS tekshiriladi), keyin muallif tasdig'i bilan S4 `main` ga, S5.

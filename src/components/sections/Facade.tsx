@@ -4,6 +4,7 @@ import { ConsultCta } from "@/components/lead/ConsultCta";
 import { Container } from "@/components/ui/Container";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { FacadeMotion } from "@/components/motion/FacadeMotion";
+import { DayNightView } from "./DayNightView";
 import hero from "../../../public/images/facade/facade-05.webp";
 import ceramic from "../../../public/images/facade/facade-04.png";
 import brick from "../../../public/images/facade/facade-01.webp";
@@ -11,6 +12,11 @@ import granite from "../../../public/images/facade/facade-03.webp";
 import windows from "../../../public/images/about/about-02.webp";
 import lighting from "../../../public/images/facade/facade-02.png";
 import balconies from "../../../public/images/lead/lead-01.webp";
+import courtyardDay from "../../../public/images/zones/zone-green-full.webp";
+import parkingDay from "../../../public/images/zones/zone-parking-full.webp";
+import frontNight from "../../../public/images/facade/facade-night-front.webp";
+import courtyardNight from "../../../public/images/facade/facade-night-courtyard.webp";
+import parkingNight from "../../../public/images/facade/facade-night-parking.webp";
 
 type Item = { label: string; value: string };
 
@@ -18,13 +24,15 @@ type Item = { label: string; value: string };
 const photos: StaticImageData[] = [ceramic, brick, granite, windows, lighting, balconies];
 
 /**
- * "Zamonaviy klassika" (Figma 7-blok). Oltin fon ustida: chapda intro va CTA, o'ngda 800x400 rasm,
+ * "Zamonaviy klassika" (Figma 7-blok). Oltin fon ustida: chapda intro va CTA, o'ngda 800x400 rasm
+ * (kunduzgi/kechki ko'rinish, `DayNightView`),
  * pastda 3x2 doira rasmlar va material nomlari. Scroll'da materiallar navbatma-navbat "yonadi" (FacadeMotion).
  */
 export function Facade() {
   const t = useTranslations("facade");
   const tCta = useTranslations("cta");
   const items = t.raw("items") as Item[];
+  const viewLabels = t.raw("views") as string[];
 
   return (
     <section>
@@ -39,13 +47,16 @@ export function Facade() {
                 className="mt-10"
               />
             </SectionIntro>
-            <Image
-              src={hero}
-              alt=""
-              sizes="(min-width: 1024px) 42vw, 100vw"
-              data-reveal="image"
-              data-facade-image
-              className="aspect-[2/1] w-full rounded-card object-cover"
+            <DayNightView
+              views={[
+                { label: viewLabels[0] ?? "", day: hero, night: frontNight },
+                { label: viewLabels[1] ?? "", day: courtyardDay, night: courtyardNight },
+                { label: viewLabels[2] ?? "", day: parkingDay, night: parkingNight },
+              ]}
+              dayLabel={t("day")}
+              nightLabel={t("night")}
+              groupLabel={t("viewsLabel")}
+              className="aspect-[4/3] w-full sm:aspect-[2/1]"
             />
           </div>
 

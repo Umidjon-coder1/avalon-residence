@@ -4,7 +4,7 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { mq } from "@/lib/motion";
 
 /**
- * Hududlar stack'i (T4.6): slayd kelayotganda rasm va sarlavha pastdan suzib chiqadi,
+ * Hududlar stack'i (T4.6): slayd kelayotganda sarlavha pastdan suzib chiqadi,
  * fon rasmi sekin siljiydi (parallax). Keyingi slayd ustiga chiqqanda oldingisi kichrayib qorayadi.
  * Hammasi scroll bilan bog'langan (scrub), mobilda ham ishlaydi.
  */
@@ -18,7 +18,6 @@ export function ZonesMotion() {
         const card = slide.querySelector<HTMLElement>("[data-zone-card]");
         const bg = slide.querySelector<HTMLElement>("[data-zone-bg]");
         const title = slide.querySelector<HTMLElement>("[data-zone-title]");
-        const photo = slide.querySelector<HTMLElement>("[data-zone-photo]");
         const shade = slide.querySelector<HTMLElement>("[data-zone-shade]");
         if (!card) return;
 
@@ -26,9 +25,6 @@ export function ZonesMotion() {
         const enter = { trigger: slide, start: "top bottom", end: "top top", scrub: 0.6 };
         if (title)
           gsap.from(title, { yPercent: 40, autoAlpha: 0.2, ease: "none", scrollTrigger: enter });
-        if (photo) {
-          gsap.from(photo, { y: 140, rotation: 3, ease: "none", scrollTrigger: enter });
-        }
         if (bg) {
           gsap.fromTo(
             bg,
