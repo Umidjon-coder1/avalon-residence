@@ -4,18 +4,18 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { ConsultCta } from "@/components/lead/ConsultCta";
 import { Heading } from "@/components/ui/Heading";
-import { HomeIcon, InstagramIcon, ParkingIcon, TelegramIcon } from "@/components/ui/icons";
+import { THome, TInstagramCircle, TParking, TTelegramCircle } from "@/components/ui/tilda-icons";
 import { HeroMotion } from "@/components/motion/HeroMotion";
 import heroDesktop from "../../../public/images/hero/hero-02.webp";
 import heroMobile from "../../../public/images/hero/hero-05.png";
 
-const badgeIcons = [HomeIcon, ParkingIcon];
+const badgeIcons = [THome, TParking];
 
 const socialIcon =
-  "grid size-10 place-items-center rounded-full bg-cream text-navy shadow-icon transition-transform hover:scale-105";
+  "block size-10 rounded-full text-cream shadow-icon transition-transform hover:scale-105";
 
 /**
- * Bosh ekran (Figma 1-blok, T2.1). Sahifa chetidan 10 px ichkarida yumaloq karta.
+ * Bosh ekran (Figma 1-blok, T2.1). Sahifa chetidan 10 px ichkarida yumaloq karta, barcha ekranlarda to'liq balandlik.
  * Mobilda portret rasm (Tilda mobil versiyasidagi), desktopda keng rasm.
  */
 export function Hero() {
@@ -57,7 +57,7 @@ export function Hero() {
 
   return (
     <section className="p-[var(--frame-inset)]">
-      <div className="relative isolate h-[max(560px,calc(100svh-2*var(--frame-inset)))] overflow-hidden rounded-card bg-navy lg:h-[clamp(600px,50vw,960px)]">
+      <div className="relative isolate h-[max(560px,calc(100svh-2*var(--frame-inset)))] overflow-hidden rounded-card bg-navy">
         <picture>
           <source media={desktopMedia} srcSet={desktopSrcSet} />
           <source srcSet={mobileSrcSet} />
@@ -68,16 +68,16 @@ export function Hero() {
             className="absolute inset-0 -z-10 size-full object-cover will-change-transform"
           />
         </picture>
-        {/* Figma: yuqori o'ngdan pastki chapga 0 -> 60% qora gradient */}
+        {/* Yuqori o'ngdan pastki chapga yengil qora gradient: rasm yorug' qoladi, matn o'qiladi */}
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(217deg,transparent,rgb(0_0_0/0.6))]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(217deg,transparent_35%,rgb(0_0_0/0.45))]"
         />
 
         <div className="flex h-full flex-col justify-end px-[calc(var(--gutter)-var(--frame-inset))] pb-[clamp(32px,6.25vw,120px)]">
           <ul className="flex flex-wrap gap-4">
             {badges.map((badge, i) => {
-              const Icon = badgeIcons[i] ?? HomeIcon;
+              const Icon = badgeIcons[i] ?? THome;
               return (
                 <li
                   key={badge}
@@ -95,7 +95,7 @@ export function Hero() {
             as="h1"
             size="display"
             data-hero="title"
-            className="mt-4 max-w-[681px] text-white"
+            className="mt-4 max-w-[760px] text-balance text-white"
           >
             {t("title")}
           </Heading>
@@ -109,13 +109,13 @@ export function Hero() {
         <ul className="absolute right-[calc(var(--gutter)-var(--frame-inset))] bottom-[clamp(32px,6.25vw,120px)] hidden flex-col gap-4 md:flex">
           <li data-hero="social">
             <a href={site.instagram} target="_blank" rel="noopener" className={socialIcon}>
-              <InstagramIcon className="size-6" />
+              <TInstagramCircle className="size-full" />
               <span className="sr-only">{ts("instagram")}</span>
             </a>
           </li>
           <li data-hero="social">
             <a href={site.telegram} target="_blank" rel="noopener" className={socialIcon}>
-              <TelegramIcon className="size-6" />
+              <TTelegramCircle className="size-full" />
               <span className="sr-only">{ts("telegram")}</span>
             </a>
           </li>

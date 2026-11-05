@@ -83,6 +83,8 @@ test("rejalar: tab filtri va ariza reja id si bilan", async ({ page }) => {
   const sent = await mockLead(page);
   await page.goto("/");
   const plans = page.locator("#rejalar");
+  // Bo'lim scroll'da paydo bo'ladi (data-reveal), shuning uchun avval unga boriladi
+  await plans.scrollIntoViewIfNeeded();
   await plans.getByRole("tab", { name: "3" }).click();
   await expect(plans.locator("li")).toHaveCount(4);
   await plans.getByRole("tab", { name: "Jami" }).click();
@@ -116,6 +118,21 @@ test("mobil menyu: ochiladi va havola bosilganda yopiladi", async ({ page, isMob
   await menu.getByRole("link", { name: "Aloqa" }).click();
   await expect(page.locator("dialog[open]")).toHaveCount(0);
   await expect(page).toHaveURL(/#aloqa$/);
+});
+
+test("aloqa vidjeti: scroll'dan keyin chiqadi, Telegram va telefon", async ({ page }) => {
+  await page.goto("/");
+  const toggle = page.getByRole("button", { name: "Biz bilan bog'lanish" });
+  const root = page.locator("[data-shown]");
+  await expect(root).toHaveAttribute("data-shown", "false");
+  await page.locator("#joylashuv").scrollIntoViewIfNeeded();
+  await expect(root).toHaveAttribute("data-shown", "true");
+  await toggle.click();
+  const widget = page.locator("#contact-widget");
+  await expect(widget.locator('a[href="https://t.me/avalonresidence_uz"]')).toBeVisible();
+  await expect(widget.locator('a[href="tel:+998910710105"]')).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
 });
 
 test("API: bot va noto'g'ri ma'lumot", async ({ request }) => {

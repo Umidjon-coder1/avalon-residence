@@ -4,48 +4,77 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { mq } from "@/lib/motion";
 
 /**
- * Joylashuv (T4.5): scroll bilan mashina masofalar chizig'i bo'ylab yuradi, orqasidan oltin chiziq chiziladi,
- * mashina yetib kelgan nuqtalar to'ladi. Faqat desktop'da (mobilda mashina va chiziq yo'q).
- * Xarita `<img>` sifatida ulangan, uning ichidagi yo'llarni chizish keyingi bosqichda (inline SVG og'ir).
+ * Joylashuv (T4.5): scroll bilan mashina masofalar yo'li bo'ylab yuradi, orqasidan oltin chiziq chiziladi,
+ * mashina yetib kelgan nuqtalar to'ladi. Desktopda yo'l gorizontal, mobil va planshetda vertikal
+ * (mashina tepadan pastga yuradi). Mashina yurganda biroz "chayqaladi", to'xtaganda tekislanadi.
  */
 export function LocationMotion() {
   useGSAP(() => {
     const mm = gsap.matchMedia();
-    mm.add(`${mq.motion} and ${mq.desktop}`, () => {
+    mm.add({ motion: mq.motion, desktop: mq.desktop }, (ctx) => {
+      const { motion, desktop } = ctx.conditions as { motion: boolean; desktop: boolean };
+      if (!motion) return;
       const route = document.querySelector<HTMLElement>("[data-route]");
       const car = route?.querySelector<HTMLElement>("[data-route-car]");
       const line = route?.querySelector<HTMLElement>("[data-route-line]");
       if (!route || !car || !line) return;
       const stops = gsap.utils.toArray<HTMLElement>("[data-route-stop]", route);
+      const axis = desktop ? "x" : "y";
 
-      const progress = { x: 0 };
+      // Mashina oldi (yo'l boshidan, px): desktopda o'ng cheti, mobilda pastki cheti (rasm 90° burilgan)
+      const front = () => {
+        const r = route.getBoundingClientRect();
+        const c = car.getBoundingClientRect();
+        return desktop ? c.right - r.left - c.width * 0.15 : c.bottom - r.top - c.height * 0.15;
+      };
+      const length = () => (desktop ? route.offsetWidth : route.offsetHeight);
+
       const update = () => {
-        const routeBox = route.getBoundingClientRect();
-        const carFront = progress.x + car.offsetWidth * 0.85;
-        gsap.set(car, { x: progress.x });
-        gsap.set(line, { scaleX: Math.min(1, carFront / routeBox.width) });
+        const r = route.getBoundingClientRect();
+        const head = front();
+        gsap.set(line, desktop ? { scaleX: head / length() } : { scaleY: head / length() });
         for (const stop of stops) {
-          const box = stop.getBoundingClientRect();
-          const center = box.left - routeBox.left + box.width / 2;
-          stop.dataset.reached = String(carFront >= center);
+          const b = stop.getBoundingClientRect();
+          const center = desktop ? b.left - r.left + b.width / 2 : b.top - r.top + b.height / 2;
+          stop.dataset.reached = String(head >= center);
         }
       };
 
-      gsap.set(line, { scaleX: 0 });
-      gsap.to(progress, {
-        x: () => route.offsetWidth - car.offsetWidth,
-        ease: "none",
-        onUpdate: update,
-        scrollTrigger: {
-          trigger: route,
-          start: "top 80%",
-          end: "bottom 25%",
-          scrub: 0.6,
-          invalidateOnRefresh: true,
+      // Yo'l oxirigacha: mashinaning ko'rinadigan uzunligi va boshlang'ich joyi hisobga olinadi
+      const distance = () => {
+        const r = route.getBoundingClientRect();
+        const c = car.getBoundingClientRect();
+        const prev = Number(gsap.getProperty(car, axis)) || 0;
+        return desktop ? r.right - c.right + prev : r.bottom - c.bottom + prev - 8;
+      };
+
+      gsap.set(line, desktop ? { scaleX: 0 } : { scaleY: 0 });
+      const drive = gsap.fromTo(
+        car,
+        { [axis]: 0 },
+        {
+          [axis]: distance,
+          ease: "none",
+          onUpdate: update,
+          scrollTrigger: {
+            trigger: route,
+            start: desktop ? "top 80%" : "top 70%",
+            end: desktop ? "bottom 25%" : "bottom 55%",
+            scrub: 0.8,
+            invalidateOnRefresh: true,
+            // Tezlikka qarab yengil chayqalish (kuzov burilishi)
+            onUpdate: (self) => {
+              const tilt = gsap.utils.clamp(-4, 4, self.getVelocity() / 400);
+              gsap.to(car, { rotation: tilt, duration: 0.4, overwrite: "auto" });
+            },
+            onScrubComplete: () => gsap.to(car, { rotation: 0, duration: 0.5 }),
+          },
         },
-      });
+      );
+      update();
 
       return () => {
+        drive.scrollTrigger?.kill();
         gsap.set([car, line], { clearProps: "transform" });
         stops.forEach((s) => delete s.dataset.reached);
       };

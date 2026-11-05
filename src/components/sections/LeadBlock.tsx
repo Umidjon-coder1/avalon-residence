@@ -2,11 +2,11 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { LeadCard } from "@/components/lead/LeadCard";
 import { Container } from "@/components/ui/Container";
-import { PeopleIcon, SchoolIcon, SeesawIcon, ShieldCheckIcon } from "@/components/ui/icons";
+import { TPeople, TSchool, TSeesaw, TShield } from "@/components/ui/tilda-icons";
 import photo from "../../../public/images/lead/lead-01.webp";
 
 /** `lead.perks` tartibi bilan bir xil */
-const perkIcons = [SchoolIcon, PeopleIcon, SeesawIcon, ShieldCheckIcon];
+const perkIcons = [TSchool, TPeople, TSeesaw, TShield];
 
 /**
  * "Xonadon tanlashda yordam beramiz" (Figma 5-blok).
@@ -33,7 +33,7 @@ export function LeadBlock() {
                 className="absolute top-1/2 right-[clamp(16px,2.0833vw,40px)] left-[clamp(16px,2.0833vw,40px)] h-px bg-white"
               />
               {perks.map((perk, i) => {
-                const Icon = perkIcons[i] ?? SchoolIcon;
+                const Icon = perkIcons[i] ?? TSchool;
                 return (
                   <li
                     key={perk}

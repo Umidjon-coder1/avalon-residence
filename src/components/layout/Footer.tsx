@@ -3,11 +3,11 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { navItems } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
-import { ArrowUpIcon, InstagramIcon, TelegramIcon } from "@/components/ui/icons";
+import { TArrowUp, TInstagramCircle, TTelegramCircle } from "@/components/ui/tilda-icons";
 import logoFooter from "../../../public/images/brand/logo-footer.webp";
 
 const socialCircle =
-  "grid size-[clamp(56px,4.1667vw,80px)] place-items-center rounded-full bg-gold text-ink transition-colors hover:bg-gold-alt";
+  "block size-[clamp(56px,4.1667vw,80px)] rounded-full text-gold transition-colors hover:text-gold-alt";
 
 /**
  * Footer (T1.6). Figma 10-blok: logo, menyu, "Yuqoriga"; chiziq; manzil, ijtimoiy tarmoqlar, ish soatlari; ©.
@@ -48,7 +48,7 @@ export function Footer() {
             <a href="#top" className="group flex items-center gap-6 text-body text-cream">
               {t("toTop")}
               <span className="grid size-[clamp(56px,4.1667vw,80px)] place-items-center rounded-full bg-gold text-white transition-colors group-hover:bg-gold-alt">
-                <ArrowUpIcon className="size-[clamp(28px,2.0833vw,40px)]" />
+                <TArrowUp className="size-[clamp(28px,2.0833vw,40px)]" />
               </span>
             </a>
           </div>
@@ -63,11 +63,11 @@ export function Footer() {
 
             <div className="flex gap-10 md:justify-center">
               <a href={site.instagram} target="_blank" rel="noopener" className={socialCircle}>
-                <InstagramIcon className="size-1/2" />
+                <TInstagramCircle className="size-full" />
                 <span className="sr-only">{ts("instagram")}</span>
               </a>
               <a href={site.telegram} target="_blank" rel="noopener" className={socialCircle}>
-                <TelegramIcon className="size-1/2" />
+                <TTelegramCircle className="size-full" />
                 <span className="sr-only">{ts("telegram")}</span>
               </a>
             </div>

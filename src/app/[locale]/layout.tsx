@@ -15,6 +15,7 @@ import { motionBootScript } from "@/lib/motion";
 import Image from "next/image";
 import logoMark from "../../../public/images/brand/logo-mark.webp";
 import { Footer } from "@/components/layout/Footer";
+import { ContactWidget } from "@/components/layout/ContactWidget";
 import "../globals.css";
 // PP Right Gothic @font-face: build/dev oldidan scripts/fetch-fonts.mjs yaratadi (gitignore)
 import "../fonts-private.css";
@@ -46,7 +47,7 @@ const headingFallback = Oswald({
 /** PP Right Gothic build vaqtida ulangan bo'lsa, sahifa boshida oldindan yuklanadi */
 const headingFontUrl = process.env.FONT_HEADING_URL ? "/fonts/PPRightGothic-Medium.woff2" : null;
 
-const clientNamespaces = ["nav", "cta", "form", "social", "plans"] as const;
+const clientNamespaces = ["nav", "cta", "form", "social", "plans", "widget"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -122,6 +123,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             {children}
             <Footer />
           </ConsultProvider>
+          <ContactWidget />
           <Analytics />
           <MotionRoot />
         </NextIntlClientProvider>

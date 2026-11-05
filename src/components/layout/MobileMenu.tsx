@@ -8,11 +8,12 @@ import { navItems } from "@/content/nav";
 import { ConsultButton } from "@/components/lead/ConsultButton";
 import { buttonStyles } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
-import { InstagramIcon, MenuIcon, PhoneIcon, TelegramIcon } from "@/components/ui/icons";
+import { MenuIcon } from "@/components/ui/icons";
+import { TInstagramCircle, TPhone, TTelegramCircle } from "@/components/ui/tilda-icons";
 import { LocaleSwitch } from "./LocaleSwitch";
 import logoMenu from "../../../public/images/brand/logo-menu.webp";
 
-const social = "grid size-[30px] place-items-center rounded-full bg-navy text-white";
+const social = "block size-[30px] rounded-full text-navy";
 
 /**
  * Mobil menyu: o'ngdan chiquvchi krem panel (Tilda mobil versiyasi asosida).
@@ -64,16 +65,16 @@ export function MobileMenu() {
 
         <div className="mt-auto flex flex-col gap-6 pt-10">
           <a href={site.phones.main.href} className="flex items-center gap-2 text-lg">
-            <PhoneIcon className="size-5 text-gold" />
+            <TPhone className="size-5 text-gold" />
             {site.phones.main.display}
           </a>
           <div className="flex gap-3">
             <a href={site.telegram} target="_blank" rel="noopener" className={social}>
-              <TelegramIcon className="size-4" />
+              <TTelegramCircle className="size-full" />
               <span className="sr-only">{tSocial("telegram")}</span>
             </a>
             <a href={site.instagram} target="_blank" rel="noopener" className={social}>
-              <InstagramIcon className="size-4" />
+              <TInstagramCircle className="size-full" />
               <span className="sr-only">{tSocial("instagram")}</span>
             </a>
           </div>

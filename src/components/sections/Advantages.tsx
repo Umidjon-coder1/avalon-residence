@@ -3,11 +3,11 @@ import { useTranslations } from "next-intl";
 import { ConsultCta } from "@/components/lead/ConsultCta";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
-import { CarParkIcon, CinemaIcon, FaceIdIcon, QuakeHouseIcon } from "@/components/ui/icons";
+import { TCarPark, TCinema, TFaceId, TQuakeHouse } from "@/components/ui/tilda-icons";
 import photo from "../../../public/images/advantages/advantages-01.webp";
 
 /** `features` tartibi bilan bir xil: kirish nazorati, parking, kinoteatr, seysmik */
-const featureIcons = [FaceIdIcon, CarParkIcon, CinemaIcon, QuakeHouseIcon];
+const featureIcons = [TFaceId, TCarPark, TCinema, TQuakeHouse];
 
 /**
  * "Afzalliklari detallarda!" (Figma 3-blok). Chapda 1080x800 rasm, ustiga 192 px kirib turgan oltin karta.
@@ -59,7 +59,7 @@ export function Advantages() {
 
             <ul className="mt-[clamp(24px,2.1vw,40px)] grid gap-y-8 sm:grid-cols-2 sm:gap-x-6">
               {features.map((feature, i) => {
-                const Icon = featureIcons[i] ?? FaceIdIcon;
+                const Icon = featureIcons[i] ?? TFaceId;
                 return (
                   <li key={feature} data-reveal className="flex items-center gap-4 text-cream">
                     <Icon className="size-[clamp(44px,3.3333vw,64px)] shrink-0" />

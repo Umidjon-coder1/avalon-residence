@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
-import { ArrowDownRightIcon } from "./icons";
+import { TArrowDownRight } from "./tilda-icons";
 
 /**
  * Figma'dagi asosiy CTA: matnli to'rtburchak + yonida strelkali kvadrat (radius 20).
@@ -65,7 +65,7 @@ export function CtaParts({ label, variant = "gold", size = "lg", icon, stretch }
         )}
       >
         {icon ?? (
-          <ArrowDownRightIcon
+          <TArrowDownRight
             className={cn(
               s.icon,
               "transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5",

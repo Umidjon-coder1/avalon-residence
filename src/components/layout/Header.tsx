@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { navItems } from "@/content/nav";
 import { Link } from "@/i18n/navigation";
-import { PhoneIcon } from "@/components/ui/icons";
+import { TPhone } from "@/components/ui/tilda-icons";
 import { LocaleSwitch } from "./LocaleSwitch";
 import { MobileMenu } from "./MobileMenu";
 import logoMark from "../../../public/images/brand/logo-mark.webp";
@@ -61,9 +61,9 @@ export function Header() {
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <LocaleSwitch className={`${pill} w-20 justify-center border border-[#999]`} />
-          <a href={site.phones.main.href} className={`${pill} w-[200px] gap-2.5 px-4`}>
-            <PhoneIcon className="size-6 text-gold-alt" />
-            <span className="ml-auto whitespace-nowrap">{site.phones.main.display}</span>
+          <a href={site.phones.main.href} className={`${pill} gap-2.5 pr-5 pl-4`}>
+            <TPhone className="size-6 text-gold-alt" />
+            <span className="whitespace-nowrap">{site.phones.main.display}</span>
           </a>
         </div>
       </div>
@@ -75,7 +75,7 @@ export function Header() {
           aria-label={site.phones.main.display}
           className="grid size-11 place-items-center rounded-card text-gold-alt"
         >
-          <PhoneIcon className="size-6" />
+          <TPhone className="size-6" />
         </a>
         <MobileMenu />
       </div>

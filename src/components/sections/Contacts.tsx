@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { LeadCard } from "@/components/lead/LeadCard";
 import { Container } from "@/components/ui/Container";
-import { LocationPinIcon, PhoneIcon } from "@/components/ui/icons";
+import { TPhoneSolid, TPin } from "@/components/ui/tilda-icons";
 
 const circle = "grid size-10 place-items-center rounded-full border border-white";
 
@@ -37,7 +37,7 @@ export function Contacts() {
                 className="flex flex-col items-center gap-2 px-4 hover:text-white"
               >
                 <span className={circle}>
-                  <LocationPinIcon className="size-6" />
+                  <TPin className="size-5" />
                 </span>
                 <span className="max-w-[180px]">{tc("address")}</span>
               </a>
@@ -46,7 +46,7 @@ export function Contacts() {
                 className="flex flex-col items-center gap-2 px-4 hover:text-white"
               >
                 <span className={circle}>
-                  <PhoneIcon className="size-5" />
+                  <TPhoneSolid className="size-5" />
                 </span>
                 <span>{site.phones.main.display}</span>
               </a>

@@ -200,6 +200,19 @@
   }
 }
 
+/* Aloqa vidjeti tugmasi atrofidagi to'lqin */
+@keyframes widget-ping {
+  0% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    scale: 1.6;
+  }
+}
+
 @keyframes motion-fade {
   from {
     opacity: 0;

@@ -53,6 +53,9 @@
     "addressLabel": "Manzil:",
     "address": "Toshkent, Yashnobod tumani, Tuzel massivi, 2-kvartal, 33",
     "mapLink": "Xaritada ko’rish",
+    "route": "Qanday borish",
+    "openMap": "Xaritada ochish",
+    "mapTitle": "Avalon Residence xaritada",
     "places": [
       {
         "distance": "210 M",
@@ -186,7 +189,9 @@
   },
   "widget": {
     "telegram": "Telegram",
-    "phone": "Telefon raqam"
+    "phone": "Telefon raqam",
+    "open": "Biz bilan bog'lanish",
+    "close": "Yopish"
   },
   "social": {
     "instagram": "Instagram",
