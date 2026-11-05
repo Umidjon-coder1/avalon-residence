@@ -9,7 +9,10 @@ Bo'lim nomi rasm birinchi ishlatilgan Tilda blokidan olingan. `meta` sahifa `<he
 - Fotolar (webp, jpg, png > 100 KB) `next/image` orqali AVIF/WebP va `sizes` bilan beriladi, original 1920 px dan oshmaydi
 - 500-800 KB lik SVG fayllar (`hero-06`, `meta-01`, `menu-01`, `footer-01`, `misc-02`, `location-01`) ichida raster bo'lishi mumkin: S1 da SVGO yoki toza vektor/WebP bilan almashtiriladi
 - Reja rasmlari (`plans/`, 512x600 PNG, ~20 KB) WebP ga o'tkaziladi, S5 da kattalashtirish uchun yuqori sifatli manba so'raladi
-- Ikonalar inline SVG komponentga aylantiriladi
+- Ikonalar inline SVG komponentga aylantiriladi (`src/components/ui/icons.tsx`)
+- **S1 da qilindi:** logolar ichida 4096 px PNG bor ekan. Chromium'da kerakli o'lchamda render qilinib WebP ga o'tkazildi:
+  `brand/logo-mark.webp` (header, 240x240, 4 KB, manba `hero-06.svg`), `brand/logo-footer.webp` (480x144, 13 KB, manba `footer-01.svg`),
+  `brand/logo-menu.webp` (480x144, 16 KB, manba `menu-01.svg`). Eski SVG'lar hozircha joyida, S3 da favicon bilan birga tozalanadi
 
 | Fayl | Tilda nomi | Bo'lim | O'lcham | KB |
 |------|-----------|--------|---------|----|

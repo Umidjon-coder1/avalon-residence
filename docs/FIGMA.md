@@ -30,6 +30,18 @@ Konteyner kengligi asosan 1728 px (har tomonda 96 px). 8-blok 2040 px: kartalar 
 - Footerda quruvchi: ARX PROEKT / MAMUR PROEKT.
 - Maydon: Figma'da 48-89 m². Muallif qarori: saytdagi raqamlar o'zgartirilmaydi, farq shu ro'yxatda qayd etiladi.
 
+## Figma va Tilda farqlari (S1 da hal qilingan, D2 bo'yicha Tilda olingan)
+
+| Joy | Figma | Kodda (Tilda) |
+|-----|-------|---------------|
+| Header va footer menyusi | 6 band, "Qurilish" bor | 5 band, "Qurilish" yo'q (Tilda'da bunday bo'lim va anchor yo'q) |
+| Til tugmasi | "RUS" | "RU" / "Узб" |
+| Hero va footer ijtimoiy tarmoqlar | Instagram, YouTube, Telegram | Instagram, Telegram. Tilda'da YouTube havolasi yo'q |
+| Footer ish soatlari | Du-Ju 10:00-20:00, Sha-Ya 10:00-19:00 | Du-Ju 9:00-19:00 (T2.10 da muallif bilan aniqlanadi) |
+| Footer manzili | "Toshkent, Yashnobod tumani, Tuzel massivi, 2-kvartal, 33" | "Toshkent, Yashnobod t, Tuzel m, 2-kvartal, 33" |
+| Popup | Figma'da yo'q | Tilda tuzilmasi, Figma 5-blok formasining uslubi |
+| Mobil header | Maket yo'q | Logo tab, telefon va burger tugmasi, o'ngdan krem panel (Tilda asosida, telefon raqami qo'shildi) |
+
 ## REST API orqali olingan ma'lumot
 
 MCP Starter limiti tugagani uchun dizayn `npm run figma` (`scripts/figma-fetch.mjs`) bilan olinadi. `FIGMA_TOKEN` kerak.

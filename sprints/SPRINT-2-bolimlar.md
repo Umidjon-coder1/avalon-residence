@@ -2,7 +2,7 @@
 
 **Maqsad:** Frame 485 ning 1920px dagi aniq kodi. Animatsiya hali yo'q, lekin tuzilma unga tayyor.
 
-- [ ] T2.1 Hero
+- [x] T2.1 Hero (S1 da header bilan birga qilindi)
 - [ ] T2.2 Afzalliklar
 - [ ] T2.3 Joylashuv: SVG xarita, masofalar, Yandex havola
 - [ ] T2.4 Lead bloki va qulayliklar

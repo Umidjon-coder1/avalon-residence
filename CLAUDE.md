@@ -18,7 +18,9 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0 tugadi** (T0.3 PR merge bo'lgach yopiladi). Keyingi: **S1 dizayn tizimi**, keyin **S2 1:1 bo'limlar**. Muallifning ustuvorligi: 1:1 ko'chirish kodini tezroq yozish, qolganini keyin ko'rib chiqish.
+- **S0 tugadi.** **S1 deyarli tugadi** (faqat T1.2 asl shriftlar muallif qaroriga bog'liq). Hero (T2.1) ham tayyor. Keyingi: **S2**, T2.2 dan. Muallifning ustuvorligi: 1:1 ko'chirish kodini tezroq yozish, qolganini keyin ko'rib chiqish.
+- Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
+  popup va forma `src/components/lead/` (har qanday CTA: `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`.
 - Kontent tayyor: `messages/uz.json`, `messages/ru.json` (kalitlari bir xil), `src/content/site.ts`, `src/content/apartments.ts` (25 reja).
 - Rasmlar: `public/images/<bo'lim>/`, ro'yxat `docs/ASSETS.md` da. Figma bo'limlar xaritasi va token'lar `docs/FIGMA.md` da.
 - Tilda baseline: `docs/AUDIT.md` va `docs/baseline/`.

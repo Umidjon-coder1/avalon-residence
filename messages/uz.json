@@ -10,7 +10,10 @@
     "plans": "Xonadonlar",
     "contacts": "Aloqa",
     "switchLocale": "RU",
-    "toTop": "Yuqoriga"
+    "toTop": "Yuqoriga",
+    "menu": "Menyu",
+    "close": "Yopish",
+    "home": "Bosh sahifa"
   },
   "cta": {
     "consult": "Konsultatsiya olish",
@@ -113,7 +116,14 @@
     "name": "Ismingiz?",
     "phone": "Telefon raqam",
     "popupTitle": "Bepul konsultatsiya olish uchun ma'lumotlaringizni qoldiring",
-    "popupSubmit": "YUBORISH"
+    "popupSubmit": "YUBORISH",
+    "nameError": "Ismingizni kiriting",
+    "phoneError": "Telefon raqamni to’liq kiriting",
+    "sending": "Yuborilmoqda…",
+    "successTitle": "Rahmat!",
+    "successText": "Arizangiz qabul qilindi. Menejerimiz tez orada siz bilan bog’lanadi.",
+    "error": "Xatolik yuz berdi. Iltimos, qayta urinib ko’ring yoki qo’ng’iroq qiling.",
+    "close": "Yopish"
   },
   "zones": {
     "title": "Faoliyat hududlari",
@@ -194,5 +204,10 @@
   "widget": {
     "telegram": "Telegram",
     "phone": "Telefon raqam"
+  },
+  "social": {
+    "instagram": "Instagram",
+    "telegram": "Telegram",
+    "call": "Qo’ng’iroq qilish"
   }
 }
