@@ -11,7 +11,7 @@
 - [x] T4.7 Materiallar: scroll'da materiallar navbat bilan yonadi, kechki yoritish rejimi (Kunduzi / Kechqurun)
 - [x] T4.8 Rejalar: tab o'tishi, karta hover, faol tab foni siljib o'tadi (FLIP)
 - [x] T4.9 Mikro-interaksiyalar: tugma, menyu, popup, aloqa vidjeti, desktopda maxsus kursor
-- [~] T4.10 Mobil versiya: yengillashtirilgan animatsiyalar, past quvvatli qurilmada test (Lenis faqat desktop, idle start)
+- [x] T4.10 Mobil versiya: yengillashtirilgan animatsiyalar, past quvvatli qurilmada test (Lenis faqat desktop, animatsiyalar idle'da)
 
 **Tayyor:** maqsadli LCP/CLS saqlangan, reduced-motion'da kontent to'liq, muallif tasdiqlagan.
 
@@ -72,6 +72,20 @@
     Hovli va parking kunduzgi/kechki renderlari bir xil burchakdan, fasad kunduzgisi boshqa burchakdan (Tilda rasmi).
   - E2E 17 test o'tdi.
 
+- 2026-11-05 (bulut, 6-bosqich, T4.10 tezlik):
+  - Lighthouse (lokal, har commit 2 marta): 1-bosqich mobil 84-85 / TBT 70-90 ms; 2-5 bosqichlar mobil 78-87 / TBT 170-240 ms.
+    Sabab: hududlar, materiallar, mashina va kursor animatsiyalari sahifa ochilganda bitta uzun vazifada tayyorlanardi.
+    Birinchi o'lchovdagi 52 ball tasodif: server yangi ishga tushgan, rasmlar hali optimallanmagan edi.
+  - Tuzatish: `onIdle()` (`src/lib/motion.ts`). ZonesMotion, FacadeMotion, LocationMotion, CursorMotion brauzer bo'sh qolganda,
+    alohida-alohida tayyorlanadi. Tilda ikonkalari koordinatalari 0.01 gacha yaxlitlandi (fayl 31 -> 23 KB, ko'rinish bir xil).
+  - Yakuniy: **mobil 83-90, TBT 60-70 ms, CLS 0.005, LCP 3.3-4.4 s** (simulyatsiya, 1-bosqichda 4.0-4.2 s);
+    **desktop 97-98, TBT 0, CLS 0, LCP 0.8-1.0 s**.
+  - Telefon (Pixel 7 emulyatsiya): reduced-motion'da yashirin element yo'q; CPU 4x sekin holatda oxirigacha scroll, xato yo'q,
+    barcha `data-reveal` ochiladi. E2E 17 test o'tdi.
+  - **S4 tugadi** (muallif tasdig'i va `main` ga qo'shish qoldi).
+
 ## Handoff
 
-Keyingi: T4.10 telefonda test va Lighthouse (rasmlar ko'paydi, LCP/CLS tekshiriladi), keyin muallif tasdig'i bilan S4 `main` ga, S5.
+S4 ning barcha vazifalari bajarildi. Keyingi: muallif preview'da tasdiqlasa, PR ochib `main` ga (production deploy), keyin S5.
+Ochiq qolgan ixtiyoriy ishlar: fasadning old tomondan kunduzgi renderi bo'lsa `DayNightView` da bir xil burchakdan almashadi;
+Yandex xarita preview'da tekshirilishi kerak (konteynerdan yopiq).

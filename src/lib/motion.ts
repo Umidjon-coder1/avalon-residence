@@ -38,3 +38,16 @@ export const mq = {
  * `intro`: birinchi tashrif, parda ko'rsatiladi.
  */
 export const motionBootScript = `(function(){try{var d=document.documentElement;if(matchMedia('${mq.motion}').matches){d.classList.add('motion');if(!localStorage.getItem('${INTRO_KEY}'))d.classList.add('intro')}}catch(e){}})()`;
+
+/**
+ * Og'ir bo'lmagan, lekin birinchi ekranda kerak emas ishlarni brauzer bo'sh qolganda bajaradi
+ * (sahifa ochilishida uzun "qotish" bo'lmasligi uchun, TBT). Bekor qilish funksiyasini qaytaradi.
+ */
+export function onIdle(cb: () => void, timeout = 1500): () => void {
+  if (typeof window.requestIdleCallback === "function") {
+    const id = window.requestIdleCallback(cb, { timeout });
+    return () => window.cancelIdleCallback(id);
+  }
+  const id = window.setTimeout(cb, 300);
+  return () => window.clearTimeout(id);
+}
