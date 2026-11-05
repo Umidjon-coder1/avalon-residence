@@ -10,6 +10,7 @@ import car from "../../../public/images/location/location-07.png";
 import photo from "../../../public/images/location/location-06.png";
 import mapDesktop from "../../../public/images/location/map-desktop.svg";
 import mapMobile from "../../../public/images/location/map-mobile.svg";
+import { LocationMotion } from "@/components/motion/LocationMotion";
 
 type Place = { distance: string; name: string };
 
@@ -29,12 +30,22 @@ export function Location() {
       </Container>
 
       {/* Masofalar chizig'i: 1920 px da ekran chetidan chetigacha */}
-      <div className="relative mx-auto mt-[clamp(32px,2.9vw,56px)] max-w-[1920px] overflow-hidden">
+      <div
+        data-route
+        className="relative mx-auto mt-[clamp(32px,2.9vw,56px)] max-w-[1920px] overflow-hidden"
+      >
         <span
           aria-hidden
-          className="absolute top-[47px] right-0 left-0 hidden h-0.5 bg-gold lg:block"
+          className="absolute top-[47px] right-0 left-0 hidden h-0.5 bg-gold/25 lg:block"
+        />
+        {/* Mashina bilan birga chiziladigan chiziq (LocationMotion) */}
+        <span
+          aria-hidden
+          data-route-line
+          className="absolute top-[47px] right-0 left-0 hidden h-0.5 origin-left bg-gold lg:block"
         />
         <Image
+          data-route-car
           src={car}
           alt=""
           sizes="200px"
@@ -43,10 +54,11 @@ export function Location() {
         <Container className="lg:px-0">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-6 lg:gap-0 lg:pt-[31px] lg:pr-[4%] lg:pl-[12.5%]">
             {places.map((place) => (
-              <li key={place.name} className="relative">
+              <li key={place.name} data-reveal className="relative">
                 <span
                   aria-hidden
-                  className="block size-8 rounded-full border-2 border-gold bg-white lg:ml-[21px]"
+                  data-route-stop
+                  className="block size-8 rounded-full border-2 border-gold bg-white transition-colors duration-500 data-[reached=true]:bg-gold lg:ml-[21px]"
                 />
                 <p className="mt-3 font-heading text-h3 font-medium text-gold uppercase lg:mt-10">
                   {place.distance}
@@ -61,14 +73,17 @@ export function Location() {
       <Container className="mt-[clamp(48px,4.7vw,92px)]">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,480fr)_minmax(0,1200fr)] lg:gap-12">
           <div className="flex flex-col">
-            <Heading as="h3" caps={false} className="text-gold">
+            <Heading as="h3" caps={false} data-reveal className="text-gold">
               {t("addressLabel")}
             </Heading>
-            <p className="mt-2 text-lead text-navy">{t("address")}</p>
+            <p data-reveal className="mt-2 text-lead text-navy">
+              {t("address")}
+            </p>
             <Image
               src={photo}
               alt=""
               sizes="(min-width: 1024px) 25vw, 100vw"
+              data-reveal="image"
               className="mt-5 aspect-square w-full rounded-card object-cover lg:mt-auto"
             />
             <CtaLink
@@ -83,7 +98,10 @@ export function Location() {
             />
           </div>
 
-          <picture className="block overflow-hidden rounded-card border border-gold">
+          <picture
+            data-reveal="image"
+            className="block overflow-hidden rounded-card border border-gold"
+          >
             <source media="(min-width: 768px)" srcSet={mapDesktop.src} />
             <img
               src={mapMobile.src}
@@ -97,6 +115,7 @@ export function Location() {
           </picture>
         </div>
       </Container>
+      <LocationMotion />
     </section>
   );
 }

@@ -10,6 +10,13 @@ async function mockLead(page: Page) {
   return sent;
 }
 
+/** Hero CTA: intro va kirish animatsiyasi tugashini kutib bosiladi */
+async function openHeroPopup(page: Page) {
+  const cta = page.locator("[data-hero='cta']").getByRole("button");
+  await expect(cta).toBeVisible({ timeout: 10_000 });
+  await cta.click();
+}
+
 async function fillLead(page: Page) {
   const dialog = page.locator("dialog[open]");
   await dialog.getByPlaceholder(/Ismingiz|Ваше имя/).fill("Test");
@@ -46,7 +53,7 @@ test("til almashtirish: uz -> ru -> uz", async ({ page, isMobile }) => {
 test("popup: validatsiya, niqob va UTM bilan yuborish", async ({ page }) => {
   const sent = await mockLead(page);
   await page.goto("/?utm_source=google&utm_campaign=brand&gclid=test123");
-  await page.getByRole("button", { name: "Konsultatsiya olish" }).first().click();
+  await openHeroPopup(page);
   const dialog = page.locator("dialog[open]");
   await expect(dialog).toBeVisible();
 
@@ -94,7 +101,7 @@ test("server xatosida telefon raqami ko'rsatiladi", async ({ page }) => {
     route.fulfill({ status: 502, json: { ok: false, error: "delivery_failed" } }),
   );
   await page.goto("/");
-  await page.getByRole("button", { name: "Konsultatsiya olish" }).first().click();
+  await openHeroPopup(page);
   const dialog = await fillLead(page);
   await dialog.getByRole("button", { name: "YUBORISH" }).click();
   await expect(dialog.getByRole("alert")).toContainText("+998-78 113 73 73");

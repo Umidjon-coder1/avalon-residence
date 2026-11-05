@@ -7,6 +7,8 @@ import { apartments, type Apartment } from "@/content/apartments";
 import { ConsultCta } from "@/components/lead/ConsultCta";
 import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/icons";
 import { cn } from "@/lib/cn";
+import { gsap, useGSAP } from "@/lib/gsap";
+import { mq } from "@/lib/motion";
 
 type Tab = "all" | Apartment["rooms"];
 
@@ -36,6 +38,24 @@ export function PlanSlider() {
   );
   const filtered = tab === "all" ? apartments : apartments.filter((a) => a.rooms === tab);
   const list = hydrated ? filtered : filtered.slice(0, SSR_CARDS);
+
+  // Tab almashganda kartalar o'ngdan ketma-ket kiradi (birinchi chizishda emas, T4.8)
+  const firstRender = useRef(true);
+  useGSAP(
+    () => {
+      if (firstRender.current) {
+        firstRender.current = false;
+        return;
+      }
+      if (!matchMedia(mq.motion).matches) return;
+      gsap.fromTo(
+        listRef.current?.children ?? [],
+        { autoAlpha: 0, x: 60 },
+        { autoAlpha: 1, x: 0, duration: 0.7, stagger: 0.06, overwrite: true },
+      );
+    },
+    { dependencies: [tab] },
+  );
 
   const select = (next: Tab) => {
     setTab(next);
@@ -77,7 +97,7 @@ export function PlanSlider() {
         {list.map((apt) => (
           <li
             key={apt.id}
-            className="relative flex w-[clamp(280px,25vw,480px)] shrink-0 snap-start flex-col rounded-card bg-white px-5 pt-10 pb-10 text-navy"
+            className="relative flex w-[clamp(280px,25vw,480px)] shrink-0 snap-start flex-col rounded-card bg-white px-5 pt-10 pb-10 text-navy transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-24px_rgb(11_34_57/0.45)]"
           >
             <div className="flex items-baseline justify-between px-5 text-lead leading-none">
               <span className="font-medium">{t("rooms", { count: apt.rooms })}</span>

@@ -23,6 +23,7 @@ export function Header() {
   return (
     <header
       id="top"
+      data-hero="header"
       className="absolute inset-x-[var(--frame-inset)] top-[var(--frame-inset)] z-30 flex items-start pr-3 pl-[calc(var(--gutter)-var(--frame-inset))]"
     >
       {/* Logo tab: yuqori burchaklari ichkariga egilgan oq quloq */}

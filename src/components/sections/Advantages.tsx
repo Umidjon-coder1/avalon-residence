@@ -27,11 +27,15 @@ export function Advantages() {
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 57vw, 100vw"
+            data-reveal="image"
             className="aspect-[1080/800] w-full rounded-card object-cover lg:col-[1/3] lg:row-start-1"
           />
-          <div className="relative -mt-10 rounded-card bg-gold px-[clamp(20px,3.3333vw,64px)] pt-[clamp(28px,2.0833vw,40px)] pb-[clamp(28px,2.0833vw,40px)] text-white lg:col-[2/4] lg:row-start-1 lg:mt-0">
+          <div
+            data-reveal
+            className="relative -mt-10 rounded-card bg-gold px-[clamp(20px,3.3333vw,64px)] pt-[clamp(28px,2.0833vw,40px)] pb-[clamp(28px,2.0833vw,40px)] text-white lg:col-[2/4] lg:row-start-1 lg:mt-0"
+          >
             <Heading size="display">{t("title")}</Heading>
-            <span aria-hidden className="mt-2 block h-px max-w-[680px] bg-cream" />
+            <span aria-hidden data-draw className="mt-2 block h-px max-w-[680px] bg-cream" />
 
             <ul className="mt-[clamp(24px,2.1vw,40px)] grid grid-cols-1 gap-y-[clamp(16px,2.1vw,40px)] sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-x-6">
               {stats.map((_, i) => (
@@ -41,7 +45,10 @@ export function Advantages() {
                 >
                   {t.rich(`stats.${i}`, {
                     b: (chunk) => (
-                      <b className="mx-1 font-heading text-[clamp(28px,2.0833vw,40px)] font-medium text-white first:ml-0 last:mr-0">
+                      <b
+                        data-count
+                        className="mx-1 font-heading text-[clamp(28px,2.0833vw,40px)] font-medium text-white first:ml-0 last:mr-0"
+                      >
                         {chunk}
                       </b>
                     ),
@@ -54,7 +61,7 @@ export function Advantages() {
               {features.map((feature, i) => {
                 const Icon = featureIcons[i] ?? FaceIdIcon;
                 return (
-                  <li key={feature} className="flex items-center gap-4 text-cream">
+                  <li key={feature} data-reveal className="flex items-center gap-4 text-cream">
                     <Icon className="size-[clamp(44px,3.3333vw,64px)] shrink-0" />
                     <span className="max-w-[240px] text-lead leading-[1.3]">{feature}</span>
                   </li>

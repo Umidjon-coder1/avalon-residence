@@ -10,6 +10,10 @@ import { ConsultProvider } from "@/components/lead/ConsultProvider";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@/components/analytics/Analytics";
+import { MotionRoot } from "@/components/motion/MotionRoot";
+import { motionBootScript } from "@/lib/motion";
+import Image from "next/image";
+import logoMark from "../../../public/images/brand/logo-mark.webp";
 import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
 // PP Right Gothic @font-face: build/dev oldidan scripts/fetch-fonts.mjs yaratadi (gitignore)
@@ -90,6 +94,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} className={`${headingFallback.variable} ${retni.variable} antialiased`}>
       <head>
+        {/* Animatsiya holati sahifa chizilishidan oldin (src/lib/motion.ts) */}
+        <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
         {headingFontUrl ? (
           <link
             rel="preload"
@@ -102,6 +108,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       </head>
       <body className="min-h-dvh">
         <JsonLd locale={locale} />
+        <div className="intro-curtain" aria-hidden>
+          <Image
+            src={logoMark}
+            alt=""
+            priority={false}
+            className="size-[clamp(96px,8vw,140px)] rounded-card"
+          />
+        </div>
         <NextIntlClientProvider messages={clientMessages}>
           <ConsultProvider>
             <Header />
@@ -109,6 +123,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
             <Footer />
           </ConsultProvider>
           <Analytics />
+          <MotionRoot />
         </NextIntlClientProvider>
       </body>
     </html>

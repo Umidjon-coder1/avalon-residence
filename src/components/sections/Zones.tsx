@@ -32,7 +32,10 @@ const media: Array<{ photo: StaticImageData; icon: StaticImageData }> = [
 function ZoneCard({ zone, index }: { zone: Zone; index: number }) {
   const { photo, icon } = media[index] ?? media[0];
   return (
-    <li className="relative isolate aspect-[500/480] w-[82vw] shrink-0 snap-start overflow-hidden rounded-[25px] text-white sm:w-[420px] lg:w-full">
+    <li
+      data-reveal
+      className="relative isolate aspect-[500/480] w-[82vw] shrink-0 snap-start overflow-hidden rounded-[25px] text-white sm:w-[420px] lg:w-full"
+    >
       <Image
         src={photo}
         alt=""

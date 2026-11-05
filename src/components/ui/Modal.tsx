@@ -42,6 +42,7 @@ export function Modal({
     <dialog
       ref={ref}
       aria-labelledby={labelledBy}
+      data-placement={placement}
       onClose={onClose}
       onClick={(e) => {
         // Faqat fon (dialog o'zi) bosilganda yopiladi

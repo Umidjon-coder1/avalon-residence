@@ -42,13 +42,14 @@ export function Facade() {
               src={hero}
               alt=""
               sizes="(min-width: 1024px) 42vw, 100vw"
+              data-reveal="image"
               className="aspect-[2/1] w-full rounded-card object-cover"
             />
           </div>
 
           <ul className="mt-[clamp(48px,4.7vw,90px)] grid gap-x-6 gap-y-[clamp(24px,3.2vw,62px)] sm:grid-cols-2 lg:grid-cols-3 lg:pl-10">
             {items.map((item, i) => (
-              <li key={item.value} className="flex items-center gap-6 text-white">
+              <li key={item.value} data-reveal className="flex items-center gap-6 text-white">
                 <Image
                   src={photos[i] ?? hero}
                   alt=""

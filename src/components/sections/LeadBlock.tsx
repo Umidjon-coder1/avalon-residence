@@ -22,7 +22,10 @@ export function LeadBlock() {
         <div className="grid gap-6 lg:grid-cols-[minmax(0,600fr)_minmax(0,1100fr)] lg:gap-7">
           <div className="flex flex-col gap-6">
             <LeadCard title={t("title")} text={t("text")} source="lead" className="flex-1" />
-            <ul className="relative grid grid-cols-2 rounded-card bg-gold px-[clamp(16px,2.0833vw,40px)] py-[clamp(20px,1.8vw,35px)] text-cream">
+            <ul
+              data-reveal
+              className="relative grid grid-cols-2 rounded-card bg-gold px-[clamp(16px,2.0833vw,40px)] py-[clamp(20px,1.8vw,35px)] text-cream"
+            >
               {/* Xoch shaklidagi ajratgich */}
               <span aria-hidden className="absolute inset-y-10 left-1/2 w-px bg-white" />
               <span
@@ -47,6 +50,7 @@ export function LeadBlock() {
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 57vw, 100vw"
+            data-reveal="image"
             className="aspect-[1100/800] h-full w-full rounded-card object-cover"
           />
         </div>

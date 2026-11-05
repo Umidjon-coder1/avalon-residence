@@ -5,6 +5,7 @@ import { site } from "@/content/site";
 import { ConsultCta } from "@/components/lead/ConsultCta";
 import { Heading } from "@/components/ui/Heading";
 import { HomeIcon, InstagramIcon, ParkingIcon, TelegramIcon } from "@/components/ui/icons";
+import { HeroMotion } from "@/components/motion/HeroMotion";
 import heroDesktop from "../../../public/images/hero/hero-02.webp";
 import heroMobile from "../../../public/images/hero/hero-05.png";
 
@@ -61,7 +62,11 @@ export function Hero() {
           <source media={desktopMedia} srcSet={desktopSrcSet} />
           <source srcSet={mobileSrcSet} />
           {/* eslint-disable-next-line jsx-a11y/alt-text -- alt getImageProps dan keladi */}
-          <img {...img} className="absolute inset-0 -z-10 size-full object-cover" />
+          <img
+            {...img}
+            data-hero-image
+            className="absolute inset-0 -z-10 size-full object-cover will-change-transform"
+          />
         </picture>
         {/* Figma: yuqori o'ngdan pastki chapga 0 -> 60% qora gradient */}
         <div
@@ -76,6 +81,7 @@ export function Hero() {
               return (
                 <li
                   key={badge}
+                  data-hero="badge"
                   className="flex h-10 items-center gap-2.5 rounded-pill bg-black/20 pr-5 pl-4 text-body text-white backdrop-blur-glass"
                 >
                   <Icon className="size-6 text-gold-alt" />
@@ -85,27 +91,29 @@ export function Hero() {
             })}
           </ul>
 
-          <Heading as="h1" size="display" className="mt-4 max-w-[681px] text-white">
+          <Heading
+            as="h1"
+            size="display"
+            data-hero="title"
+            className="mt-4 max-w-[681px] text-white"
+          >
             {t("title")}
           </Heading>
 
-          <ConsultCta
-            source="hero"
-            variant="cream"
-            label={tCta("consult")}
-            className="mt-[clamp(24px,2.0833vw,40px)]"
-          />
+          <div data-hero="cta" className="mt-[clamp(24px,2.0833vw,40px)]">
+            <ConsultCta source="hero" variant="cream" label={tCta("consult")} />
+          </div>
         </div>
 
         {/* Ijtimoiy tarmoqlar: o'ng chetda vertikal */}
         <ul className="absolute right-[calc(var(--gutter)-var(--frame-inset))] bottom-[clamp(32px,6.25vw,120px)] hidden flex-col gap-4 md:flex">
-          <li>
+          <li data-hero="social">
             <a href={site.instagram} target="_blank" rel="noopener" className={socialIcon}>
               <InstagramIcon className="size-6" />
               <span className="sr-only">{ts("instagram")}</span>
             </a>
           </li>
-          <li>
+          <li data-hero="social">
             <a href={site.telegram} target="_blank" rel="noopener" className={socialIcon}>
               <TelegramIcon className="size-6" />
               <span className="sr-only">{ts("telegram")}</span>
@@ -113,6 +121,7 @@ export function Hero() {
           </li>
         </ul>
       </div>
+      <HeroMotion />
     </section>
   );
 }

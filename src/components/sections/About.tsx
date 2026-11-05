@@ -19,28 +19,32 @@ export function About() {
           <Image
             src={wordmark}
             alt="Avalon Residence"
+            data-reveal
             className="h-auto w-[clamp(200px,20.2vw,388px)]"
           />
           {/* Romb va chiziq */}
           <div aria-hidden className="relative hidden items-center lg:flex">
             <span className="size-4 -translate-x-1/2 rotate-45 border border-gold" />
-            <span className="h-px flex-1 -translate-x-2 bg-gold" />
+            <span data-draw className="h-px flex-1 -translate-x-2 bg-gold" />
           </div>
 
           <div className="flex flex-col justify-end lg:pr-10">
-            <Heading className="max-w-[340px] text-gold" size="display">
+            <Heading data-reveal className="max-w-[340px] text-gold" size="display">
               {t("title")}
             </Heading>
-            <p className="mt-6 text-lead text-navy">{t("text")}</p>
+            <p data-reveal className="mt-6 text-lead text-navy">
+              {t("text")}
+            </p>
           </div>
           <Image
             src={photo}
             alt=""
             sizes="(min-width: 1024px) 63vw, 100vw"
+            data-reveal="image"
             className="aspect-[2/1] w-full rounded-card object-cover"
           />
         </div>
-        <hr className="mt-[clamp(48px,4.1667vw,80px)] border-gold" />
+        <hr data-draw className="mt-[clamp(48px,4.1667vw,80px)] border-gold" />
       </Container>
     </section>
   );

@@ -25,7 +25,10 @@ export function Contacts() {
               source="contacts"
               className="flex-1"
             />
-            <div className="relative grid grid-cols-2 rounded-card bg-gold py-9 text-center text-body leading-tight font-medium text-cream">
+            <div
+              data-reveal
+              className="relative grid grid-cols-2 rounded-card bg-gold py-9 text-center text-body leading-tight font-medium text-cream"
+            >
               <span aria-hidden className="absolute inset-y-10 left-1/2 w-px bg-cream" />
               <a
                 href={site.map.yandex}
@@ -50,6 +53,7 @@ export function Contacts() {
             </div>
           </div>
           <iframe
+            data-reveal
             src={`https://yandex.uz/map-widget/v1/?ll=${site.map.lng}%2C${site.map.lat}&z=16&pt=${site.map.lng}%2C${site.map.lat},pm2rdm`}
             title={tc("mapTitle")}
             loading="lazy"
