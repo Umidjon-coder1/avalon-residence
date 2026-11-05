@@ -13,13 +13,13 @@ import { LocaleSwitch } from "./LocaleSwitch";
 import logoFooter from "../../../public/images/brand/logo-footer.webp";
 
 const social =
-  "grid size-11 place-items-center rounded-full border border-white/20 text-white transition-colors hover:border-gold hover:text-gold";
+  "grid size-11 place-items-center rounded-full border border-white/40 text-white transition-colors hover:bg-white hover:text-gold";
 
 /** Menyu bandining tartib raqami: 01, 02 ... */
 const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Mobil menyu: o'ngdan chiquvchi to'q navy panel. Raqamlangan katta bandlar (PP Right Gothic), ingichka chiziqlar,
+ * Mobil menyu: o'ngdan chiquvchi oltin (brend rangi) panel, oq matn. Raqamlangan katta bandlar (PP Right Gothic), ingichka chiziqlar,
  * pastda telefon, manzil, ish vaqti, tarmoqlar va konsultatsiya tugmasi. Bandlar ketma-ket ko'tariladi
  * (`globals.css`, `[data-menu-item]`, reduced-motion'da yo'q). Havola bosilganda panel yopiladi.
  */
@@ -49,37 +49,43 @@ export function MobileMenu() {
         placement="right"
         tone="dark"
         closeLabel={t("close")}
-        className="relative isolate flex flex-col overflow-y-auto bg-navy px-6 pt-6 pb-8 text-white"
+        className="relative isolate flex flex-col overflow-y-auto bg-gold px-6 pt-6 pb-8 text-white"
       >
         {/* Yengil oltin nur: panelga chuqurlik beradi */}
         <span
           aria-hidden
-          className="pointer-events-none absolute -top-40 -right-40 -z-10 size-[420px] rounded-full bg-[radial-gradient(closest-side,rgb(200_164_93/0.22),transparent)]"
+          className="pointer-events-none absolute -top-40 -right-40 -z-10 size-[420px] rounded-full bg-[radial-gradient(closest-side,rgb(255_255_255/0.22),transparent)]"
         />
 
-        <Image src={logoFooter} alt={site.name} unoptimized className="h-auto w-[132px]" />
+        {/* Oltin fonda oltin kamar ko'rinmaydi: logo oq rangda */}
+        <Image
+          src={logoFooter}
+          alt={site.name}
+          unoptimized
+          className="h-auto w-[132px] brightness-0 invert"
+        />
 
         <nav aria-label={t("menu")} className="mt-10">
-          <ul className="border-t border-white/10">
+          <ul className="border-t border-white/30">
             {navItems.map((item, i) => (
               <li
                 key={item.key}
                 data-menu-item
                 style={{ "--i": i } as CSSProperties}
-                className="border-b border-white/10"
+                className="border-b border-white/30"
               >
                 <a
                   href={item.href}
                   onClick={close}
-                  className="group flex items-baseline gap-4 py-4 transition-colors hover:text-gold"
+                  className="group flex items-baseline gap-4 py-4 transition-colors hover:text-cream"
                 >
-                  <span className="w-6 font-heading text-sm text-gold tabular-nums">
+                  <span className="w-6 font-heading text-sm text-white/70 tabular-nums">
                     {pad(i + 1)}
                   </span>
                   <span className="font-heading text-[28px] leading-none font-medium uppercase">
                     {t(item.key)}
                   </span>
-                  <TArrowDownRight className="ml-auto size-5 -rotate-45 self-center text-white/40 transition-[translate,color] group-hover:translate-x-1 group-hover:text-gold" />
+                  <TArrowDownRight className="ml-auto size-5 -rotate-45 self-center text-white/60 transition-[translate,color] group-hover:translate-x-1 group-hover:text-white" />
                 </a>
               </li>
             ))}
@@ -91,15 +97,15 @@ export function MobileMenu() {
           style={{ "--i": navItems.length } as CSSProperties}
           className="mt-auto pt-10"
         >
-          <p className="text-xs tracking-[0.2em] text-white/50 uppercase">{t("contacts")}</p>
+          <p className="text-xs tracking-[0.2em] text-white/70 uppercase">{t("contacts")}</p>
           <a
             href={site.phones.main.href}
             className="mt-2 flex items-center gap-3 font-heading text-[26px] leading-none font-medium"
           >
-            <TPhone className="size-6 text-gold" />
+            <TPhone className="size-6 text-white" />
             {site.phones.main.display}
           </a>
-          <p className="mt-3 text-sm leading-relaxed text-white/60">
+          <p className="mt-3 text-sm leading-relaxed text-white/80">
             {(tContacts.raw("hours") as string[]).join(", ")}
             <br />
             {tContacts("address")}
@@ -114,16 +120,16 @@ export function MobileMenu() {
               <InstagramLineIcon className="size-5" />
               <span className="sr-only">{tSocial("instagram")}</span>
             </a>
-            <LocaleSwitch className="ml-auto grid h-11 min-w-11 place-items-center rounded-full border border-white/20 px-4 font-heading text-base font-medium transition-colors hover:border-gold hover:text-gold" />
+            <LocaleSwitch className="ml-auto grid h-11 min-w-11 place-items-center rounded-full border border-white/40 px-4 font-heading text-base font-medium transition-colors hover:bg-white hover:text-gold" />
           </div>
 
           <ConsultButton
             source="menu"
             onBeforeOpen={close}
-            className="mt-6 flex h-14 w-full cursor-pointer items-center justify-between rounded-card bg-gold pr-2 pl-6 font-heading text-btn font-medium text-white uppercase transition-colors hover:bg-gold-light"
+            className="mt-6 flex h-14 w-full cursor-pointer items-center justify-between rounded-card bg-white pr-2 pl-6 font-heading text-btn font-medium text-gold uppercase"
           >
             {tCta("consult")}
-            <span className="grid size-10 place-items-center rounded-[8px] bg-white/15">
+            <span className="grid size-10 place-items-center rounded-[8px] bg-gold text-white">
               <TArrowDownRight className="size-5" />
             </span>
           </ConsultButton>

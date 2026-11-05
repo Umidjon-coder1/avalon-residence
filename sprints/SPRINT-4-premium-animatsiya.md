@@ -114,7 +114,14 @@
     pastda telefon (katta), ish vaqti va manzil, chiziqli Telegram/Instagram, til tugmasi, oltin konsultatsiya tugmasi.
   - E2E 17 test o'tdi. Muallif PR ochib `main` ga qo'shishni tasdiqladi.
 
+- 2026-11-05 (bulut, 10-bosqich, yakuniy tuzatishlar):
+  - Reja kartalari: ru matni ("2-комнатная", "площадь 49.8 m²") bir qatorda, karta kengroq (min 300 px), tugma karta enida.
+  - Hududlar: soya yengillashdi; ko'k qatlam footer bilan bir xil to'q iliq rangga (`ink`) almashdi, oltin aksentlar qoldi.
+    Tugma telefonda oq (oltin matn), desktopda shaffof va hover'da oppoq.
+  - Mobil menyu: oltin (brend rangi) panel, oq matn va oq logo, oq konsultatsiya tugmasi.
+  - E2E 17 test o'tdi.
+
 ## Handoff
 
-S4 `main` ga qo'shildi (production). Keyingi: S5 (funksional upgrade), `sprints/SPRINT-5-funksional.md`.
-Yandex xarita productionda tekshirilishi kerak (konteynerdan yopiq).
+Muallif qarori: S5 qilinmaydi, loyiha shu holatda yakunlanadi. Production: `avalon-residence.vercel.app`.
+Ochiq qolganlar (muallif xohlasa): domen ko'chirish (avalonresidence.uz, alohida tasdiq bilan), Google Ads lid label.

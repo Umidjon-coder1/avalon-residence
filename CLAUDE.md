@@ -20,7 +20,7 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 - **S0-S3 tugadi, v1 `main` da** (PR #2). Production: `avalon-residence.vercel.app`, lidlar Google Sheets'ga boradi (T3.9 tasdiqlangan).
   Muallif qarori: Google Ads label va domen ko'chirish keyinga, **hozir upgrade: S4 (animatsiya), keyin S5**.
-- **S4 tugadi va `main` da** (PR #3). Keyingi: S5. Og'ir animatsiya sozlamalari `onIdle()` bilan (TBT).
+- **S4 tugadi va `main` da** (PR #3, #4). Muallif qarori: **S5 qilinmaydi, loyiha yakunlangan**. Og'ir animatsiya sozlamalari `onIdle()` bilan (TBT).
 - S4 motion: `src/lib/motion.ts`, `src/components/motion/` (MotionRoot = Lenis, PageMotion = `data-reveal`/`data-draw`/`data-count`,
   HeroMotion, LocationMotion, ZonesMotion, FacadeMotion, CursorMotion). Xarita: `src/components/ui/YandexMap.tsx` (JS API 2.1). Ikonkalar: Tilda'dagi asl SVG `src/components/ui/tilda-icons.tsx`. DOM matnini o'zgartiruvchi animatsiya sahifa ichida bo'lsin (layout'da hydration xatosi beradi).
 - Lid kanallari va barcha env o'zgaruvchilari: `docs/LEADS.md`. E2E testlar: `npm run build && npm run test:e2e`.

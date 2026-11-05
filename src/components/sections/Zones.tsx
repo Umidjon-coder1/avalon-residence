@@ -60,7 +60,7 @@ function ZoneSlide({
     >
       <article
         data-zone-card
-        className="relative isolate flex h-full overflow-hidden rounded-card bg-navy text-white shadow-[0_-30px_60px_-20px_rgb(0_0_0/0.55)]"
+        className="relative isolate flex h-full overflow-hidden rounded-card bg-ink text-white shadow-[0_-12px_32px_-18px_rgb(0_0_0/0.28)]"
       >
         {/* Fon: desktopda butun slayd bo'ylab; telefonda yuqori qismda (mavzu matn ostida qolmasin),
             matn uning ostida navy fonda. Scroll'da sekin siljiydi (ZonesMotion) */}
@@ -76,7 +76,7 @@ function ZoneSlide({
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.4),transparent_16%,transparent_44%,rgb(11_34_57)_64%)] lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
+          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(30_29_29/0.4),transparent_16%,transparent_44%,rgb(30_29_29)_64%)] lg:bg-[linear-gradient(90deg,rgb(30_29_29/0.88),rgb(30_29_29/0.5)_40%,rgb(30_29_29/0.05)_75%),linear-gradient(to_bottom,rgb(30_29_29/0.35),transparent_25%,transparent_70%,rgb(30_29_29/0.55))]"
         />
 
         {/* Keyingi slayd ustiga chiqqanda qorayish (ZonesMotion) */}
@@ -108,7 +108,8 @@ function ZoneSlide({
             <div className="mt-[clamp(24px,2.0833vw,40px)] flex flex-wrap items-center justify-between gap-6">
               <ConsultButton
                 source="zones"
-                className="inline-flex h-[clamp(48px,3.3333vw,64px)] cursor-pointer items-center gap-4 rounded-card border border-white/40 pr-2 pl-6 font-heading text-btn font-medium uppercase transition-colors hover:border-white hover:bg-white hover:text-navy"
+                // Telefonda oq tugma, oltin matn; desktopda shaffof, hover'da oppoq
+                className="inline-flex h-[clamp(48px,3.3333vw,64px)] cursor-pointer items-center gap-4 rounded-card border border-white bg-white pr-2 pl-6 font-heading text-btn font-medium text-gold uppercase transition-colors lg:border-white/40 lg:bg-transparent lg:text-white lg:hover:border-white lg:hover:bg-white lg:hover:text-gold"
               >
                 {cta}
                 <span className="grid size-[clamp(36px,2.5vw,48px)] place-items-center rounded-[8px] bg-gold text-white">

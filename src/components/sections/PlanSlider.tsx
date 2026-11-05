@@ -135,9 +135,10 @@ export function PlanSlider() {
         {list.map((apt) => (
           <li
             key={apt.id}
-            className="relative flex w-[clamp(280px,25vw,480px)] shrink-0 snap-start flex-col rounded-card bg-white px-5 pt-10 pb-10 text-navy transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-24px_rgb(11_34_57/0.45)]"
+            className="relative flex w-[clamp(300px,25vw,480px)] shrink-0 snap-start flex-col rounded-card bg-white px-5 pt-10 pb-10 text-navy transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_48px_-24px_rgb(11_34_57/0.45)]"
           >
-            <div className="flex items-baseline justify-between px-5 text-lead leading-none">
+            {/* Bir qatorda: ru matni uzunroq, shuning uchun o'lcham kichikroq va qatorga bo'linmaydi */}
+            <div className="flex items-baseline justify-between gap-3 px-1 text-[clamp(16px,1.1458vw,22px)] leading-none whitespace-nowrap sm:px-3">
               <span className="font-medium">{t("rooms", { count: apt.rooms })}</span>
               <span>{t("area", { area: String(apt.area) })}</span>
             </div>
@@ -156,7 +157,7 @@ export function PlanSlider() {
               size="md"
               label={tCta("apply")}
               fullWidth
-              className="mt-4 px-6"
+              className="mt-4"
             />
           </li>
         ))}

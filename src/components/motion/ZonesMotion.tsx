@@ -49,7 +49,7 @@ export function ZonesMotion() {
           if (!next) return;
           const leave = { trigger: next, start: "top bottom", end: "top top", scrub: true };
           gsap.to(card, { scale: 0.92, ease: "none", scrollTrigger: leave });
-          if (shade) gsap.to(shade, { opacity: 0.55, ease: "none", scrollTrigger: leave });
+          if (shade) gsap.to(shade, { opacity: 0.35, ease: "none", scrollTrigger: leave });
         });
       });
     }, 1500);
