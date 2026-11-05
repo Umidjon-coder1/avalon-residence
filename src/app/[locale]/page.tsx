@@ -7,6 +7,7 @@ import { LeadBlock } from "@/components/sections/LeadBlock";
 import { Location } from "@/components/sections/Location";
 import { Plans } from "@/components/sections/Plans";
 import { Zones } from "@/components/sections/Zones";
+import { PageMotion } from "@/components/motion/PageMotion";
 
 /** Bosh sahifa: Figma Frame 485 tartibida (docs/FIGMA.md). */
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         <Plans />
       </div>
       <Contacts />
+      <PageMotion />
     </main>
   );
 }

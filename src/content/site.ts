@@ -4,8 +4,6 @@ export const site = {
   url: "https://avalonresidence.uz",
   phones: {
     main: { display: "+998-78 113 73 73", href: "tel:+998781137373" },
-    /** Tilda'da aloqa vidjetidagi raqam */
-    widget: { display: "+998 91 071 01 05", href: "tel:+998910710105" },
   },
   telegram: "https://t.me/avalonresidence_uz",
   instagram: "https://www.instagram.com/avalon.residence.uz/",

@@ -28,6 +28,8 @@ Muddatlar taxminiy ish kunlari. Figma ko'rilgach aniqlashtiriladi.
 | [S5](sprints/SPRINT-5-funksional.md) | Funksional upgrade | Xonadon tanlagich, reja modali, solishtirish, kalkulyator | 3-4 kun |
 | [S6](sprints/SPRINT-6-portfolio.md) | Portfolio | Case study, oldin/keyin raqamlar, yakuniy QA | 1 kun |
 
+**2026-11-05 o'zgarish:** v1 production'da (vercel.app). Muallif qarori bilan domen ko'chirish va Ads konversiyasi S4/S5 dan keyinga surildi.
+
 **Nazorat nuqtalari:** S2 oxirida dizayn tasdig'i, S3 oxirida domen ko'chirish tasdig'i, S4 oxirida animatsiya
 tasdig'i. Domen va DNS o'zgarishlari faqat alohida tasdiq bilan qilinadi.
 

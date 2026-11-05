@@ -3,11 +3,12 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { navItems } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
-import { ArrowUpIcon, InstagramIcon, TelegramIcon } from "@/components/ui/icons";
+import { TArrowUp, TInstagramCircle, TTelegramCircle } from "@/components/ui/tilda-icons";
 import logoFooter from "../../../public/images/brand/logo-footer.webp";
+import { FooterMotion } from "@/components/motion/FooterMotion";
 
 const socialCircle =
-  "grid size-[clamp(56px,4.1667vw,80px)] place-items-center rounded-full bg-gold text-ink transition-colors hover:bg-gold-alt";
+  "block size-[clamp(56px,4.1667vw,80px)] rounded-full text-gold transition-colors hover:text-gold-alt";
 
 /**
  * Footer (T1.6). Figma 10-blok: logo, menyu, "Yuqoriga"; chiziq; manzil, ijtimoiy tarmoqlar, ish soatlari; ©.
@@ -20,25 +21,22 @@ export function Footer() {
   const hours = tc.raw("hours") as string[];
 
   return (
-    <footer className="bg-ink text-white">
+    <footer className="overflow-hidden bg-ink text-white">
       <Container>
         <div className="px-[clamp(0px,2.0833vw,40px)] pt-[clamp(40px,4.1667vw,80px)] pb-[clamp(32px,2.9167vw,56px)]">
           {/* 1-qator */}
           <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-8 border-b border-ink-line pb-[clamp(24px,1.5625vw,30px)]">
             <Image
               src={logoFooter}
+              unoptimized
               alt={site.name}
-              sizes="240px"
               className="h-auto w-[clamp(180px,12.5vw,240px)]"
             />
             <nav aria-label={t("menu")} className="order-last w-full lg:order-none lg:w-auto">
               <ul className="flex flex-wrap gap-x-[clamp(24px,2.0833vw,40px)] gap-y-3">
                 {navItems.map((item) => (
                   <li key={item.key}>
-                    <a
-                      href={item.href}
-                      className="text-body font-medium transition-colors hover:text-gold"
-                    >
+                    <a href={item.href} className="link-underline text-body font-medium">
                       {t(item.key)}
                     </a>
                   </li>
@@ -48,7 +46,7 @@ export function Footer() {
             <a href="#top" className="group flex items-center gap-6 text-body text-cream">
               {t("toTop")}
               <span className="grid size-[clamp(56px,4.1667vw,80px)] place-items-center rounded-full bg-gold text-white transition-colors group-hover:bg-gold-alt">
-                <ArrowUpIcon className="size-[clamp(28px,2.0833vw,40px)]" />
+                <TArrowUp className="size-[clamp(28px,2.0833vw,40px)]" />
               </span>
             </a>
           </div>
@@ -63,11 +61,11 @@ export function Footer() {
 
             <div className="flex gap-10 md:justify-center">
               <a href={site.instagram} target="_blank" rel="noopener" className={socialCircle}>
-                <InstagramIcon className="size-1/2" />
+                <TInstagramCircle className="size-full" />
                 <span className="sr-only">{ts("instagram")}</span>
               </a>
               <a href={site.telegram} target="_blank" rel="noopener" className={socialCircle}>
-                <TelegramIcon className="size-1/2" />
+                <TTelegramCircle className="size-full" />
                 <span className="sr-only">{ts("telegram")}</span>
               </a>
             </div>
@@ -89,6 +87,12 @@ export function Footer() {
           </p>
         </div>
       </Container>
+
+      {/* Katta nom: oltin gradient pastga qarab so'nadi, pastki qismi kesilgan (Grand dizaynidagi kabi) */}
+      <div aria-hidden className="footer-word">
+        <p data-footer-word>{site.name}</p>
+      </div>
+      <FooterMotion />
     </footer>
   );
 }

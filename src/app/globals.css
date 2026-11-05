@@ -10,6 +10,8 @@
   --color-gold: #c8a45d;
   --color-gold-alt: #cea150;
   --color-gold-dark: #8a6f3c;
+  /* Oltin tugmalar hover: bilinar-bilinmas yorug'roq (muallif: rang deyarli o'zgarmasin) */
+  --color-gold-light: #cdab66;
   --color-navy: #0b2239;
   --color-cream: #f4efe6;
   --color-sand: #ece4d2;
@@ -62,6 +64,29 @@
 }
 
 /* Sahifa konteyneri: 1920 px da 1728 px kontent, yonlarda 96 px */
+/* Menyu havolalari: hover'da matn rangidagi chiziq chapdan chiziladi, ketishda o'ngga yig'iladi */
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
 @utility container-page {
   width: 100%;
   max-width: 1920px;
@@ -115,5 +140,224 @@
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+/*
+ * Motion (S4). `html.motion` va `html.intro` klasslarini <head> dagi skript qo'yadi (src/lib/motion.ts).
+ * Animatsiyani kamaytirish yoqilgan bo'lsa klasslar qo'yilmaydi va hech narsa yashirilmaydi.
+ */
+@layer base {
+  html.lenis {
+    scroll-behavior: auto;
+  }
+
+  /* Hero elementlari JS ularni olguncha yashirin. JS ishlamasa 2.5 s dan keyin o'zi ko'rinadi */
+  .motion:not(.hero-ready) [data-hero] {
+    opacity: 0;
+    animation: motion-failsafe 0.4s 2.5s forwards;
+  }
+
+  /* Scroll animatsiyalari: PageMotion `reveal-ready` qo'ygunicha yashirin, JS kechiksa 3 s dan keyin ko'rinadi */
+  .motion:not(.reveal-ready) [data-reveal] {
+    opacity: 0;
+    animation: motion-failsafe 0.4s 3s forwards;
+  }
+
+  .motion:not(.reveal-ready) [data-draw] {
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: draw-failsafe 0.4s 3s forwards;
+  }
+
+  .hero-line {
+    padding-bottom: 0.08em;
+  }
+
+  /* Intro pardasi: faqat birinchi tashrifda */
+  .intro-curtain {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    place-items: center;
+    background: var(--color-cream);
+  }
+
+  .intro .intro-curtain {
+    display: grid;
+  }
+
+  .intro:not(.hero-ready) .intro-curtain {
+    animation: curtain-failsafe 0.8s 3s forwards;
+  }
+
+  /* Popup va mobil menyu */
+  dialog[open]::backdrop {
+    animation: motion-fade 0.3s ease-out;
+  }
+
+  dialog[open][data-placement="center"] > div {
+    animation: motion-pop 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  dialog[open][data-placement="right"] > div {
+    animation: motion-slide-left 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Mobil menyu bandlari panel ochilgach ketma-ket ko'tariladi (--i: tartib raqami) */
+  dialog[open] [data-menu-item] {
+    animation: menu-rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.18s + var(--i, 0) * 0.06s);
+  }
+}
+
+@keyframes menu-rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}
+
+@keyframes motion-failsafe {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw-failsafe {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes curtain-failsafe {
+  to {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}
+
+/* Yandex xarita (YandexMap): faqat fon qatlami kulrang, belgi va tugmalar rangli */
+.ymap [class*="ground-pane"] {
+  filter: grayscale(1) sepia(0.12) contrast(1.03);
+}
+
+.ymap-marker {
+  position: absolute;
+  top: -80px;
+  left: -36px;
+  width: 72px;
+  height: 80px;
+}
+
+.ymap-marker__body,
+.ymap-marker__ping {
+  position: absolute;
+  top: 11px;
+  left: 11px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: var(--color-gold);
+  rotate: 45deg;
+}
+
+.ymap-marker__body {
+  box-shadow: var(--shadow-icon);
+}
+
+.ymap-marker__ping {
+  opacity: 0.4;
+  animation: widget-ping 2.6s ease-out infinite;
+}
+
+.ymap-marker__logo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.ymap-marker__tip {
+  position: absolute;
+  top: 66px;
+  left: 30px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-gold);
+  rotate: 45deg;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ymap-marker__ping {
+    display: none;
+  }
+}
+
+/* Footer pastidagi katta nom (Footer.tsx). Kenglik shrift bo'yicha tanlangan: ekran enini to'ldiradi */
+.footer-word {
+  position: relative;
+  height: 8.4vw;
+  margin-top: clamp(8px, 1vw, 24px);
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-word p {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 12.4vw;
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #f3dfb2 0%,
+    #d9bc84 24%,
+    #a98a52 48%,
+    rgb(120 95 55 / 0.25) 70%,
+    rgb(120 95 55 / 0) 82%
+  );
+  background-clip: text;
+}
+
+/* Aloqa vidjeti tugmasi atrofidagi to'lqin */
+@keyframes widget-ping {
+  0% {
+    opacity: 0.55;
+    scale: 1;
+  }
+  70%,
+  100% {
+    opacity: 0;
+    scale: 1.6;
+  }
+}
+
+@keyframes motion-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes motion-pop {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+}
+
+@keyframes motion-slide-left {
+  from {
+    transform: translateX(100%);
   }
 }

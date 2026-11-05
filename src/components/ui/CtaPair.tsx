@@ -1,18 +1,18 @@
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
-import { ArrowDownRightIcon } from "./icons";
+import { TArrowDownRight } from "./tilda-icons";
 
 /**
  * Figma'dagi asosiy CTA: matnli to'rtburchak + yonida strelkali kvadrat (radius 20).
  * Hero, afzalliklar, joylashuv, hududlar, fasad va reja kartalarida bir xil.
  */
 const variants = {
-  /** Hero: krem fon, navy matn */
+  /** Hero: krem fon, navy matn; hover: oppoq */
   cream: "bg-cream text-navy group-hover:bg-white",
-  /** Oltin fon ustida: oq fon, oltin matn */
-  white: "bg-white text-gold group-hover:bg-cream",
-  /** Oq fon ustida: oltin fon, oq matn */
-  gold: "bg-gold text-white group-hover:bg-gold-dark",
+  /** Oltin fon ustida: oq fon, oltin matn; hover: rang o'zgarmaydi, faqat strelka siljiydi */
+  white: "bg-white text-gold",
+  /** Oq fon ustida: oltin fon, oq matn; hover: bilinar-bilinmas yorug'roq oltin */
+  gold: "bg-gold text-white group-hover:bg-gold-light",
 } as const;
 
 const sizes = {
@@ -48,7 +48,7 @@ export function CtaParts({ label, variant = "gold", size = "lg", icon, stretch }
     <>
       <span
         className={cn(
-          "flex min-w-0 flex-1 items-center justify-center rounded-btn px-4 font-heading font-medium whitespace-nowrap uppercase transition-colors sm:px-6",
+          "flex min-w-0 flex-1 items-center justify-center rounded-btn px-4 font-heading font-medium whitespace-nowrap uppercase transition-colors duration-300 sm:px-6",
           s.box,
           s.label,
           variants[variant],
@@ -59,13 +59,13 @@ export function CtaParts({ label, variant = "gold", size = "lg", icon, stretch }
       </span>
       <span
         className={cn(
-          "grid aspect-square shrink-0 place-items-center rounded-btn transition-colors",
+          "grid aspect-square shrink-0 place-items-center rounded-btn transition-colors duration-300",
           s.box,
           variants[variant],
         )}
       >
         {icon ?? (
-          <ArrowDownRightIcon
+          <TArrowDownRight
             className={cn(
               s.icon,
               "transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5",

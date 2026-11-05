@@ -1,27 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { navItems } from "@/content/nav";
 import { ConsultButton } from "@/components/lead/ConsultButton";
-import { buttonStyles } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
-import { InstagramIcon, MenuIcon, PhoneIcon, TelegramIcon } from "@/components/ui/icons";
+import { TArrowDownRight, TPhone } from "@/components/ui/tilda-icons";
+import { InstagramLineIcon, MenuIcon, TelegramLineIcon } from "@/components/ui/icons";
 import { LocaleSwitch } from "./LocaleSwitch";
-import logoMenu from "../../../public/images/brand/logo-menu.webp";
+import logoFooter from "../../../public/images/brand/logo-footer.webp";
 
-const social = "grid size-[30px] place-items-center rounded-full bg-navy text-white";
+const social =
+  "grid size-11 place-items-center rounded-full border border-white/20 text-white transition-colors hover:border-gold hover:text-gold";
+
+/** Menyu bandining tartib raqami: 01, 02 ... */
+const pad = (n: number) => String(n).padStart(2, "0");
 
 /**
- * Mobil menyu: o'ngdan chiquvchi krem panel (Tilda mobil versiyasi asosida).
- * Qo'shimcha: telefon raqami ko'rinib turadi, havola bosilganda panel yopiladi.
+ * Mobil menyu: o'ngdan chiquvchi to'q navy panel. Raqamlangan katta bandlar (PP Right Gothic), ingichka chiziqlar,
+ * pastda telefon, manzil, ish vaqti, tarmoqlar va konsultatsiya tugmasi. Bandlar ketma-ket ko'tariladi
+ * (`globals.css`, `[data-menu-item]`, reduced-motion'da yo'q). Havola bosilganda panel yopiladi.
  */
 export function MobileMenu() {
   const t = useTranslations("nav");
   const tCta = useTranslations("cta");
   const tSocial = useTranslations("social");
+  const tContacts = useTranslations("contacts");
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
@@ -41,46 +47,86 @@ export function MobileMenu() {
         open={open}
         onClose={close}
         placement="right"
+        tone="dark"
         closeLabel={t("close")}
-        className="flex flex-col overflow-y-auto bg-cream px-6 pt-10 pb-8 text-navy"
+        className="relative isolate flex flex-col overflow-y-auto bg-navy px-6 pt-6 pb-8 text-white"
       >
-        <Image src={logoMenu} alt={site.name} sizes="120px" className="h-auto w-[120px]" />
+        {/* Yengil oltin nur: panelga chuqurlik beradi */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -top-40 -right-40 -z-10 size-[420px] rounded-full bg-[radial-gradient(closest-side,rgb(200_164_93/0.22),transparent)]"
+        />
 
-        <nav aria-label={t("menu")} className="mt-8">
-          <ul className="flex flex-col gap-4">
-            {navItems.map((item) => (
-              <li key={item.key}>
+        <Image src={logoFooter} alt={site.name} unoptimized className="h-auto w-[132px]" />
+
+        <nav aria-label={t("menu")} className="mt-10">
+          <ul className="border-t border-white/10">
+            {navItems.map((item, i) => (
+              <li
+                key={item.key}
+                data-menu-item
+                style={{ "--i": i } as CSSProperties}
+                className="border-b border-white/10"
+              >
                 <a
                   href={item.href}
                   onClick={close}
-                  className="font-heading text-[22px] leading-tight font-medium"
+                  className="group flex items-baseline gap-4 py-4 transition-colors hover:text-gold"
                 >
-                  {t(item.key)}
+                  <span className="w-6 font-heading text-sm text-gold tabular-nums">
+                    {pad(i + 1)}
+                  </span>
+                  <span className="font-heading text-[28px] leading-none font-medium uppercase">
+                    {t(item.key)}
+                  </span>
+                  <TArrowDownRight className="ml-auto size-5 -rotate-45 self-center text-white/40 transition-[translate,color] group-hover:translate-x-1 group-hover:text-gold" />
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className="mt-auto flex flex-col gap-6 pt-10">
-          <a href={site.phones.main.href} className="flex items-center gap-2 text-lg">
-            <PhoneIcon className="size-5 text-gold" />
+        <div
+          data-menu-item
+          style={{ "--i": navItems.length } as CSSProperties}
+          className="mt-auto pt-10"
+        >
+          <p className="text-xs tracking-[0.2em] text-white/50 uppercase">{t("contacts")}</p>
+          <a
+            href={site.phones.main.href}
+            className="mt-2 flex items-center gap-3 font-heading text-[26px] leading-none font-medium"
+          >
+            <TPhone className="size-6 text-gold" />
             {site.phones.main.display}
           </a>
-          <div className="flex gap-3">
+          <p className="mt-3 text-sm leading-relaxed text-white/60">
+            {(tContacts.raw("hours") as string[]).join(", ")}
+            <br />
+            {tContacts("address")}
+          </p>
+
+          <div className="mt-6 flex items-center gap-3">
             <a href={site.telegram} target="_blank" rel="noopener" className={social}>
-              <TelegramIcon className="size-4" />
+              <TelegramLineIcon className="size-5" />
               <span className="sr-only">{tSocial("telegram")}</span>
             </a>
             <a href={site.instagram} target="_blank" rel="noopener" className={social}>
-              <InstagramIcon className="size-4" />
+              <InstagramLineIcon className="size-5" />
               <span className="sr-only">{tSocial("instagram")}</span>
             </a>
+            <LocaleSwitch className="ml-auto grid h-11 min-w-11 place-items-center rounded-full border border-white/20 px-4 font-heading text-base font-medium transition-colors hover:border-gold hover:text-gold" />
           </div>
-          <ConsultButton source="menu" onBeforeOpen={close} className={buttonStyles("navy")}>
+
+          <ConsultButton
+            source="menu"
+            onBeforeOpen={close}
+            className="mt-6 flex h-14 w-full cursor-pointer items-center justify-between rounded-card bg-gold pr-2 pl-6 font-heading text-btn font-medium text-white uppercase transition-colors hover:bg-gold-light"
+          >
             {tCta("consult")}
+            <span className="grid size-10 place-items-center rounded-[8px] bg-white/15">
+              <TArrowDownRight className="size-5" />
+            </span>
           </ConsultButton>
-          <LocaleSwitch className="self-start font-heading text-lg font-medium" />
         </div>
       </Modal>
     </>

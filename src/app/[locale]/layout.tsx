@@ -10,7 +10,13 @@ import { ConsultProvider } from "@/components/lead/ConsultProvider";
 import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Analytics } from "@/components/analytics/Analytics";
+import { MotionRoot } from "@/components/motion/MotionRoot";
+import { CursorMotion } from "@/components/motion/CursorMotion";
+import { motionBootScript } from "@/lib/motion";
+import Image from "next/image";
+import logoMark from "../../../public/images/brand/logo-mark.webp";
 import { Footer } from "@/components/layout/Footer";
+import { ContactWidget } from "@/components/layout/ContactWidget";
 import "../globals.css";
 // PP Right Gothic @font-face: build/dev oldidan scripts/fetch-fonts.mjs yaratadi (gitignore)
 import "../fonts-private.css";
@@ -42,7 +48,7 @@ const headingFallback = Oswald({
 /** PP Right Gothic build vaqtida ulangan bo'lsa, sahifa boshida oldindan yuklanadi */
 const headingFontUrl = process.env.FONT_HEADING_URL ? "/fonts/PPRightGothic-Medium.woff2" : null;
 
-const clientNamespaces = ["nav", "cta", "form", "social", "plans"] as const;
+const clientNamespaces = ["nav", "cta", "form", "social", "plans", "widget", "contacts"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -90,6 +96,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} className={`${headingFallback.variable} ${retni.variable} antialiased`}>
       <head>
+        {/* Animatsiya holati sahifa chizilishidan oldin (src/lib/motion.ts) */}
+        <script dangerouslySetInnerHTML={{ __html: motionBootScript }} />
         {headingFontUrl ? (
           <link
             rel="preload"
@@ -102,13 +110,25 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
       </head>
       <body className="min-h-dvh">
         <JsonLd locale={locale} />
+        <div className="intro-curtain" aria-hidden>
+          <Image
+            src={logoMark}
+            unoptimized
+            alt=""
+            priority={false}
+            className="size-[clamp(96px,8vw,140px)] rounded-card"
+          />
+        </div>
         <NextIntlClientProvider messages={clientMessages}>
           <ConsultProvider>
             <Header />
             {children}
             <Footer />
           </ConsultProvider>
+          <ContactWidget />
           <Analytics />
+          <MotionRoot />
+          <CursorMotion />
         </NextIntlClientProvider>
       </body>
     </html>

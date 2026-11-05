@@ -12,10 +12,13 @@ export function Plans() {
   return (
     <section id="rejalar" className="mt-[clamp(48px,4.1667vw,80px)] text-white">
       <Container className="text-center">
-        <Heading size="display" className="mx-auto max-w-[480px]">
+        <Heading size="display" data-reveal className="mx-auto max-w-[480px]">
           {t("title")}
         </Heading>
-        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lead leading-tight font-medium uppercase">
+        <p
+          data-reveal
+          className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lead leading-tight font-medium uppercase"
+        >
           {badges.map((badge, i) => (
             <Fragment key={badge}>
               {i > 0 ? <span aria-hidden className="size-4 rotate-45 bg-white" /> : null}
@@ -24,7 +27,7 @@ export function Plans() {
           ))}
         </p>
       </Container>
-      <div className="mx-auto mt-10 max-w-[1920px]">
+      <div data-reveal className="mx-auto mt-10 max-w-[1920px]">
         <PlanSlider />
       </div>
     </section>

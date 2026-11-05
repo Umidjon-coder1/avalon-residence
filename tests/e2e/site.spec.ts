@@ -10,6 +10,13 @@ async function mockLead(page: Page) {
   return sent;
 }
 
+/** Hero CTA: intro va kirish animatsiyasi tugashini kutib bosiladi */
+async function openHeroPopup(page: Page) {
+  const cta = page.locator("[data-hero='cta']").getByRole("button");
+  await expect(cta).toBeVisible({ timeout: 10_000 });
+  await cta.click();
+}
+
 async function fillLead(page: Page) {
   const dialog = page.locator("dialog[open]");
   await dialog.getByPlaceholder(/Ismingiz|Ваше имя/).fill("Test");
@@ -46,7 +53,7 @@ test("til almashtirish: uz -> ru -> uz", async ({ page, isMobile }) => {
 test("popup: validatsiya, niqob va UTM bilan yuborish", async ({ page }) => {
   const sent = await mockLead(page);
   await page.goto("/?utm_source=google&utm_campaign=brand&gclid=test123");
-  await page.getByRole("button", { name: "Konsultatsiya olish" }).first().click();
+  await openHeroPopup(page);
   const dialog = page.locator("dialog[open]");
   await expect(dialog).toBeVisible();
 
@@ -76,6 +83,8 @@ test("rejalar: tab filtri va ariza reja id si bilan", async ({ page }) => {
   const sent = await mockLead(page);
   await page.goto("/");
   const plans = page.locator("#rejalar");
+  // Bo'lim scroll'da paydo bo'ladi (data-reveal), shuning uchun avval unga boriladi
+  await plans.scrollIntoViewIfNeeded();
   await plans.getByRole("tab", { name: "3" }).click();
   await expect(plans.locator("li")).toHaveCount(4);
   await plans.getByRole("tab", { name: "Jami" }).click();
@@ -94,7 +103,7 @@ test("server xatosida telefon raqami ko'rsatiladi", async ({ page }) => {
     route.fulfill({ status: 502, json: { ok: false, error: "delivery_failed" } }),
   );
   await page.goto("/");
-  await page.getByRole("button", { name: "Konsultatsiya olish" }).first().click();
+  await openHeroPopup(page);
   const dialog = await fillLead(page);
   await dialog.getByRole("button", { name: "YUBORISH" }).click();
   await expect(dialog.getByRole("alert")).toContainText("+998-78 113 73 73");
@@ -109,6 +118,21 @@ test("mobil menyu: ochiladi va havola bosilganda yopiladi", async ({ page, isMob
   await menu.getByRole("link", { name: "Aloqa" }).click();
   await expect(page.locator("dialog[open]")).toHaveCount(0);
   await expect(page).toHaveURL(/#aloqa$/);
+});
+
+test("aloqa vidjeti: scroll'dan keyin chiqadi, Telegram va telefon", async ({ page }) => {
+  await page.goto("/");
+  const toggle = page.getByRole("button", { name: "Biz bilan bog'lanish" });
+  const root = page.locator("[data-shown]");
+  await expect(root).toHaveAttribute("data-shown", "false");
+  await page.locator("#joylashuv").scrollIntoViewIfNeeded();
+  await expect(root).toHaveAttribute("data-shown", "true");
+  await toggle.click();
+  const widget = page.locator("#contact-widget");
+  await expect(widget.locator('a[href="https://t.me/avalonresidence_uz"]')).toBeVisible();
+  await expect(widget.locator('a[href="tel:+998781137373"]')).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
 });
 
 test("API: bot va noto'g'ri ma'lumot", async ({ request }) => {

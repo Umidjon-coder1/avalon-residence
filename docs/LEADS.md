@@ -18,6 +18,7 @@ UTM, `gclid`, kirish sahifasi va referrer (`src/lib/attribution.ts`).
 | `LEAD_WEBHOOK_SECRET` | ha | Apps Script'dagi `SECRET` bilan bir xil uzun tasodifiy satr |
 | `TELEGRAM_BOT_TOKEN` | yo'q | Zaxira kanal: @BotFather bergan token |
 | `TELEGRAM_CHAT_ID` | yo'q | Lid boradigan chat yoki guruh id si |
+| `NEXT_PUBLIC_YANDEX_MAPS_KEY` | yo'q | Yandex Maps JS API kaliti (ixtiyoriy, kalitsiz ham ishlaydi; limit bo'lsa qo'shiladi) |
 | `NEXT_PUBLIC_GADS_LEAD_LABEL` | yo'q | Google Ads "Lid" konversiyasining label qismi (T3.5) |
 | `FONT_HEADING_URL` | ha | PP Right Gothic WOFF2 havolasi (D5, `scripts/fetch-fonts.mjs`) |
 

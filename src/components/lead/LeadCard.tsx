@@ -14,6 +14,7 @@ type LeadCardProps = {
 export function LeadCard({ title, text, source, className }: LeadCardProps) {
   return (
     <div
+      data-reveal
       className={cn(
         "flex flex-col items-center justify-center rounded-card bg-cream px-5 py-12 text-center text-navy sm:px-10",
         className,

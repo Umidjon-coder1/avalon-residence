@@ -53,6 +53,9 @@
     "addressLabel": "Manzil:",
     "address": "Toshkent, Yashnobod tumani, Tuzel massivi, 2-kvartal, 33",
     "mapLink": "Xaritada ko’rish",
+    "route": "Qanday borish",
+    "openMap": "Xaritada ochish",
+    "mapTitle": "Avalon Residence xaritada",
     "places": [
       {
         "distance": "210 M",
@@ -137,6 +140,10 @@
     "scroll": "Scroll"
   },
   "facade": {
+    "day": "Kunduzi",
+    "night": "Kechqurun",
+    "viewsLabel": "Ko'rinish",
+    "views": ["Fasad", "Hovli", "Kirish", "Parking"],
     "title": "Zamonaviy klassika — vaqt o'tmaydi",
     "text": "Fasaddan muhandislik tizimlarigacha — har bir element o'nlab yillik xizmat uchun tanlangan.",
     "items": [
@@ -186,7 +193,9 @@
   },
   "widget": {
     "telegram": "Telegram",
-    "phone": "Telefon raqam"
+    "phone": "Telefon raqam",
+    "open": "Biz bilan bog'lanish",
+    "close": "Yopish"
   },
   "social": {
     "instagram": "Instagram",

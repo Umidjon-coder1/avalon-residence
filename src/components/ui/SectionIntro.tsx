@@ -23,17 +23,23 @@ export function SectionIntro({
 }: SectionIntroProps) {
   return (
     <div className={className}>
-      <Heading as={as} className={tone === "gold" ? "text-gold" : "text-white"}>
+      <Heading as={as} data-reveal className={tone === "gold" ? "text-gold" : "text-white"}>
         {title}
       </Heading>
       <span
         aria-hidden
+        data-draw
         className={cn("mt-4 block h-px", tone === "gold" ? "bg-gold" : "bg-cream")}
       />
       {text ? (
-        <p className={cn("mt-6 text-lead", tone === "gold" ? "text-navy" : "text-white")}>{text}</p>
+        <p
+          data-reveal
+          className={cn("mt-6 text-lead", tone === "gold" ? "text-navy" : "text-white")}
+        >
+          {text}
+        </p>
       ) : null}
-      {children}
+      {children ? <div data-reveal>{children}</div> : null}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { navItems } from "@/content/nav";
 import { Link } from "@/i18n/navigation";
-import { PhoneIcon } from "@/components/ui/icons";
+import { TPhone } from "@/components/ui/tilda-icons";
 import { LocaleSwitch } from "./LocaleSwitch";
 import { MobileMenu } from "./MobileMenu";
 import logoMark from "../../../public/images/brand/logo-mark.webp";
@@ -23,6 +23,7 @@ export function Header() {
   return (
     <header
       id="top"
+      data-hero="header"
       className="absolute inset-x-[var(--frame-inset)] top-[var(--frame-inset)] z-30 flex items-start pr-3 pl-[calc(var(--gutter)-var(--frame-inset))]"
     >
       {/* Logo tab: yuqori burchaklari ichkariga egilgan oq quloq */}
@@ -33,9 +34,10 @@ export function Header() {
       >
         <Image
           src={logoMark}
+          // Logo tiniq bo'lishi uchun qayta siqilmaydi (fayl allaqachon kichik, 2-4x o'lchamda)
+          unoptimized
           alt=""
           preload
-          sizes="120px"
           className="size-[clamp(72px,6.25vw,120px)] rounded-card"
         />
       </Link>
@@ -50,7 +52,7 @@ export function Header() {
               <li key={item.key}>
                 <a
                   href={item.href}
-                  className="text-body whitespace-nowrap text-white transition-colors hover:text-gold"
+                  className="link-underline text-body whitespace-nowrap text-white"
                 >
                   {t(item.key)}
                 </a>
@@ -60,9 +62,9 @@ export function Header() {
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <LocaleSwitch className={`${pill} w-20 justify-center border border-[#999]`} />
-          <a href={site.phones.main.href} className={`${pill} w-[200px] gap-2.5 px-4`}>
-            <PhoneIcon className="size-6 text-gold-alt" />
-            <span className="ml-auto whitespace-nowrap">{site.phones.main.display}</span>
+          <a href={site.phones.main.href} className={`${pill} gap-2.5 pr-5 pl-4`}>
+            <TPhone className="size-6 text-gold-alt" />
+            <span className="whitespace-nowrap">{site.phones.main.display}</span>
           </a>
         </div>
       </div>
@@ -74,7 +76,7 @@ export function Header() {
           aria-label={site.phones.main.display}
           className="grid size-11 place-items-center rounded-card text-gold-alt"
         >
-          <PhoneIcon className="size-6" />
+          <TPhone className="size-6" />
         </a>
         <MobileMenu />
       </div>
