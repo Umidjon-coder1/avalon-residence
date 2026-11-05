@@ -37,15 +37,17 @@
   Konteynerdan script.google.com yopiq, shuning uchun bu yerdan tekshirilmadi. Vercel connector jamoani ko'radi, lekin `avalon-residence`
   loyihasiga 404 qaytaradi (ulanishda loyiha ruxsati berilmagan). Production `main` dagi S0 sahifasi, Vercel o'z 404 sahifasini ko'rsatyapti:
   Framework Preset tekshirilishi kerak.
+- 2026-11-05 (bulut, 10): Vercel connector qayta ulandi, loyihaga kirish bor. PR [#2](https://github.com/Umidjon-coder1/avalon-residence/pull/2) ochildi.
+  - Framework Preset bo'sh (`null`) edi, production 404 sababi shu. `nextjs` ga o'zgartirildi.
+  - Env: `LEAD_SHEETS_WEBHOOK_URL` (sensitive), `FONT_HEADING_URL` (sensitive). `LEAD_WEBHOOK_SECRET` muallifdan kutilmoqda.
+  - Blob store `avalon-fonts` (fra1, public, loyihaga ulangan). PP Right Gothic WOFF2 bir martalik preview deploy orqali yuklandi:
+    fayl 6 bo'lakda SHA1 tekshiruvi bilan, build'da butun fayl SHA1 qayta tekshirildi, token hech qayerda ochilmadi.
+    Bir martalik deploy: `dpl_93iyTdkktG3p5JxibgMRu7K3mq9x` (faqat "ok" sahifa, o'chirish mumkin).
 
 ## Handoff
 
-Kod tomondan v1 tayyor. Qolgani tashqi sozlamalar:
-1. **Vercel connector** to'g'ri akkauntda (`umidmajidov120-gmailcom's projects`), lekin loyiha ruxsati yo'q. Muallif qayta ulab "All projects" ni tanlaydi,
-   keyin yangi sessiyada: Framework Preset (Next.js), `FONT_HEADING_URL` (Blob), lid o'zgaruvchilari, deploy va loglarni tekshirish.
-2. **Google Sheets**: Apps Script deploy qilingan. Vercel'ga `LEAD_SHEETS_WEBHOOK_URL` va `LEAD_WEBHOOK_SECRET` qo'yilishi kerak (Production + Preview), keyin T3.9 test lid.
-3. **T3.5**: Google Ads'da "Lid" konversiya amali va label (`AW-18385826052/<label>`).
-4. **T3.6**: production URL'da PageSpeed (haqiqiy CDN va rasm keshi bilan).
-5. **T3.9** haqiqiy test lid, **T3.10** domen faqat muallif tasdig'i bilan.
-Ochiq: Tilda'dagi suzuvchi qo'ng'iroq vidjeti qo'yilmagan (AUDIT: mobilda kontentni yopardi), kerak bo'lsa S4 da.
+1. `LEAD_WEBHOOK_SECRET` ni muallif Vercel'ga qo'yadi (Apps Script'dagi SECRET bilan bir xil), keyin redeploy va T3.9 test lid.
+2. PR #2 preview'ini tekshirish: build logida `[fonts] ... yuklandi`, sahifa, popup, `/api/lead`.
+3. Muallif preview'ni tasdiqlagach PR merge, production `avalon-residence.vercel.app` da v1.
+4. T3.5: Google Ads "Lid" konversiya label'i. T3.6: production'da PageSpeed. T3.10 domen faqat alohida tasdiq bilan.
 

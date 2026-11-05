@@ -39,8 +39,8 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 - **Figma MCP ishlatmang:** Starter tarif limiti tugagan. O'rniga REST API: `npm run figma` (`FIGMA_TOKEN` muhitda bor).
   Dizayndagi rasm fayllari `s3-alpha-sig.figma.com` dan keladi. Bu domen yopiq bo'lsa, `fills/` bo'sh qoladi va Tilda rasmlari ishlatiladi.
 - **Node fetch va proksi:** Node skriptlari tashqi tarmoqqa `NODE_USE_ENV_PROXY=1` bilan chiqadi.
-- **Vercel:** loyiha `avalon-residence`, jamoa `umidmajidov120-gmailcom's projects` (`team_XEFbj5VbU9X0rRbbolJpnIXb`), Pro. 2026-11-05 da connector jamoani ko'rardi,
-  lekin loyihaga 404 qaytarardi (ruxsat berilmagan). Avval `get_project` bilan tekshiring.
+- **Vercel:** loyiha `avalon-residence` (`prj_y4VvFw0oXYH8ecaRNosZrlhkUNbT`), jamoa `team_XEFbj5VbU9X0rRbbolJpnIXb`, Pro. Connector ishlaydi (2026-11-05 qayta ulangan).
+  Framework `nextjs`. Blob store `avalon-fonts`. Env ro'yxati `docs/LEADS.md` da.
   Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi. Konteynerdan vercel.com va Blob API'ga to'g'ridan-to'g'ri ulanish yopiq.
 - **Brauzer:** Playwright va Chromium o'rnatilgan, `require('playwright')` ishlaydi, qayta o'rnatmang.
 - **Ochiq domenlar:** avalonresidence.uz, *.tildacdn.*, figma.com, api.figma.com.
