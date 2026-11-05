@@ -8,11 +8,11 @@ import { TArrowDownRight } from "@/components/ui/tilda-icons";
 import { ZonesMotion } from "@/components/motion/ZonesMotion";
 import { cn } from "@/lib/cn";
 import courtyard from "../../../public/images/zones/zone-courtyard.webp";
-import green from "../../../public/images/zones/zone-green.webp";
-import kids from "../../../public/images/zones/zone-kids.webp";
-import cinema from "../../../public/images/zones/zone-cinema.webp";
-import guest from "../../../public/images/zones/zone-guest.webp";
-import parking from "../../../public/images/zones/zone-parking.webp";
+import green from "../../../public/images/zones/zone-green-full.webp";
+import kids from "../../../public/images/zones/zone-kids-full.webp";
+import cinema from "../../../public/images/zones/zone-cinema-full.webp";
+import guest from "../../../public/images/zones/zone-guest-full.webp";
+import parking from "../../../public/images/zones/zone-parking-full.webp";
 import iconCourtyard from "../../../public/images/zones/zones-06.svg";
 import iconGreen from "../../../public/images/zones/zones-05.svg";
 import iconKids from "../../../public/images/zones/zones-03.svg";
@@ -23,13 +23,14 @@ import iconParking from "../../../public/images/zones/zones-01.svg";
 type Zone = { title: string; text: string };
 
 /** `zones.items` tartibi bilan bir xil (Tilda) */
-const media: Array<{ photo: StaticImageData; icon: StaticImageData }> = [
+/** `full`: katta render (muallif, 2026-11-05) butun slaydni egallaydi; yo'q bo'lsa kichik Tilda rasmi o'ngda karta bo'ladi */
+const media: Array<{ photo: StaticImageData; icon: StaticImageData; full?: boolean }> = [
   { photo: courtyard, icon: iconCourtyard },
-  { photo: green, icon: iconGreen },
-  { photo: kids, icon: iconKids },
-  { photo: cinema, icon: iconCinema },
-  { photo: guest, icon: iconGuest },
-  { photo: parking, icon: iconParking },
+  { photo: green, icon: iconGreen, full: true },
+  { photo: kids, icon: iconKids, full: true },
+  { photo: cinema, icon: iconCinema, full: true },
+  { photo: guest, icon: iconGuest, full: true },
+  { photo: parking, icon: iconParking, full: true },
 ];
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -47,7 +48,7 @@ function ZoneSlide({
   eyebrow: string;
   cta: string;
 }) {
-  const { photo, icon } = media[index] ?? media[0];
+  const { photo, icon, full } = media[index] ?? media[0];
   return (
     <li
       data-zone
@@ -57,17 +58,26 @@ function ZoneSlide({
         data-zone-card
         className="relative isolate flex h-full overflow-hidden rounded-card bg-navy text-white shadow-[0_-30px_60px_-20px_rgb(0_0_0/0.55)]"
       >
-        {/* Fon: mobilda rasm o'zi, desktopda xira va yumshoq (o'ngda aniq rasm kartasi bor) */}
+        {/* Fon: katta render to'liq; kichik rasm desktopda xira (o'ngda aniq rasm kartasi bor) */}
         <Image
           data-zone-bg
           src={photo}
           alt=""
-          sizes="100vw"
-          className="absolute inset-0 -z-20 size-full scale-110 object-cover lg:opacity-90 lg:blur-xl"
+          // Telefonda keng rasm ekran balandligi bo'yicha qoplaydi: kerakli kenglik ~1.8 x balandlik
+          sizes="(min-width: 1024px) 100vw, 180vh"
+          className={cn(
+            "absolute inset-0 -z-20 size-full scale-110 object-cover",
+            !full && "lg:opacity-90 lg:blur-xl",
+          )}
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.35),rgb(11_34_57/0.15)_30%,rgb(11_34_57/0.92)_72%)] lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.92),rgb(11_34_57/0.55)_50%,rgb(11_34_57/0.15))]"
+          className={cn(
+            "absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(11_34_57/0.45),rgb(11_34_57/0.1)_30%,rgb(11_34_57/0.92)_75%)]",
+            full
+              ? "lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.88),rgb(11_34_57/0.5)_40%,rgb(11_34_57/0.05)_75%),linear-gradient(to_bottom,rgb(11_34_57/0.35),transparent_25%,transparent_70%,rgb(11_34_57/0.55))]"
+              : "lg:bg-[linear-gradient(90deg,rgb(11_34_57/0.92),rgb(11_34_57/0.55)_50%,rgb(11_34_57/0.15))]",
+          )}
         />
 
         {/* Keyingi slayd ustiga chiqqanda qorayish (ZonesMotion) */}
@@ -98,13 +108,15 @@ function ZoneSlide({
                 {zone.text}
               </p>
             </div>
-            <Image
-              data-zone-photo
-              src={photo}
-              alt=""
-              sizes="(min-width: 1024px) 34vw, 1px"
-              className="hidden aspect-[625/600] w-[clamp(320px,30vw,560px)] rounded-card object-cover shadow-icon lg:block"
-            />
+            {!full && (
+              <Image
+                data-zone-photo
+                src={photo}
+                alt=""
+                sizes="(min-width: 1024px) 34vw, 1px"
+                className="hidden aspect-[625/600] w-[clamp(320px,30vw,560px)] rounded-card object-cover shadow-icon lg:block"
+              />
+            )}
           </div>
 
           <div className="flex flex-wrap items-center justify-between gap-6">

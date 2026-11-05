@@ -58,8 +58,15 @@
   - Konteynerdan Yandex yopiq: xarita soxta `ymaps` bilan tekshirildi (belgi joyi va karta). Haqiqiy xaritani preview'da ko'rish kerak.
   - E2E 17 test o'tdi.
 
+- 2026-11-05 (bulut, 4-bosqich): muallif hududlar uchun katta renderlar yubordi (5 ta, 1500-2000 px).
+  Bolalar maydoni, yashil zona (A podyezd va favvora, Tilda'da ham shu rasm), kinoteatr, mehmon zonasi (BBQ), parking
+  endi to'liq ekran rasmli slayd (`media[].full`). Yopiq hovli hozircha eski kichik rasm bilan (xira fon + o'ngda karta).
+  Eski 625x600 rasmlar o'chirildi (yopiq hovlinikidan tashqari). Telefonda fon rasmi balandlik bo'yicha qoplagani uchun
+  `sizes` tuzatildi (aks holda 640 px nusxa cho'zilib xira chiqardi). E2E 17 test o'tdi.
+
 ## Handoff
 
-Keyingi: T4.10 real telefonda test va Lighthouse, keyin muallif tasdig'i bilan S4 ni `main` ga. Undan keyin S5.
-Muallifdan: preview'da Yandex xarita (belgi va kulrang fon) va telefondagi mashina yo'lini tasdiqlash. Kechki yoritish rejimi uchun
-fasadning kechki renderi bo'lsa, T4.7 to'liq bo'ladi. Hududlar uchun kattaroq rasmlar bo'lsa, slaydlar to'liq ekran rasm bo'ladi.
+Muallif yana 4 ta rasm yubordi (hovli terrasasi, kechki fasad, kechki yashil zona, kechki parking), lekin ular ish davomida
+yuborilgani uchun faylga saqlanmadi: qayta yuborilishi kerak. Kelgach: yopiq hovli slaydi to'liq rasmli bo'ladi,
+T4.7 kechki yoritish rejimi (fasad, yashil zona, parking uchun "Kunduzi / Kechqurun" almashtirgich) qilinadi.
+Keyin T4.10 telefon testi va Lighthouse, muallif tasdig'i bilan S4 `main` ga.

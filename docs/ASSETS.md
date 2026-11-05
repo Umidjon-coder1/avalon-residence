@@ -14,6 +14,8 @@ Bo'lim nomi rasm birinchi ishlatilgan Tilda blokidan olingan. `meta` sahifa `<he
   `brand/logo-mark.webp` (header, 240x240, 4 KB, manba `hero-06.svg`), `brand/logo-footer.webp` (480x144, 13 KB, manba `footer-01.svg`),
   `brand/logo-menu.webp` (480x144, 16 KB, manba `menu-01.svg`). Eski SVG'lar hozircha joyida, S3 da favicon bilan birga tozalanadi
 - **S2 da qilindi:**
+  - 2026-11-05: muallif katta renderlar berdi: `zones/zone-{green,kids,cinema,guest,parking}-full.webp` (1500-2000 px).
+    Ular bilan almashgan 625x600 Tilda rasmlari o'chirildi; `zones/zone-courtyard.webp` hozircha qoldi.
   - S0 da tushib qolgan 7 fayl Tilda'dan olindi: `zones/zone-{courtyard,green,kids,cinema,guest,parking}.webp`
     (Tilda `Rectangle_40163..40168_1.png`, 625x600, 60-115 KB) va `zones/zones-06.svg` (`Group_2089345973.svg`)
   - Xaritalar: `location/map-desktop.svg` (manba `misc-02.svg`, 1200x735) va `location/map-mobile.svg` (manba `location-01.svg`).
