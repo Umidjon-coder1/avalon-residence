@@ -11,8 +11,8 @@ Bo'lim nomi rasm birinchi ishlatilgan Tilda blokidan olingan. `meta` sahifa `<he
 - Reja rasmlari (`plans/`, 512x600 PNG, ~20 KB) WebP ga o'tkaziladi, S5 da kattalashtirish uchun yuqori sifatli manba so'raladi
 - Ikonalar inline SVG komponentga aylantiriladi (`src/components/ui/icons.tsx`)
 - **S1 da qilindi:** logolar ichida 4096 px PNG bor ekan. Chromium'da kerakli o'lchamda render qilinib WebP ga o'tkazildi:
-  `brand/logo-mark.webp` (header, 240x240, 4 KB, manba `hero-06.svg`), `brand/logo-footer.webp` (480x144, 13 KB, manba `footer-01.svg`),
-  `brand/logo-menu.webp` (480x144, 16 KB, manba `menu-01.svg`). Eski SVG'lar hozircha joyida, S3 da favicon bilan birga tozalanadi
+  `brand/logo-mark.webp` (header, 480x480, manba `hero-06.svg`), `brand/logo-footer.webp` (960x288, manba `footer-01.svg`),
+  `brand/logo-menu.webp` (960x288, manba `menu-01.svg`). S4 da 2x kattalashtirildi (tiniqlik uchun), `unoptimized` beriladi. Eski SVG'lar hozircha joyida, S3 da favicon bilan birga tozalanadi
 - **S2 da qilindi:**
   - 2026-11-05: muallif katta renderlar berdi: `zones/zone-{green,kids,cinema,guest,parking}-full.webp` (1500-2000 px).
     `zones/zone-courtyard-full.webp` ham keldi; 625x600 Tilda rasmlari o'chirildi.

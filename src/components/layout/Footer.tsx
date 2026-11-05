@@ -5,6 +5,7 @@ import { navItems } from "@/content/nav";
 import { Container } from "@/components/ui/Container";
 import { TArrowUp, TInstagramCircle, TTelegramCircle } from "@/components/ui/tilda-icons";
 import logoFooter from "../../../public/images/brand/logo-footer.webp";
+import { FooterMotion } from "@/components/motion/FooterMotion";
 
 const socialCircle =
   "block size-[clamp(56px,4.1667vw,80px)] rounded-full text-gold transition-colors hover:text-gold-alt";
@@ -20,25 +21,22 @@ export function Footer() {
   const hours = tc.raw("hours") as string[];
 
   return (
-    <footer className="bg-ink text-white">
+    <footer className="overflow-hidden bg-ink text-white">
       <Container>
         <div className="px-[clamp(0px,2.0833vw,40px)] pt-[clamp(40px,4.1667vw,80px)] pb-[clamp(32px,2.9167vw,56px)]">
           {/* 1-qator */}
           <div className="flex flex-wrap items-center justify-between gap-x-10 gap-y-8 border-b border-ink-line pb-[clamp(24px,1.5625vw,30px)]">
             <Image
               src={logoFooter}
+              unoptimized
               alt={site.name}
-              sizes="240px"
               className="h-auto w-[clamp(180px,12.5vw,240px)]"
             />
             <nav aria-label={t("menu")} className="order-last w-full lg:order-none lg:w-auto">
               <ul className="flex flex-wrap gap-x-[clamp(24px,2.0833vw,40px)] gap-y-3">
                 {navItems.map((item) => (
                   <li key={item.key}>
-                    <a
-                      href={item.href}
-                      className="text-body font-medium transition-colors hover:text-gold"
-                    >
+                    <a href={item.href} className="link-underline text-body font-medium">
                       {t(item.key)}
                     </a>
                   </li>
@@ -89,6 +87,12 @@ export function Footer() {
           </p>
         </div>
       </Container>
+
+      {/* Katta nom: oltin gradient pastga qarab so'nadi, pastki qismi kesilgan (Grand dizaynidagi kabi) */}
+      <div aria-hidden className="footer-word">
+        <p data-footer-word>{site.name}</p>
+      </div>
+      <FooterMotion />
     </footer>
   );
 }

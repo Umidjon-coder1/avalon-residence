@@ -34,9 +34,10 @@ export function Header() {
       >
         <Image
           src={logoMark}
+          // Logo tiniq bo'lishi uchun qayta siqilmaydi (fayl allaqachon kichik, 2-4x o'lchamda)
+          unoptimized
           alt=""
           preload
-          sizes="120px"
           className="size-[clamp(72px,6.25vw,120px)] rounded-card"
         />
       </Link>
@@ -51,7 +52,7 @@ export function Header() {
               <li key={item.key}>
                 <a
                   href={item.href}
-                  className="relative text-body whitespace-nowrap text-white after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-out hover:after:origin-left hover:after:scale-x-100 focus-visible:after:scale-x-100"
+                  className="link-underline text-body whitespace-nowrap text-white"
                 >
                   {t(item.key)}
                 </a>

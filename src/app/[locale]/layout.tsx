@@ -113,6 +113,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <div className="intro-curtain" aria-hidden>
           <Image
             src={logoMark}
+            unoptimized
             alt=""
             priority={false}
             className="size-[clamp(96px,8vw,140px)] rounded-card"

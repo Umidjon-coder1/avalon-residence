@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { site } from "@/content/site";
 import { Container } from "@/components/ui/Container";
+import { CtaLink } from "@/components/ui/CtaPair";
+import { TMapPin } from "@/components/ui/tilda-icons";
 import { Heading } from "@/components/ui/Heading";
 import { SectionIntro } from "@/components/ui/SectionIntro";
 import { AutoSlideshow } from "./AutoSlideshow";
@@ -82,6 +85,7 @@ export function Location() {
 
       <Container className="mt-[clamp(48px,4.7vw,92px)]">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,480fr)_minmax(0,1200fr)] lg:gap-12">
+          {/* Chap ustun xarita balandligiga teng: rasm qolgan joyni to'ldiradi (Tilda kabi) */}
           <div className="flex flex-col">
             <Heading as="h3" caps={false} data-reveal className="text-gold">
               {t("addressLabel")}
@@ -93,7 +97,17 @@ export function Location() {
               images={gallery}
               sizes="(min-width: 1024px) 25vw, 100vw"
               label={t("addressLabel")}
-              className="mt-6 aspect-square w-full"
+              className="mt-6 aspect-square w-full lg:aspect-auto lg:min-h-[240px] lg:flex-1"
+            />
+            <CtaLink
+              href={site.map.yandex}
+              target="_blank"
+              rel="noopener"
+              variant="gold"
+              label={t("mapLink")}
+              icon={<TMapPin className="size-[clamp(28px,2.0833vw,40px)]" />}
+              fullWidth
+              className="mt-6"
             />
           </div>
 

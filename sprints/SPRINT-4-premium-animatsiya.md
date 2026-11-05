@@ -97,7 +97,16 @@
   - Scroll sekinroq va silliqroq (Lenis `lerp` 0.1 -> 0.065, `wheelMultiplier` 0.85).
   - E2E 17 test o'tdi.
 
+- 2026-11-05 (bulut, 8-bosqich, muallif fikri):
+  - Logolar: asl SVG ichidagi 4096 px rasmdan 2-4x o'lchamda qayta chiqarildi (480/960 px, WebP 95), `unoptimized` (qayta siqilmaydi).
+  - Rasmlar: faqat WebP (AVIF mayda detallarni yumshatardi), hududlar fonida kattalashtirish 1.1 -> 1.05.
+  - CTA: oq tugmada soya olib tashlandi (ikki bo'lak alohida soya berardi), oltin hover bilinar-bilinmas (#cdab66), strelka harakati qoldi.
+  - Joylashuv: galereya ostida "Xaritada ko'rish" tugmasi qaytdi; chap ustun (manzil, rasm, tugma) xarita balandligiga teng.
+  - Hududlar: matn va tugma bitta guruh, slayd pastida.
+  - Footer: menyu tepadagidek chiziqli hover (`link-underline` utility), pastida katta "AVALON RESIDENCE" oltin gradient yozuvi
+    (Grand dizayni kabi, `FooterMotion` bilan pastdan ko'tariladi).
+  - E2E 17 test o'tdi.
+
 ## Handoff
 
-S4 tugadi, muallif fikrlari kiritildi. Keyingi: muallif preview'da tasdiqlasa, PR ochib `main` ga, keyin S5.
-Yandex xarita preview'da tekshirilishi kerak (konteynerdan yopiq).
+S4 tugadi, muallif fikrlari kiritildi. Keyingi: muallif tasdiqlasa, PR ochib `main` ga, keyin S5.

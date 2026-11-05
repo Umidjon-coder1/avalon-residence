@@ -30,9 +30,9 @@ export function ZonesMotion() {
           if (bg) {
             gsap.fromTo(
               bg,
-              { yPercent: -4 },
+              { yPercent: -2.5 },
               {
-                yPercent: 4,
+                yPercent: 2.5,
                 ease: "none",
                 scrollTrigger: {
                   trigger: slide,

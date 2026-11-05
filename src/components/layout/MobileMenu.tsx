@@ -45,7 +45,7 @@ export function MobileMenu() {
         closeLabel={t("close")}
         className="flex flex-col overflow-y-auto bg-cream px-6 pt-10 pb-8 text-navy"
       >
-        <Image src={logoMenu} alt={site.name} sizes="120px" className="h-auto w-[120px]" />
+        <Image src={logoMenu} alt={site.name} unoptimized className="h-auto w-[120px]" />
 
         <nav aria-label={t("menu")} className="mt-8">
           <ul className="flex flex-col gap-4">

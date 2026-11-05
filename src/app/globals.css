@@ -10,8 +10,8 @@
   --color-gold: #c8a45d;
   --color-gold-alt: #cea150;
   --color-gold-dark: #8a6f3c;
-  /* Oltin tugmalar hover: to'qlashmaydi, yorug'roq "shampan" tusga o'tadi */
-  --color-gold-light: #d8bc84;
+  /* Oltin tugmalar hover: bilinar-bilinmas yorug'roq (muallif: rang deyarli o'zgarmasin) */
+  --color-gold-light: #cdab66;
   --color-navy: #0b2239;
   --color-cream: #f4efe6;
   --color-sand: #ece4d2;
@@ -64,6 +64,29 @@
 }
 
 /* Sahifa konteyneri: 1920 px da 1728 px kontent, yonlarda 96 px */
+/* Menyu havolalari: hover'da matn rangidagi chiziq chapdan chiziladi, ketishda o'ngga yig'iladi */
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
 @utility container-page {
   width: 100%;
   max-width: 1920px;
@@ -259,6 +282,39 @@
   .ymap-marker__ping {
     display: none;
   }
+}
+
+/* Footer pastidagi katta nom (Footer.tsx). Kenglik shrift bo'yicha tanlangan: ekran enini to'ldiradi */
+.footer-word {
+  position: relative;
+  height: 8.4vw;
+  margin-top: clamp(8px, 1vw, 24px);
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-word p {
+  position: relative;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 12.4vw;
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  background: linear-gradient(
+    180deg,
+    #f3dfb2 0%,
+    #d9bc84 24%,
+    #a98a52 48%,
+    rgb(120 95 55 / 0.25) 70%,
+    rgb(120 95 55 / 0) 82%
+  );
+  background-clip: text;
 }
 
 /* Aloqa vidjeti tugmasi atrofidagi to'lqin */
