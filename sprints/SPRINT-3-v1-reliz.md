@@ -10,7 +10,7 @@
 - [~] T3.6 Rasm optimizatsiyasi, CWV tekshiruvi (lokal o'lchandi, production'da PageSpeed qoldi)
 - [~] T3.7 Accessibility: klaviatura, fokus, kontrast, alt matnlar (97, oltin fon kontrasti dizayn qarori)
 - [x] T3.8 Playwright: forma, til, navigatsiya, turli brauzerlar
-- [ ] T3.9 Haqiqiy test lid: oxirigacha yetib borganini tasdiqlash
+- [x] T3.9 Haqiqiy test lid: oxirigacha yetib borganini tasdiqlash
 - [x] T3.10 Domen: DNS tasdig'i, ko'chirish, kuzatish, Tilda 2 hafta zaxirada
 
 **Tayyor:** maqsadli Lighthouse natijalari bajarilgan, lid yetib borgan, domen tasdiq bilan ko'chirilgan.
@@ -43,11 +43,13 @@
   - Blob store `avalon-fonts` (fra1, public, loyihaga ulangan). PP Right Gothic WOFF2 bir martalik preview deploy orqali yuklandi:
     fayl 6 bo'lakda SHA1 tekshiruvi bilan, build'da butun fayl SHA1 qayta tekshirildi, token hech qayerda ochilmadi.
     Bir martalik deploy: `dpl_93iyTdkktG3p5JxibgMRu7K3mq9x` (faqat "ok" sahifa, o'chirish mumkin).
+- 2026-11-05 (bulut, 11): `LEAD_WEBHOOK_SECRET` qo'yildi, preview qayta deploy qilindi. **T3.9:** muallif preview'dan 2 ta test lid yubordi
+  (hero va reja `2-02`), Vercel logida ikkalasi `delivery: sheets`, jadvalga yetib bordi.
 
 ## Handoff
 
-1. `LEAD_WEBHOOK_SECRET` ni muallif Vercel'ga qo'yadi (Apps Script'dagi SECRET bilan bir xil), keyin redeploy va T3.9 test lid.
-2. PR #2 preview'ini tekshirish: build logida `[fonts] ... yuklandi`, sahifa, popup, `/api/lead`.
-3. Muallif preview'ni tasdiqlagach PR merge, production `avalon-residence.vercel.app` da v1.
-4. T3.5: Google Ads "Lid" konversiya label'i. T3.6: production'da PageSpeed. T3.10 domen faqat alohida tasdiq bilan.
+1. Muallif preview'ni tasdiqlasa PR #2 merge, production `avalon-residence.vercel.app` (main) da v1. Merge'dan keyin production'da bitta test lid.
+2. T3.5: Google Ads "Lid" konversiya label'i (`NEXT_PUBLIC_GADS_LEAD_LABEL`). T3.6: production'da PageSpeed.
+3. T3.10 domen avalonresidence.uz faqat alohida tasdiq bilan. Tilda kamida 2 hafta zaxirada.
+4. Ixtiyoriy: bir martalik deploy `dpl_93iyTdkktG3p5JxibgMRu7K3mq9x` ni dashboard'dan o'chirish.
 
