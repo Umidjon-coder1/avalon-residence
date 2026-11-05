@@ -25,7 +25,7 @@ Muddatlar taxminiy ish kunlari. Figma ko'rilgach aniqlashtiriladi.
 | [S2](sprints/SPRINT-2-bolimlar.md) | 1:1 bo'limlar | Frame 485 dagi barcha bo'limlar 1920px da dizaynga mos | 2-3 kun |
 | [S3](sprints/SPRINT-3-v1-reliz.md) | **v1 reliz** | Responsive, lead, SEO, analitika, domen ko'chirish | 2 kun |
 | [S4](sprints/SPRINT-4-premium-animatsiya.md) | Premium animatsiya | Intro, scroll hikoya, mikro-interaksiyalar | 2-3 kun |
-| [S5](sprints/SPRINT-5-funksional.md) | Funksional upgrade | Xonadon tanlagich, reja modali, solishtirish, kalkulyator | 3-4 kun |
+| [S5](sprints/SPRINT-5-funksional.md) | ~~Funksional upgrade~~ (muallif qarori: qilinmaydi) | Xonadon tanlagich, reja modali, solishtirish, kalkulyator | 3-4 kun |
 | [S6](sprints/SPRINT-6-portfolio.md) | Portfolio | Case study, oldin/keyin raqamlar, yakuniy QA | 1 kun |
 
 **2026-11-05 o'zgarish:** v1 production'da (vercel.app). Muallif qarori bilan domen ko'chirish va Ads konversiyasi S4/S5 dan keyinga surildi.
