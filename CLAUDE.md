@@ -18,8 +18,8 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0, S1 tugadi.** Shriftlar kodda ulangan, PP Right Gothic uchun Vercel'da `FONT_HEADING_URL` qo'yilishi kerak (muallif). **S2 bo'limlari tayyor** (T2.1-T2.9).
-  Qolgan: T2.10 (maydon oralig'i, ish soati) muallif qarori va preview'da dizayn tasdig'i. Keyin S3.
+- **S0, S1, S2 tugadi.** **S3 da** kod qismi tayyor (SEO, lid yetkazish, Ads, testlar). Qolgani Vercel/Google sozlamalari, `sprints/SPRINT-3-v1-reliz.md` Handoff.
+- Lid kanallari va barcha env o'zgaruvchilari: `docs/LEADS.md`. E2E testlar: `npm run build && npm run test:e2e`.
 - Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
   popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,
   bo'limlar `src/components/sections/` (Figma tartibida `src/app/[locale]/page.tsx` da).
@@ -39,7 +39,8 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 - **Figma MCP ishlatmang:** Starter tarif limiti tugagan. O'rniga REST API: `npm run figma` (`FIGMA_TOKEN` muhitda bor).
   Dizayndagi rasm fayllari `s3-alpha-sig.figma.com` dan keladi. Bu domen yopiq bo'lsa, `fills/` bo'sh qoladi va Tilda rasmlari ishlatiladi.
 - **Node fetch va proksi:** Node skriptlari tashqi tarmoqqa `NODE_USE_ENV_PROXY=1` bilan chiqadi.
-- **Vercel connector** loyiha yaratishga 403 qaytaradi. Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi.
+- **Vercel connector** 2026-11-05 holatida `umidmajidov120@gmail.com` akkauntiga ulangan, unda Avalon loyihasi yo'q. Avval `list_projects` bilan tekshiring.
+  Loyihani muallif o'zi import qilgan, `main` ga push production deploy qiladi, PR'lar preview oladi. Konteynerdan vercel.com va Blob API'ga to'g'ridan-to'g'ri ulanish yopiq.
 - **Brauzer:** Playwright va Chromium o'rnatilgan, `require('playwright')` ishlaydi, qayta o'rnatmang.
 - **Ochiq domenlar:** avalonresidence.uz, *.tildacdn.*, figma.com, api.figma.com.
 

@@ -1,4 +1,5 @@
 import { getImageProps } from "next/image";
+import { preload } from "react-dom";
 import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
 import { ConsultCta } from "@/components/lead/ConsultCta";
@@ -22,7 +23,13 @@ export function Hero() {
   const ts = useTranslations("social");
   const badges = t.raw("badges") as string[];
 
-  const common = { alt: "", sizes: "100vw", fetchPriority: "high" as const };
+  // LCP rasmi: <picture> brauzerga faqat bitta manbani yuklatadi, shuning uchun "eager" xavfsiz
+  const common = {
+    alt: "",
+    sizes: "100vw",
+    fetchPriority: "high" as const,
+    loading: "eager" as const,
+  };
   const {
     props: { srcSet: desktopSrcSet },
   } = getImageProps({ ...common, src: heroDesktop });
@@ -30,11 +37,28 @@ export function Hero() {
     props: { srcSet: mobileSrcSet, ...img },
   } = getImageProps({ ...common, src: heroMobile });
 
+  // Ikkala variant ham <head> da oldindan yuklanadi, lekin `media` tufayli brauzer faqat bittasini oladi
+  const desktopMedia = "(min-width: 768px)";
+  preload(img.src, {
+    as: "image",
+    fetchPriority: "high",
+    imageSrcSet: desktopSrcSet,
+    imageSizes: "100vw",
+    media: desktopMedia,
+  });
+  preload(img.src, {
+    as: "image",
+    fetchPriority: "high",
+    imageSrcSet: mobileSrcSet,
+    imageSizes: "100vw",
+    media: "(max-width: 767.98px)",
+  });
+
   return (
     <section className="p-[var(--frame-inset)]">
       <div className="relative isolate h-[max(560px,calc(100svh-2*var(--frame-inset)))] overflow-hidden rounded-card bg-navy lg:h-[clamp(600px,50vw,960px)]">
         <picture>
-          <source media="(min-width: 768px)" srcSet={desktopSrcSet} />
+          <source media={desktopMedia} srcSet={desktopSrcSet} />
           <source srcSet={mobileSrcSet} />
           {/* eslint-disable-next-line jsx-a11y/alt-text -- alt getImageProps dan keladi */}
           <img {...img} className="absolute inset-0 -z-10 size-full object-cover" />

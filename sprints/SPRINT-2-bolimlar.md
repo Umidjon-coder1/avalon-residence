@@ -11,7 +11,7 @@
 - [x] T2.7 Rejalar: tablar (Jami, 2, 3), 25 reja `src/content/apartments.ts` dan, "Ariza qoldirish" popupga reja ma'lumotini uzatadi
 - [x] T2.8 Aloqa
 - [x] T2.9 Vizual solishtirish: Figma va kod, 1920px, farqlar ro'yxati
-- [ ] T2.10 Kontent farqlarini hal qilish: maydon oralig'i, ish vaqti
+- [x] T2.10 Kontent farqlarini hal qilish: maydon oralig'i, ish vaqti
 
 **Tayyor:** barcha bo'limlar uz va ru tilida, farqlar ro'yxati muallif tomonidan tasdiqlangan.
 
@@ -34,13 +34,8 @@
   Brauzerda faqat 4 shrift yuklanadi (Retni 300/400/500, PP Right Gothic 500). Hero sarlavhasi endi Figma'dagidek bo'linadi.
   Vercel connector boshqa akkauntga ulangan (unda loyiha yo'q), shuning uchun faylni Blob'ga muallif yuklaydi.
 
+- 2026-11-05 (bulut, 8): T2.10 muallif qarori: Tilda qiymatlari qoladi (maydon 49.8-89.5 m², Du-Ju 9:00-19:00). Kodda shunday edi, o'zgarish yo'q. S3 boshlandi.
+
 ## Handoff
 
-Barcha bo'limlar tayyor, uz va ru. Keyingi qadamlar:
-1. **Shriftlar:** kod tayyor. Muallif `PPRightGothic-Medium.woff2` ni Vercel Blob'ga yuklab, havolasini loyihada `FONT_HEADING_URL`
-   (Production va Preview) ga qo'yishi kerak. Ungacha preview'da sarlavhalar Oswald'da. Yuklangach build logida `[fonts] ... yuklandi` chiqadi.
-2. **T2.10** muallif qarori kerak: maydon oralig'i (Tilda 49.8-89.5, Figma 48-89, reja kartalari 48.8-89.3) va ish soati (Tilda Du-Ju 9-19, Figma Du-Ju 10-20, Sha-Ya 10-19).
-3. Muallif preview'da dizaynni tasdiqlashi kerak (S2 nazorat nuqtasi), keyin S3.
-
-**S3 ga eslatma:** xom HTML hali 100 KB maqsaddan katta (asosan RSC payload). Tilda'dagi suzuvchi qo'ng'iroq vidjeti hali qo'yilmagan.
-
+S2 yopildi. Davomi: `sprints/SPRINT-3-v1-reliz.md`.

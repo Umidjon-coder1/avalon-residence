@@ -8,6 +8,8 @@ import { routing } from "@/i18n/routing";
 import { site } from "@/content/site";
 import { ConsultProvider } from "@/components/lead/ConsultProvider";
 import { Header } from "@/components/layout/Header";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { Analytics } from "@/components/analytics/Analytics";
 import { Footer } from "@/components/layout/Footer";
 import "../globals.css";
 // PP Right Gothic @font-face: build/dev oldidan scripts/fetch-fonts.mjs yaratadi (gitignore)
@@ -49,14 +51,31 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
+  const path = locale === routing.defaultLocale ? "/" : `/${locale}`;
+  // Tilda'dagi OG rasmlar: uz va ru uchun har xil
+  const ogImage = locale === "ru" ? "/images/misc/misc-01.png" : "/images/meta/meta-04.jpg";
   return {
     metadataBase: new URL(site.url),
     title: t("title"),
     description: t("description"),
+    keywords: t("keywords"),
+    applicationName: site.name,
     alternates: {
-      canonical: locale === routing.defaultLocale ? "/" : `/${locale}`,
+      canonical: path,
       languages: { uz: "/", ru: "/ru", "x-default": "/" },
     },
+    openGraph: {
+      type: "website",
+      url: path,
+      siteName: site.name,
+      title: t("title"),
+      description: t("description"),
+      locale: locale === "ru" ? "ru_RU" : "uz_UZ",
+      alternateLocale: locale === "ru" ? ["uz_UZ"] : ["ru_RU"],
+      images: [{ url: ogImage, alt: t("ogAlt") }],
+    },
+    twitter: { card: "summary_large_image", title: t("title"), description: t("description") },
+    formatDetection: { telephone: false },
   };
 }
 
@@ -82,12 +101,14 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         ) : null}
       </head>
       <body className="min-h-dvh">
+        <JsonLd locale={locale} />
         <NextIntlClientProvider messages={clientMessages}>
           <ConsultProvider>
             <Header />
             {children}
             <Footer />
           </ConsultProvider>
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

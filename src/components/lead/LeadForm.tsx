@@ -4,7 +4,10 @@ import { useId, useRef, useState, type FormEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
+import { trackLead } from "@/lib/analytics";
+import { readAttribution } from "@/lib/attribution";
 import { cn } from "@/lib/cn";
+import { site } from "@/content/site";
 import {
   formatPhone,
   normalizePhone,
@@ -66,10 +69,13 @@ export function LeadForm({ source, apartment, submitLabel, className, onSuccess 
           apartment,
           company,
           elapsed: Date.now() - (startedAt.current ?? Date.now()),
+          page: location.pathname,
+          attribution: readAttribution(),
         }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setStatus("success");
+      trackLead(source);
       setName("");
       setPhone("");
       onSuccess?.();
@@ -128,7 +134,10 @@ export function LeadForm({ source, apartment, submitLabel, className, onSuccess 
       </Button>
       {status === "error" ? (
         <p role="alert" className="text-center text-caption text-red-700">
-          {t("error")}
+          {t("error")}{" "}
+          <a href={site.phones.main.href} className="font-medium whitespace-nowrap underline">
+            {site.phones.main.display}
+          </a>
         </p>
       ) : null}
     </form>

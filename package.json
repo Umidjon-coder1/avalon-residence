@@ -12,7 +12,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "figma": "NODE_USE_ENV_PROXY=1 node scripts/figma-fetch.mjs"
+    "figma": "NODE_USE_ENV_PROXY=1 node scripts/figma-fetch.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "next": "16.4.5",
@@ -21,6 +22,7 @@
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
