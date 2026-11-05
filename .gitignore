@@ -1,0 +1,20 @@
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+
+# Litsenziya aniqlanguncha shrift fayllari repoga kirmaydi (DECISIONS.md, D5)
+public/fonts/
+src/fonts/
+*.woff
+*.woff2
+*.ttf
+*.otf
