@@ -29,3 +29,35 @@ Konteyner kengligi asosan 1728 px (har tomonda 96 px). 8-blok 2040 px: kartalar 
 - Figma'da ish soatlari ikki qator: Du-Ju 10:00-20:00, Sha-Ya 10:00-19:00. Tilda'da faqat Du-Ju.
 - Footerda quruvchi: ARX PROEKT / MAMUR PROEKT.
 - Maydon: Figma'da 48-89 m². Muallif qarori: saytdagi raqamlar o'zgartirilmaydi, farq shu ro'yxatda qayd etiladi.
+
+## REST API orqali olingan ma'lumot
+
+MCP Starter limiti tugagani uchun dizayn `npm run figma` (`scripts/figma-fetch.mjs`) bilan olinadi. `FIGMA_TOKEN` kerak.
+
+- `design/figma/frame-485.json`: Frame 485 ning to'liq node daraxti. Har elementning o'lchami, joyi, rangi, shrifti va effektlari shu yerda. Koordinatalar absolyut, frame boshi: x=-21543, y=-17738.
+- `design/figma/preview/*.jpg`: har blok va butun frame render'i (1x). Asl PNG lar `renders/` da, ular gitignore qilingan.
+- `design/figma/fills/`: dizayndagi rasmlar. Hozircha yuklanmagan, chunki `s3-alpha-sig.figma.com` tarmoqda yopiq. Aksariyat rasmlar Tilda'dan olingan `public/images/` ichida bor.
+- REST API da 2-10 bloklar `GROUP`, 1-blok `FRAME`.
+
+## Token'lar (JSON dan, S1 uchun boshlang'ich)
+
+**Ranglar** (necha marta ishlatilgani bo'yicha):
+
+| Token | Qiymat | Izoh |
+|-------|--------|------|
+| gold | `#C8A45D` | Asosiy aksent, tugmalar, chiziqlar, sarlavhalar |
+| gold-alt | `#CEA150` | Ba'zi tugma va ikonlar, ehtimol gold bilan birlashtiriladi |
+| gold-dark | `#8A6F3C` | Bitta joyda |
+| navy | `#0B2239` | Asosiy matn rangi (`#0B2339` ham uchraydi, bitta qilinadi) |
+| navy-18 | `#0B2239` 18% | Chegara va ajratgichlar |
+| cream | `#F4EFE6` | Bo'lim foni, forma bloklari |
+| sand | `#ECE4D2`, `#E9DEC4`, `#F1EBDD`, `#F2EBDF` | Yordamchi fonlar |
+| line | `#DCD2BC` | Stroke |
+| white / black | `#FFFFFF`, `#000000` | |
+
+**Shriftlar:**
+- **PP Right Gothic** 500: sarlavhalar. 40/40, 40/48, 40/60 (UPPER), 25/29-38 (UPPER), 20/23 (UPPER)
+- **Retni Sans** 300/400/500: matn. 25/25-38, 15.625/16-23, 12/18
+- **Inter** 400 12/15: xarita yozuvlari (36 marta), **Manrope** 700 23/31: 3 joy. Ikkalasi Google Fonts da bor
+
+**Radius:** 10 (40 joy), 20 (28), 25, 50, 360 (pill). **Effektlar:** background blur 50 (5 joy), yumshoq drop shadow'lar.

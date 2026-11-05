@@ -1,0 +1,133 @@
+{
+  "fileKey": "CoILrhxoEugMILTX5I11sx",
+  "frameId": "126:1150",
+  "fetchedAt": "2026-11-05T05:08:24.772Z",
+  "blocks": [
+    {
+      "name": "10-blok",
+      "id": "325:2461",
+      "box": {
+        "x": -21543,
+        "y": -7714,
+        "width": 1920,
+        "height": 600
+      }
+    },
+    {
+      "name": "9-blok",
+      "id": "491:2250",
+      "box": {
+        "x": -21447,
+        "y": -8634,
+        "width": 1728,
+        "height": 800
+      }
+    },
+    {
+      "name": "8-blok",
+      "id": "325:2460",
+      "box": {
+        "x": -21407,
+        "y": -9762,
+        "width": 2040,
+        "height": 924
+      }
+    },
+    {
+      "name": "7-blok",
+      "id": "323:2241",
+      "box": {
+        "x": -21287,
+        "y": -10794,
+        "width": 1408,
+        "height": 952
+      }
+    },
+    {
+      "name": "6-blok",
+      "id": "491:2248",
+      "box": {
+        "x": -21407,
+        "y": -12562,
+        "width": 1648,
+        "height": 1608
+      }
+    },
+    {
+      "name": "5-blok",
+      "id": "491:2246",
+      "box": {
+        "x": -21447,
+        "y": -13482,
+        "width": 1728,
+        "height": 800
+      }
+    },
+    {
+      "name": "4-blok",
+      "id": "491:2244",
+      "box": {
+        "x": -21545,
+        "y": -14859,
+        "width": 1923,
+        "height": 1257
+      }
+    },
+    {
+      "name": "3-blok",
+      "id": "491:2241",
+      "box": {
+        "x": -21447,
+        "y": -15779,
+        "width": 1728,
+        "height": 800
+      }
+    },
+    {
+      "name": "2-blok",
+      "id": "491:2240",
+      "box": {
+        "x": -21447,
+        "y": -16648,
+        "width": 1728,
+        "height": 749
+      }
+    },
+    {
+      "name": "1-blok",
+      "id": "209:3594",
+      "box": {
+        "x": -21533,
+        "y": -17728,
+        "width": 1900,
+        "height": 960
+      }
+    }
+  ],
+  "fills": {},
+  "failed": [
+    "fill 0e12eee08c40b80e8843751426c75c8350c59fc8: Request was cancelled.",
+    "fill 0e9e6dc89d729be0c351a3f0385cc3ae0bf207db: Request was cancelled.",
+    "fill b9fa27673c0c25248704e186e14e66a5a8aaccd6: Request was cancelled.",
+    "fill 5105cbed29c8e2e0c014faeef0ff500f88ce8175: Request was cancelled.",
+    "fill dc010c2431d4fdc095e00be1dca960ead0bfe0e6: Request was cancelled.",
+    "fill 77cbe0d74bd5ddfeb972412d2a4c0aaa0fa53447: Request was cancelled.",
+    "fill 53615e423bcc24c27ece7d1b39abb8b01b13c11e: Request was cancelled.",
+    "fill 2e23f6a22690057124a491c0f5198b2577380e09: Request was cancelled.",
+    "fill ef6db2d5d3406950394be51efb20149b88c13971: Request was cancelled.",
+    "fill 9572eaace0ac3c8d8b51cbeff8a0ed411d17262e: Request was cancelled.",
+    "fill d5de7bcb11a420ef18f9f397336bac007d1c02f0: Request was cancelled.",
+    "fill 90389e9f8bc0f64f6ab3a8e34bb058d9c9e12f65: Request was cancelled.",
+    "fill 5ea36a5347873e9744591d4e1fd72c700212721b: Request was cancelled.",
+    "fill fa2e3e343debe294a6f28b5a05f590aa8c081816: Request was cancelled.",
+    "fill ee591e7b851f67d650d0784d2765ce6c32078dd8: Request was cancelled.",
+    "fill f4e1e97fb19152ea99a4d69c8e4e7de4f5e0a854: Request was cancelled.",
+    "fill 6c3033366815760e61e2445629719174886a553a: Request was cancelled.",
+    "fill a1861e17c3282f97e139db17cd31f6fdafd7df1b: Request was cancelled.",
+    "fill a85f64f3c8a4c8bdd78a375804dbb659fd0444a6: Request was cancelled.",
+    "fill ea9326d54a7798249a9905099d286891198532bf: Request was cancelled.",
+    "fill e42026f69a150a51a92c61645ba4223c27707c8f: Request was cancelled.",
+    "fill 86f75ccbe02a381689292550df8ecfe4a507a958: Request was cancelled.",
+    "fill f849e106e290ab4a287c4a12ba601e8bbe91ee2e: Request was cancelled."
+  ]
+}

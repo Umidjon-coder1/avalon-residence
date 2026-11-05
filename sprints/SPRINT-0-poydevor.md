@@ -4,7 +4,7 @@
 
 - [x] T0.1 Next.js, TypeScript, Tailwind, ESLint, Prettier o'rnatish
 - [x] T0.2 GitHub Actions: lint, typecheck, build
-- [ ] T0.3 Vercel'ga ulash, har PR uchun preview havola (to'siq: connector 403)
+- [x] T0.3 Vercel'ga ulash, har PR uchun preview havola (muallif import qildi, `main` PR merge bilan yopiladi)
 - [x] T0.4 Figma: Frame 485 tuzilmasi, bo'limlar xaritasi, mobil maketlar borligini aniqlash
 - [x] T0.5 Tilda baseline: Lighthouse (mobil, desktop), 1920/768/390 px skrinshotlar
 - [x] T0.6 uz va ru kontentni strukturali fayllarga ko'chirish
@@ -27,9 +27,10 @@
 - 2026-11-05 (bulut, 3): tildacdn domenlari ochildi. T0.5: Lighthouse mobil 21 / desktop baholanmadi, LCP 13.2 s, CLS 0.316,
   skrinshotlar `docs/baseline/`, mobil UX kuzatuvlari `docs/AUDIT.md` da. Vercel loyihasi muallif tomonidan import qilindi,
   `main` da kod yo'qligi uchun production 404.
+- 2026-11-05 (bulut, 4): Figma REST API skripti (`npm run figma`): `design/figma/frame-485.json`, 10 blok preview,
+  token'lar `docs/FIGMA.md` da. Keyingi sessiyalar uchun `CLAUDE.md` yozildi. `main-321ctw` -> `main` PR ochildi (T0.3).
 
 ## Handoff
 
-Qolgan: T0.3. Kod `main` ga PR orqali o'tishi kerak (muallif qarori kutilmoqda), shunda Vercel production va PR preview ishlaydi.
-Figma: `FIGMA_TOKEN` muhitga qo'shildi, lekin joriy sessiyada ko'rinmaydi, yangi sessiyada REST API bilan Frame 485 olinadi.
-Keyingi qadam: S1 (token'lar, shriftlar, header, footer, forma), Figma JSON olingach.
+S0 tugadi. T0.3 PR merge bo'lgach yopiladi: Vercel production `main` dan quriladi. Keyingi qadam S1 (`sprints/SPRINT-1-dizayn-tizimi.md`), T1.1 dan.
+Ochiq: shrift fayllarini ulash usuli (D5) muallif bilan, Figma rasm fayllari uchun `s3-alpha-sig.figma.com` domeni.
