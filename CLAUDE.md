@@ -18,7 +18,8 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0, S1, S2 tugadi.** **S3 da** kod qismi tayyor (SEO, lid yetkazish, Ads, testlar). Qolgani Vercel/Google sozlamalari, `sprints/SPRINT-3-v1-reliz.md` Handoff.
+- **S0-S3 tugadi, v1 `main` da** (PR #2). Production: `avalon-residence.vercel.app`, lidlar Google Sheets'ga boradi (T3.9 tasdiqlangan).
+  Muallif qarori: Google Ads label va domen ko'chirish keyinga, **hozir upgrade: S4 (animatsiya), keyin S5**.
 - Lid kanallari va barcha env o'zgaruvchilari: `docs/LEADS.md`. E2E testlar: `npm run build && npm run test:e2e`.
 - Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
   popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,

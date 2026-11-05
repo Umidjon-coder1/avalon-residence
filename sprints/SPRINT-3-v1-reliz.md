@@ -45,11 +45,12 @@
     Bir martalik deploy: `dpl_93iyTdkktG3p5JxibgMRu7K3mq9x` (faqat "ok" sahifa, o'chirish mumkin).
 - 2026-11-05 (bulut, 11): `LEAD_WEBHOOK_SECRET` qo'yildi, preview qayta deploy qilindi. **T3.9:** muallif preview'dan 2 ta test lid yubordi
   (hero va reja `2-02`), Vercel logida ikkalasi `delivery: sheets`, jadvalga yetib bordi.
+- 2026-11-05 (bulut, 12): CI (Chromium, Firefox, WebKit E2E) o'tdi, PR #2 merge qilindi (`46df0a1`). Production `avalon-residence.vercel.app`
+  READY, robots/sitemap tekshirildi. Muallif qarori: Google Ads (T3.5) va domen (T3.10) **keyinga qoldiriladi**, avval upgrade (S4/S5).
 
 ## Handoff
 
-1. Muallif preview'ni tasdiqlasa PR #2 merge, production `avalon-residence.vercel.app` (main) da v1. Merge'dan keyin production'da bitta test lid.
-2. T3.5: Google Ads "Lid" konversiya label'i (`NEXT_PUBLIC_GADS_LEAD_LABEL`). T3.6: production'da PageSpeed.
-3. T3.10 domen avalonresidence.uz faqat alohida tasdiq bilan. Tilda kamida 2 hafta zaxirada.
-4. Ixtiyoriy: bir martalik deploy `dpl_93iyTdkktG3p5JxibgMRu7K3mq9x` ni dashboard'dan o'chirish.
+S3 ning kod va infra qismi yopildi. Kechiktirilgan: T3.5 (Ads label), T3.6 (production PageSpeed, domen ko'chgach), T3.10 (domen).
+Keyingi ish: `sprints/SPRINT-4-premium-animatsiya.md`. Branch `main` dan qayta boshlangan.
+Eslatma: Vercel Standard Protection `*.vercel.app` manzillarini ham yopadi, ular faqat Vercel'ga kirgan foydalanuvchiga ochiq.
 
