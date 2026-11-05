@@ -2,8 +2,8 @@
 
 **Maqsad:** ishlaydigan bo'sh loyiha va o'lchov uchun boshlang'ich nuqta.
 
-- [ ] T0.1 Next.js, TypeScript, Tailwind, ESLint, Prettier o'rnatish
-- [ ] T0.2 GitHub Actions: lint, typecheck, build
+- [x] T0.1 Next.js, TypeScript, Tailwind, ESLint, Prettier o'rnatish
+- [x] T0.2 GitHub Actions: lint, typecheck, build
 - [ ] T0.3 Vercel'ga ulash, har PR uchun preview havola
 - [ ] T0.4 Figma: Frame 485 tuzilmasi, bo'limlar xaritasi, mobil maketlar borligini aniqlash
 - [ ] T0.5 Tilda baseline: Lighthouse (mobil, desktop), 1920/768/390 px skrinshotlar

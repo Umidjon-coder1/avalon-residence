@@ -18,3 +18,5 @@ src/fonts/
 *.woff2
 *.ttf
 *.otf
+*.tsbuildinfo
+next-env.d.ts
