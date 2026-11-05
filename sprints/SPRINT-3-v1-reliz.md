@@ -33,13 +33,17 @@
   - **T3.7** Kontrast ogohlantirishi faqat oltin fonda oq matn (Figma brend rangi, 2.35:1). 1:1 talabi bo'yicha o'zgartirilmadi, muallif qaror qilsa to'qroq oltin beriladi.
   - **T3.8** Playwright (`tests/e2e/site.spec.ts`, `npm run test:e2e`): sahifa, til, popup + validatsiya + UTM, rejalar, server xatosi, mobil menyu, API, SEO.
     Lokal: desktop va mobil Chromium, 15 test o'tdi. CI: qo'shimcha Firefox va iPhone (WebKit).
+- 2026-11-05 (bulut, 9): muallif Apps Script'ni deploy qildi (web app, Version 1). URL chatda berildi, ochiq repoga yozilmaydi.
+  Konteynerdan script.google.com yopiq, shuning uchun bu yerdan tekshirilmadi. Vercel connector jamoani ko'radi, lekin `avalon-residence`
+  loyihasiga 404 qaytaradi (ulanishda loyiha ruxsati berilmagan). Production `main` dagi S0 sahifasi, Vercel o'z 404 sahifasini ko'rsatyapti:
+  Framework Preset tekshirilishi kerak.
 
 ## Handoff
 
 Kod tomondan v1 tayyor. Qolgani tashqi sozlamalar:
-1. **Vercel connector** hozir `umidmajidov120@gmail.com` akkauntida, unda loyiha yo'q. Muallif connector'ni Avalon loyihasi turgan akkaunt bilan qayta ulaydi
-   (claude.ai/customize/connectors), keyin yangi sessiyada: `FONT_HEADING_URL` (Blob), lid o'zgaruvchilari, deploy va loglarni tekshirish.
-2. **Google Sheets**: muallif `docs/LEADS.md` bo'yicha Apps Script'ni deploy qiladi va URL + SECRET ni beradi (yoki Vercel'ga o'zi qo'yadi).
+1. **Vercel connector** to'g'ri akkauntda (`umidmajidov120-gmailcom's projects`), lekin loyiha ruxsati yo'q. Muallif qayta ulab "All projects" ni tanlaydi,
+   keyin yangi sessiyada: Framework Preset (Next.js), `FONT_HEADING_URL` (Blob), lid o'zgaruvchilari, deploy va loglarni tekshirish.
+2. **Google Sheets**: Apps Script deploy qilingan. Vercel'ga `LEAD_SHEETS_WEBHOOK_URL` va `LEAD_WEBHOOK_SECRET` qo'yilishi kerak (Production + Preview), keyin T3.9 test lid.
 3. **T3.5**: Google Ads'da "Lid" konversiya amali va label (`AW-18385826052/<label>`).
 4. **T3.6**: production URL'da PageSpeed (haqiqiy CDN va rasm keshi bilan).
 5. **T3.9** haqiqiy test lid, **T3.10** domen faqat muallif tasdig'i bilan.
