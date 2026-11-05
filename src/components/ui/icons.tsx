@@ -126,3 +126,130 @@ export function ParkingIcon(props: IconProps) {
     </svg>
   );
 }
+
+const stroke = {
+  stroke: "currentColor",
+  strokeWidth: 1.6,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
+
+export function LocationPinIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path {...stroke} d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z" />
+      <circle {...stroke} cx="12" cy="10" r="2.4" />
+    </svg>
+  );
+}
+
+export function FaceIdIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        {...stroke}
+        d="M3 8V5.5A2.5 2.5 0 0 1 5.5 3H8M16 3h2.5A2.5 2.5 0 0 1 21 5.5V8M21 16v2.5a2.5 2.5 0 0 1-2.5 2.5H16M8 21H5.5A2.5 2.5 0 0 1 3 18.5V16M8.5 9v1.5M15.5 9v1.5M12 9v4h-1M8.8 15.6a4.6 4.6 0 0 0 6.4 0"
+      />
+    </svg>
+  );
+}
+
+export function CarParkIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        {...stroke}
+        d="M2 17v-3.5l1.6-4A2 2 0 0 1 5.5 8.2h6a2 2 0 0 1 1.9 1.3l1.6 4V17zM2 17v2h2.5v-2M12.5 17v2H15v-2M2 13.5h13M5 15h.01M12 15h.01M18.5 21V10"
+      />
+      <rect {...stroke} x="16" y="3" width="6" height="7" rx="1" />
+      <path {...stroke} d="M18.2 8.2V4.8h1a1.2 1.2 0 0 1 0 2.4h-1" />
+    </svg>
+  );
+}
+
+export function CinemaIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <circle {...stroke} cx="6.5" cy="6" r="2.8" />
+      <circle {...stroke} cx="13" cy="6" r="2.8" />
+      <rect {...stroke} x="3" y="10" width="13" height="9" rx="1.5" />
+      <path {...stroke} d="M16 13.5 21 11v7l-5-2.5" />
+    </svg>
+  );
+}
+
+export function QuakeHouseIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path {...stroke} d="M3 11.5 12 3l9 8.5M5.5 9.5V21h13V9.5" />
+      <path {...stroke} d="m12.5 7-2 4 3 2-2 3.5 1 2.5" />
+    </svg>
+  );
+}
+
+export function SchoolIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path fill="currentColor" d="M12 4 1 9.5 12 15l9-4.5V16h2V9.5L12 4Z" />
+      <path
+        fill="currentColor"
+        d="M5.5 13.3V17c0 1.7 2.9 3 6.5 3s6.5-1.3 6.5-3v-3.7L12 16.5l-6.5-3.2Z"
+      />
+    </svg>
+  );
+}
+
+export function PeopleIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <g fill="currentColor">
+        <circle cx="12" cy="5" r="2.5" />
+        <circle cx="5" cy="9" r="2.2" />
+        <circle cx="19" cy="9" r="2.2" />
+        <circle cx="8" cy="16.5" r="2.2" />
+        <circle cx="16" cy="16.5" r="2.2" />
+        <circle cx="12" cy="12" r="1.8" />
+      </g>
+    </svg>
+  );
+}
+
+export function SeesawIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <g fill="currentColor">
+        <circle cx="5" cy="5.5" r="2" />
+        <circle cx="19" cy="8.5" r="2" />
+        <path d="M2 13.2 22 9.8l.3 1.8-20 3.4-.3-1.8ZM11 13.5h2l1.5 6h-5l1.5-6ZM3.5 8.5h3V12h-3zM17.5 11.2h3v1.6h-3z" />
+      </g>
+    </svg>
+  );
+}
+
+export function ShieldCheckIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Zm-1.2 13.4 5.6-5.6-1.4-1.4-4.2 4.2-2-2-1.4 1.4 3.4 3.4Z"
+      />
+    </svg>
+  );
+}
+
+export function ArrowLeftIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path {...stroke} d="M19 12H5M11 6l-6 6 6 6" />
+    </svg>
+  );
+}
+
+export function ArrowRightIcon(props: IconProps) {
+  return (
+    <svg {...base} viewBox="0 0 24 24" fill="none" {...props}>
+      <path {...stroke} d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}

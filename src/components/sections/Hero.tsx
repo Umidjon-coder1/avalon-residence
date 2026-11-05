@@ -1,16 +1,9 @@
 import { getImageProps } from "next/image";
 import { useTranslations } from "next-intl";
 import { site } from "@/content/site";
-import { ConsultButton } from "@/components/lead/ConsultButton";
-import { buttonStyles } from "@/components/ui/Button";
+import { ConsultCta } from "@/components/lead/ConsultCta";
 import { Heading } from "@/components/ui/Heading";
-import {
-  ArrowDownRightIcon,
-  HomeIcon,
-  InstagramIcon,
-  ParkingIcon,
-  TelegramIcon,
-} from "@/components/ui/icons";
+import { HomeIcon, InstagramIcon, ParkingIcon, TelegramIcon } from "@/components/ui/icons";
 import heroDesktop from "../../../public/images/hero/hero-02.webp";
 import heroMobile from "../../../public/images/hero/hero-05.png";
 
@@ -72,17 +65,12 @@ export function Hero() {
             {t("title")}
           </Heading>
 
-          <ConsultButton
+          <ConsultCta
             source="hero"
-            className="group mt-[clamp(24px,2.0833vw,40px)] flex w-full max-w-[400px] cursor-pointer sm:w-auto"
-          >
-            <span className={buttonStyles("cream", "flex-1 group-hover:bg-white sm:flex-none")}>
-              {tCta("consult")}
-            </span>
-            <span className="grid aspect-square h-[clamp(56px,4.1667vw,80px)] place-items-center rounded-btn bg-cream text-navy transition-colors group-hover:bg-white">
-              <ArrowDownRightIcon className="size-[clamp(28px,2.0833vw,40px)] transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
-            </span>
-          </ConsultButton>
+            variant="cream"
+            label={tCta("consult")}
+            className="mt-[clamp(24px,2.0833vw,40px)]"
+          />
         </div>
 
         {/* Ijtimoiy tarmoqlar: o'ng chetda vertikal */}

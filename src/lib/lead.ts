@@ -5,7 +5,17 @@
 /** O'zbekiston raqami: +998 dan keyin 9 raqam (operator kodi 2 + 7). */
 export const PHONE_DIGITS = 9;
 
-export type LeadSource = "hero" | "header" | "menu" | "lead" | "plans" | "contacts" | "popup";
+export type LeadSource =
+  | "hero"
+  | "header"
+  | "menu"
+  | "advantages"
+  | "zones"
+  | "facade"
+  | "lead"
+  | "plans"
+  | "contacts"
+  | "popup";
 
 export type LeadInput = {
   name: string;

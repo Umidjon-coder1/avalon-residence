@@ -54,7 +54,7 @@ function build(rooms: 2 | 3, list: Array<[number, number]>): Apartment[] {
       id: `${rooms}-${pad(n)}`,
       rooms,
       area,
-      plan: `/images/plans/${rooms}-${pad(n)}.png`,
+      plan: `/images/plans/${rooms}-${pad(n)}.webp`,
       ...(mirror !== n ? { mirrorOf: `${rooms}-${pad(mirror)}` } : {}),
     };
   });

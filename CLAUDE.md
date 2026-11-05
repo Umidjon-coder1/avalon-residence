@@ -18,9 +18,12 @@ Muallif: Umidjon. Repo ochiq, portfolio loyihasi.
 
 ## Holat (2026-11-05)
 
-- **S0 tugadi.** **S1 deyarli tugadi** (faqat T1.2 asl shriftlar muallif qaroriga bog'liq). Hero (T2.1) ham tayyor. Keyingi: **S2**, T2.2 dan. Muallifning ustuvorligi: 1:1 ko'chirish kodini tezroq yozish, qolganini keyin ko'rib chiqish.
+- **S0, S1 tugadi** (T1.2 asl shriftlardan tashqari: muallif zip yuboradi, Vercel Blob'ga yuklanadi). **S2 bo'limlari tayyor** (T2.1-T2.9).
+  Qolgan: T2.10 (maydon oralig'i, ish soati) muallif qarori va preview'da dizayn tasdig'i. Keyin S3.
 - Tayyor qismlar: token'lar `src/app/globals.css`, UI primitivlar `src/components/ui/`, header/footer/menyu `src/components/layout/`,
-  popup va forma `src/components/lead/` (har qanday CTA: `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`.
+  popup va forma `src/components/lead/` (har qanday CTA: `ConsultCta`, `ConsultButton` yoki `useConsult()`), i18n `src/i18n/`, lid API `src/app/api/lead/route.ts`,
+  bo'limlar `src/components/sections/` (Figma tartibida `src/app/[locale]/page.tsx` da).
+- Tailwind eslatmasi: bir xil xususiyatli ikki klassni (`sm:w-auto` va `sm:w-[320px]`, `uppercase` va `normal-case`) bitta elementga bermang, qaysi biri yutishi noaniq. Variant yoki prop orqali bittasini tanlang.
 - Kontent tayyor: `messages/uz.json`, `messages/ru.json` (kalitlari bir xil), `src/content/site.ts`, `src/content/apartments.ts` (25 reja).
 - Rasmlar: `public/images/<bo'lim>/`, ro'yxat `docs/ASSETS.md` da. Figma bo'limlar xaritasi va token'lar `docs/FIGMA.md` da.
 - Tilda baseline: `docs/AUDIT.md` va `docs/baseline/`.

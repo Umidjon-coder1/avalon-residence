@@ -26,7 +26,7 @@ const bodyFallback = Manrope({
   display: "swap",
 });
 
-const clientNamespaces = ["nav", "cta", "form", "social"] as const;
+const clientNamespaces = ["nav", "cta", "form", "social", "plans"] as const;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

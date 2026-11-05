@@ -35,6 +35,9 @@
   --text-caption: 12px;
   --text-caption--line-height: 1.5;
 
+  /* Bo'limlar orasidagi masofa: Figma'da 120 px */
+  --spacing-section: clamp(64px, 6.25vw, 120px);
+
   /* Radius: Figma'da 10 (kartalar, inputlar), 20 (katta tugmalar), 50 (pill) */
   --radius-card: 10px;
   --radius-btn: 20px;
