@@ -8,7 +8,7 @@
 - [ ] T2.4 Lead bloki va qulayliklar
 - [ ] T2.5 Faoliyat hududlari: 6 slayd
 - [ ] T2.6 Materiallar: fasad elementlari
-- [ ] T2.7 Rejalar: tablar, 50 karta, "Ariza qoldirish" popupga reja ma'lumotini uzatadi
+- [ ] T2.7 Rejalar: tablar (Jami, 2, 3), 25 reja `src/content/apartments.ts` dan, "Ariza qoldirish" popupga reja ma'lumotini uzatadi
 - [ ] T2.8 Aloqa
 - [ ] T2.9 Vizual solishtirish: Figma va kod, 1920px, farqlar ro'yxati
 - [ ] T2.10 Kontent farqlarini hal qilish: maydon oralig'i, ish vaqti

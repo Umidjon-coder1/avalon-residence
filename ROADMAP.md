@@ -44,11 +44,11 @@ Bular maqsad, natija emas. Boshlang'ich qiymat S0 da o'lchanadi.
 
 | # | Savol | Kimdan | Qaysi sprintni to'sadi |
 |---|-------|--------|------------------------|
-| 1 | Figma havolasi (fayl va Frame 485). Fayl lokal ro'yxatda topilmadi | Umidjon | S0 |
-| 2 | Mobil va planshet maketlari bormi? Yo'q bo'lsa, Tilda mobil versiyasi asos bo'ladi | Umidjon | S3 |
-| 3 | Lidlar hozir qayerga tushyapti va qayerga tushishi kerak (Telegram, Sheets, CRM)? | Umidjon | S3 |
-| 4 | PPRightGothic va RetniSans litsenziyalari veb va ochiq repo uchun yetadimi? | Umidjon | S1 |
-| 5 | Maydon farqi: saytda 49.8-89.5 m², reja kartalarida 48.8-89.3 m². Qaysi biri to'g'ri? | Quruvchi | S2 |
-| 6 | Rejalardagi 1, 2, 3 tablar nimani bildiradi (blok deb taxmin qilinyapti)? | Umidjon | S2 |
+| 1 | ~~Figma havolasi~~ Berildi, [docs/FIGMA.md](docs/FIGMA.md) | Umidjon | — |
+| 2 | ~~Mobil maketlar~~ Yo'q. Tilda mobil versiyasi asos, UX bo'yicha yaxshilash mumkin | Umidjon | — |
+| 3 | ~~Lidlar qayerga~~ Google Sheets. Jadval va kirish usuli S3 da aniqlanadi | Umidjon | S3 |
+| 4 | Shrift fayllari muallifda bor. Veb litsenziyasi va ochiq repoga qo'yish ruxsati hali aniq emas | Umidjon | S1 |
+| 5 | ~~Maydon farqi~~ Muallif: hozircha saytdagidek qoladi | Umidjon | — |
+| 6 | ~~1, 2, 3 tablar~~ Xona soni. Tilda'da 1 xonali reja yo'q, "Jami" = 25 reja | — | — |
 | 7 | Narx, bo'lib to'lash shartlari va bo'sh xonadonlar ma'lumoti beriladimi? | Quruvchi | S5 |
 | 8 | Domen DNS boshqaruviga kirish kimda? | Umidjon | S3 |

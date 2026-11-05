@@ -18,3 +18,8 @@ src/fonts/
 *.woff2
 *.ttf
 *.otf
+*.tsbuildinfo
+next-env.d.ts
+# Figma: `npm run figma` qayta yuklaydi. JSON va JPG preview repoda saqlanadi
+design/figma/renders/
+design/figma/fills/
