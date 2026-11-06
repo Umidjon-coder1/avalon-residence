@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Claude skill skriptlari (Node CommonJS, sayt kodiga kirmaydi)
+    ".claude/**",
   ]),
 ]);
 

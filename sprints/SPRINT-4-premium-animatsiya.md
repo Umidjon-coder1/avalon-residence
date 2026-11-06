@@ -124,6 +124,10 @@
 - 2026-11-06: mijoz uchun tezlik solishtiruvi `docs/pagespeed-oldin-keyin.png` (Lighthouse, bir xil sharoit, 3 o'lchov o'rtachasi):
   mobil 30 -> 80, desktop 64 -> 96, sahifa 3,4 -> 1,1 MB. PageSpeed API kalitsiz 429 qaytardi, shuning uchun lokal Lighthouse.
 
+- 2026-11-06: muallif uchun ijtimoiy tarmoq materiallari. Qotishsiz sayt videosi usuli skill qilindi:
+  `.claude/skills/sayt-video/` (soxta sahifa soati bilan kadrma-kadr yozish, 16:9 va 9:16, o'z kompozitsiyam fon musiqasi).
+  Instagram keys karuseli uchun yangi lokal sessiya prompti: `docs/prompts/instagram-keys-karusel.md`.
+
 ## Handoff
 
 Muallif qarori: S5 qilinmaydi, loyiha shu holatda yakunlanadi. Production: `avalon-residence.vercel.app`.
