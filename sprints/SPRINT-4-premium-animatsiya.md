@@ -121,6 +121,9 @@
   - Mobil menyu: oltin (brend rangi) panel, oq matn va oq logo, oq konsultatsiya tugmasi.
   - E2E 17 test o'tdi.
 
+- 2026-11-06: mijoz uchun tezlik solishtiruvi `docs/pagespeed-oldin-keyin.png` (Lighthouse, bir xil sharoit, 3 o'lchov o'rtachasi):
+  mobil 30 -> 80, desktop 64 -> 96, sahifa 3,4 -> 1,1 MB. PageSpeed API kalitsiz 429 qaytardi, shuning uchun lokal Lighthouse.
+
 ## Handoff
 
 Muallif qarori: S5 qilinmaydi, loyiha shu holatda yakunlanadi. Production: `avalon-residence.vercel.app`.
